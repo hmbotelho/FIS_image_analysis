@@ -3,7 +3,26 @@
 
 
 
-## Overview
+## Contents
+* [1. Overview](#overview)
+* [2. Background](#background)
+* [3. Setup](#installation)
+    * [3.1. CellProfiler analysis](#installation-cp)
+    * [3.2. Fiji analysis](#installation-ij)
+* [4. Demonstration dataset](#dataset)
+    * [4.1. Assay description](#dataset-description)
+    * [4.2. File download](#dataset-files)
+* [5. Analysis of a demonstration dataset](#analysis)
+    * [5.1. CellProfiler analysis](#analysis-cp)
+    * [5.2. Fiji analysis](#analysis-ij)
+        * [5.2.1. Test mode](#analysis-ij-test)
+        * [5.2.2. Batch Analysis mode](#analysis-ij-analysis)
+* [6. Citation](#citation)
+* [7. References](#references)
+
+
+
+## <a name="overview">1. Overview</a>
 
 We provide pipelines for measuring organoid cross-sectional area [[1](#ref01)] in the forskolin-induced swelling (FIS) live cell microscopy assay [[2](#ref02)]. The pipelines take as input raw microscopy images and generate plain text files containing object-level features (*e.g.* organoid cross-sectional area) as well as labelled object masks.
 
@@ -13,23 +32,7 @@ Equivalent pipelines are available for both **[CellProfiler](https://cellprofile
 
 
 
-## Contents
-* [1. Background](#background)
-* [2. Installation](#installation)
-    * [2.1. CellProfiler analysis](#installation-cp)
-    * [2.2. Fiji analysis](#installation-ij)
-* [3. Demonstration dataset](#dataset)
-* [4. Analysis of a demonstration dataset](#analysis)
-    * [4.1. CellProfiler analysis](#analysis-cp)
-    * [4.2. Fiji analysis](#analysis-ij)
-        * [4.2.1. Test mode](#analysis-ij-test)
-        * [4.2.2. Batch Analysis mode](#analysis-ij-analysis)
-* [5. References](#references)
-
-
-
-
-## <a name="background">1. Background</a>
+## <a name="background">2. Background</a>
 
 The goal of the image analysis of the FIS assay is to determine the cross-sectional area of all organoid on all images. This information can then be further analyzed to determine whether the swelling kinetics is modulated by chemical compounds.
 
@@ -74,11 +77,11 @@ The **Fiji** analysis algorithm is recommended in the following cases:
 
 
 
-## <a name="installation">2. Installation</a>
+## <a name="installation">3. Setup</a>
 
 
 
-### <a name="installation-cp">2.1. CellProfiler</a>
+### <a name="installation-cp">3.1. CellProfiler</a>
 
 For the image analysis pipeline using CellProfiler you will need to:
 
@@ -88,7 +91,7 @@ For the image analysis pipeline using CellProfiler you will need to:
 
 
 
-### <a name="installation-ij">2.1. Fiji</a>
+### <a name="installation-ij">3.2. Fiji</a>
 
 * **Install Fiji:** download from [here](http://fiji.sc/) and unzip (Windows) or install (macOS). Select the version matching your computer's operating system (Windows / macOS) and system architecture (32 / 64 bit).
 
@@ -117,17 +120,18 @@ For the image analysis pipeline using CellProfiler you will need to:
 
 
 
-## <a name="dataset">3. Demonstration dataset</a>
+## <a name="dataset">4. Demonstration dataset</a>
 
 A demonstration dataset is provided [here](./demo_dataset).
 
-### Assay description
+### <a name="dataset-description">4.1. Assay description</a>
 The FIS assay was performed with intestinal organoids homozygous for a class II CFTR mutation in the absence (DMSO) or presence of VX-809 and/or VX-770 (3.2 μM), as previously described [[3](#ref03)]. CFTR was activated by addition of forskolin (Fsk) in a concentration range from 0.008 μM – 5 μM. Specimens were laid out in a 96 well plate, as depicted below.
 
 ![demo plate layout](./img/schemes/plate_layout_733x205.png)
 
 These are the main characteristics of the microscopy images in the demonstration dataset:
 
+- __Imaging system:__ Zeiss confocal microscope
 - __Number of plates:__ 1
 - __Number of imaged wells:__ 64
 - __Number of imaging fields per well:__ 1
@@ -142,6 +146,10 @@ These are the main characteristics of the microscopy images in the demonstration
 
 The images in the demonstration dataset were renamed with the R package [**htmrenamer**](https://github.com/hmbotelho/htmrenamer) so as to include relevant experimental metadata in the file and folder names (*e.g.* plate name, well number, time lapse sequence number, compound and compound concentration). This simplifies several steps in the image analysis procedure.
 
+
+
+### <a name="dataset-files">4.2. File download</a>
+
 The demonstration dataset is comprised of:
 1. [**Raw microscopy images**](./demo_dataset/03-images_renamed/demoplate_01) (91.9 MB)
 2. [**Image quantification outputs (CellProfiler)**](./demo_dataset/05-images_analysis/demoplate_01--cellprofiler) (14.8 MB)
@@ -153,7 +161,7 @@ The image analysis pipelines implemented in [**CellProfiler**](./CellProfiler) a
 
 
 
-## <a name="analysis">4. Analysis of the demonstration dataset</a>
+## <a name="analysis">5. Analysis of the demonstration dataset</a>
 
 The image analysis process extracts the following features:
 * Quantitative measurements (_e.g._ organoid area)
@@ -169,7 +177,7 @@ The image analysis pipelines perform the following consecutive actions for every
 Analysis of the demonstration dataset will produce equivalent results regardless of using CellProfiler or Fiji.
 
 
-### <a name="analysis-cp">4.1. CellProfiler analysis</a>
+### <a name="analysis-cp">5.1. CellProfiler analysis</a>
 
 
 The image analysis pipeline implemented in CellProfiler is depicted in the scheme below:
@@ -496,7 +504,7 @@ The `Math_area_micronsq` measurements can be converted into the area under the c
 
 
 
-### <a name="analysis-ij">4.2. Fiji analysis</a>
+### <a name="analysis-ij">5.2. Fiji analysis</a>
 
 
 
@@ -517,7 +525,7 @@ The Fiji workflow comprises two scripts:
 * The **analysis** script processes a complete dataser using the parameters determined above.
 
 
-#### <a name="analysis-ij-test">4.2.1. Test mode</a>
+#### <a name="analysis-ij-test">5.2.1. Test mode</a>
 
 1. Open Fiji.
 
@@ -724,7 +732,7 @@ The Fiji workflow comprises two scripts:
 **Note:** To ensure that the selected analysis settings are suitable for the entire dataset, several images should be tested. Make all required adjustments until a satisfactory analysis is consistently achieved.
     
 
-#### <a name="analysis-ij-analysis">4.2.2. Batch Analysis mode</a>
+#### <a name="analysis-ij-analysis">5.2.2. Batch Analysis mode</a>
 
 1. Open Fiji.
 
@@ -836,10 +844,12 @@ The Fiji workflow comprises two scripts:
 
 
 
-
-## <a name="references">5. References</a>
+## <a name="references">6. Citation</a>
 <a name="ref01">[1]</a> Hagemeijer *et al* (2020) **An open-source high-content analysis workflow for CFTR function measurements using the forskolin-induced swelling assay** *submitted*
 
+
+
+## <a name="references">7. References</a>
 <a name="ref02">[2]</a> Dekkers *et al* (2013) **A functional CFTR assay using primary cystic fibrosis intestinal organoids**. *Nat Med* 19, 939-945. [https://doi.org/10.1038/nm.3201](https://doi.org/10.1038/nm.3201)
 
 <a name="ref03">[3]</a> Dekkers *et al* (2016) **Characterizing responses to CFTR-modulating drugs using rectal organoids derived from subjects with cystic fibrosis**. *Sci Transl Med* 8(344), 344ra84. [https://doi.org/10.1126/scitranslmed.aad8278](https://doi.org/10.1126/scitranslmed.aad8278)
