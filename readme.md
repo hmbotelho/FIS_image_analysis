@@ -26,7 +26,9 @@
 
 We provide pipelines for measuring organoid cross-sectional area [[1](#ref01)] in the forskolin-induced swelling (FIS) live cell microscopy assay [[2](#ref02)]. The pipelines take as input raw microscopy images and generate plain text files containing object-level features (*e.g.* organoid cross-sectional area) as well as labelled object masks.
 
-![workflow](./img/schemes/workflow.gif)
+<br/>
+<p align="center"><img src="./img/schemes/workflow.gif"></p>
+<br/>
 
 Equivalent pipelines are available for both **[CellProfiler](https://cellprofiler.org/)** and **[Fiji](http://fiji.sc/) / [ImageJ](https://imagej.nih.gov/ij/)**. See the [background section](#background) for the differences between the two.
 
@@ -45,7 +47,7 @@ The **Fiji** analysis algorithm is recommended in the following cases:
 
     Background gradients can be removed by applying a pseudo-flat field background correction.
 
-   ![Uneven bg](./img/schemes/uneven_bg.jpg)
+   <p align="center"><img src="./img/schemes/uneven_bg.jpg"></p>
 
 
 * **Assays with large organoid swelling**
@@ -57,7 +59,7 @@ The **Fiji** analysis algorithm is recommended in the following cases:
     2. *Background segmentation:* To correct artifact #1, the fill holes operation may be applied. However, if organoids are densely seeded, swelling may make them touch each other and fully encircle organoid-free (_i.e._ background) patches. The fill holes operation will attribute these background pixels to one of the organoid objects resulting in an area overestimation. (***Arrowheads*** in the example below).
 
 
-   ![segmentation and fill holes](./img/schemes/fillholes.gif)  
+   <p align="center"><img src="./img/schemes/fillholes.gif"></p>
    *Segmentation of highly swelling and densely packed organoids, with and without applying the fill holes operation.*
 
 
@@ -71,7 +73,7 @@ The **Fiji** analysis algorithm is recommended in the following cases:
 
    4. The final thresholded image is the union of images B and D (**E**).
 
-   ![ImageJ algorithm](./img/schemes/IJ_algorithm.gif)  
+   <p align="center"><img src="./img/schemes/IJ_algorithm.gif"></p>
    *An example of the **conditional fill holes** algorithm. This time lapse corresponds to a portion of [well B8, #20](./demo_dataset/03-images_renamed/demoplate_01/W0020--fsk_770_809--5/P001--fsk_770_809--5) in the demonstration dataset. Segmentation masks have been re-colored to accurately track objects.*
 
 
@@ -105,7 +107,7 @@ For the image analysis pipeline using CellProfiler you will need to:
    4. Run Fiji.
    5. Fiji will now have a new “FIS” tool in the menu bar:
     
-    ![Fiji win10](./img/IJ/IJ_FISmenu_win.png)
+    <p align="center"><img src="./img/IJ/IJ_FISmenu_win.png"></p>
     
 * **Install scripts (macOS)**
     1. In Finder, go to the Applications folder and locate the Fiji icon
@@ -115,7 +117,8 @@ For the image analysis pipeline using CellProfiler you will need to:
     5. Run Fiji.
     6. Fiji will now have a new “FIS” tool in the menu bar:
     
-    ![Fiji macOS](./img/IJ/IJ_FISmenu_macos.png)
+    <p align="center"><img src="./img/IJ/IJ_FISmenu_macos.png"></p>
+
 
 
 
@@ -127,7 +130,7 @@ A demonstration dataset is provided [here](./demo_dataset).
 ### <a name="dataset-description">4.1. Assay description</a>
 The FIS assay was performed with intestinal organoids homozygous for a class II CFTR mutation in the absence (DMSO) or presence of VX-809 and/or VX-770 (3.2 μM), as previously described [[3](#ref03)]. CFTR was activated by addition of forskolin (Fsk) in a concentration range from 0.008 μM – 5 μM. Specimens were laid out in a 96 well plate, as depicted below.
 
-![demo plate layout](./img/schemes/plate_layout_733x205.png)
+<p align="center"><img src="./img/schemes/plate_layout_733x205.png"></p>
 
 These are the main characteristics of the microscopy images in the demonstration dataset:
 
@@ -199,7 +202,7 @@ This section describes how to perform the FIS image analysis with Fiji, using th
     
     An empty CellProfiler window will be displayed.  
     
-    ![New CellProfiler window](./img/CP/result_openCP.png)
+    <p align="center"><img src="./img/CP/result_openCP.png"></p>
 
     </details>
 
@@ -211,7 +214,7 @@ This section describes how to perform the FIS image analysis with Fiji, using th
     The image analysis pipeline is loaded into CellProfiler.  
     Comprehensive information about all CellProfiler features can be obtained by clicking on the !['?'](./img/CP/help_button.png) buttons throughout the GUI or in the [online documentation](https://cellprofiler.org/manuals/).  
     
-    ![New CellProfiler window](./img/CP/result_openproject.png)
+    <p align="center"><img src="./img/CP/result_openproject.png"></p>
 
     </details>
 
@@ -222,7 +225,7 @@ This section describes how to perform the FIS image analysis with Fiji, using th
     
     Selecting the *Show all windows on run* option will render all eye icons solid black ![open eye](./img/CP/eye_open.png), which indicates that the result of each analysis module will be displayed.  
     
-    ![Show all windows on run](./img/CP/result_showwindows.png)
+    <p align="center"><img src="./img/CP/result_showwindows.png"></p>
 
     </details>
 
@@ -236,7 +239,7 @@ This section describes how to perform the FIS image analysis with Fiji, using th
     
     The pipeline file, which has been pre-configured for the demonstration dataset, already has the image files listed. To update file locations, first clear the list with the `delete` key or `Right click > Clear File List`. Then, drag files from a local folder in your computer to the `Drop files and folders here` region.  
     
-    ![Show all windows on run](./img/CP/result_clearfilelist.png)
+    <p align="center"><img src="./img/CP/result_clearfilelist.png"></p>
 
     </details>
 
@@ -247,7 +250,7 @@ This section describes how to perform the FIS image analysis with Fiji, using th
     
     Click the ![update](./img/CP/updatebutton.png) button to confirm that metadata is correctly extracted. In this example one can verify that the well and time numbers, as well as some folder names are being captured. For images not renamed with the [htmrenamer](https://github.com/hmbotelho/htmrenamer) R package the `Regular expression to extract from...` fields may need adjustment.  
     
-    ![Metadata example](./img/CP/result_metadata.png)
+    <p align="center"><img src="./img/CP/result_metadata.png"></p>
     
     More information on the Metadata module can be obtained on the [CellProfiler manual](http://cellprofiler-manual.s3.amazonaws.com/CellProfiler-3.1.9/modules/input.html?highlight=metadata#module-cellprofiler.modules.metadata).  
 
@@ -260,7 +263,7 @@ This section describes how to perform the FIS image analysis with Fiji, using th
     
     Click the ![update](./img/CP/updatebutton.png) button to confirm that the rule criteria finds all microscopy images. In this example, 448 images were found and their file names are shown.  
     
-    ![Names and types example](./img/CP/result_namesandtypes.png)
+    <p align="center"><img src="./img/CP/result_namesandtypes.png"></p>
 
     </details>
 
@@ -271,7 +274,7 @@ This section describes how to perform the FIS image analysis with Fiji, using th
     
     Grouping images by the `wellNum` metadata field will instruct CellProfiler to address all images from the same well as belonging to the same time lapse. In this example, CellProfiler displays the number of time points in each  well: 7. Image analysis will succeed even if images are not grouped, but object tracking results must then be ignored.  
     
-    ![Groups example](./img/CP/result_groups.png)
+    <p align="center"><img src="./img/CP/result_groups.png"></p>
 
     </details>
 
@@ -283,7 +286,7 @@ Let us now define image analysis parameters interactively.
     <details><summary><i>View screenshot</i></summary>
     
     In test mode, correctly configured modules will display a ![ticked checkbox](./img/CP/module_ok.png) icon. Modules containing errors (*e.g.* references to a non-existing image) will display ![error sign](./img/CP/module_error.png). In test mode, the `ExportToSpreadsheet` will always display ![warning sign](./img/CP/module_warning.png). The 4 buttons at the botton left of the window can be used to navigate through images and execute modules.   
-    ![Test mode example](./img/CP/result_testmode.png)
+    <p align="center"><img src="./img/CP/result_testmode.png"></p>
 
     </details>
 
@@ -294,7 +297,7 @@ Let us now define image analysis parameters interactively.
     
     Selecting a well (*i.e.* time lapse) to test whether the image analysis settings are adequate.  
     
-    ![Choose image group example](./img/CP/05_CP_ChooseGroup.png)
+    <p align="center"><img src="./img/CP/05_CP_ChooseGroup.png"></p>
 
     </details>
 
@@ -305,7 +308,7 @@ Let us now define image analysis parameters interactively.
     
     When clicking `Step` the result of this module is shown.  
     
-    ![ColorToGray example](./img/CP/result_colortogray2.png)
+    <p align="center"><img src="./img/CP/result_colortogray2.png"></p>
 
     </details>
     
@@ -316,7 +319,7 @@ Let us now define image analysis parameters interactively.
     
     When clicking `Step` the result of this module is shown.  
     
-    ![RescaleIntensity example](./img/CP/result_rescaleintensity2.png)
+    <p align="center"><img src="./img/CP/result_rescaleintensity2.png"></p>
 
     </details>
     
@@ -334,7 +337,7 @@ Let us now define image analysis parameters interactively.
     - **Suppress local maxima that are closer than...:** In pixel units. Defines the maximum radius in which only 1 organoid should be present (the approximate radius of the smallest expected organoid).
     - **Fill holes in identified objects:** Allows for filling holes of the identified objects after thresholding of the image. When calcein labelling is intense across all wells and time points, `Never` should be selected, as this typically results in less artefacts. However, when there is significant organoid swelling calcein fluorescence is frequently low in the lumen producing objects with holes. We recommend selecting `After both thresholding and declumping` when this occurs. Filling holes may produce an overestimation of organoid size if densely packed organoids touch each other and produce voids (see below).
     
-    ![Fill holes](./img/CP/fillholes.gif)
+    <p align="center"><img src="./img/CP/fillholes.gif"></p>
     
     *Fluorescence image before and after thresholding with and without `Fill holes after both thresholding and declumping`. Note that not filling holes produces an unsatisfactory segmentation with ring-shaped organoids (arrows). When Fill Holes is enabled, most organoids are correctly segmented but a background region is wrongly classified as object at the 40 min frame (arrowhead).*
     *To test this time lapse experiment in CellProfiler select `Test > Choose Image Group > Metadata_wellNum=0020` and `Test > Choose Image Set` to select each time point. Segmentation masks have been re-coloured to accurately track objects. Panels show a portion of the entire image.*
@@ -343,7 +346,7 @@ Let us now define image analysis parameters interactively.
     
     When clicking `Step` the result of this module is shown. Use the zoom and panning controls to examine whether all organoids are segmented appropriately. If any of the segmentation settings is changed, click `Step` to refresh the results window.  
     
-    ![IdentifyPrimaryObjects example](./img/CP/result_identifyprimaryobjects2.png)
+    <p align="center"><img src="./img/CP/result_identifyprimaryobjects2.png"></p>
 
     </details>
 
@@ -354,7 +357,7 @@ Let us now define image analysis parameters interactively.
     
     When clicking `Step` CellProfiler shows summary statistics for a variety of intensity measurements across all objects in the image. Individual, per-object values are recorded but not shown to the user.  
     
-    ![MeasureObjectIntensity example](./img/CP/result_measureobjectintensity2.png)
+    <p align="center"><img src="./img/CP/result_measureobjectintensity2.png"></p>
 
     </details>
 
@@ -366,7 +369,7 @@ Let us now define image analysis parameters interactively.
     
     When clicking `Step` CellProfiler shows summary statistics for a variety of morphometric measurements across all objects in the image. Individual, per-object values are recorded but not shown to the user.  
     
-    ![MeasureObjectSizeShape example](./img/CP/result_measureobjectsizeshape2.png)
+    <p align="center"><img src="./img/CP/result_measureobjectsizeshape2.png"></p>
 
     </details>
 
@@ -377,21 +380,21 @@ Let us now define image analysis parameters interactively.
     
     The measurement selected on `Measurement to display` will be displayed on top of the object which produced it. Click `Step` to view the image overlay.  
     
-    ![DisplayDataOnImage example](./img/CP/result_displaydataonimage2.png)
+    <p align="center"><img src="./img/CP/result_displaydataonimage2.png"></p>
 
     </details>
 
 
 17. The **FilterObjects** module allows excluding individual organoids based on fluorescence intensity of morphological features. In the `Category` and `Measurement` boxes select the feature chosen in step 16. In `Minimum value` and `Maximum value` insert the range of allowed values. Organoids with values outside this range will be discarded. Below is an example where  [FormFactor](http://cellprofiler-manual.s3.amazonaws.com/CellProfiler-3.0.0/modules/measurement.html) allows for a perfect discrimination of live (FormFactor ≥ 0.5) and dead (FormFactor = 0.22) organoids.
 
-    ![FilterObjects](./img/CP/FilterObjects_pannel_witharrow.png)
+    <p align="center"><img src="./img/CP/FilterObjects_pannel_witharrow.png"></p>
     *An example where objects with FormFactor > 0.3 were approved thereby excluding irregular structures surrounded by cell clumps from the analysis (arrowhead). Segmentation masks show the identified objects from the segmentation step (`organoids_prelim`) and identified objects by applying the quality control criteria (`organoids`). Panels show a portion of the images from [well H4, #88](./demo_dataset/03-images_renamed/demoplate_01/W0088--fsk_809--0.32/P001--fsk_809--0.32) from the demonstration dataset. To test this image select `Test > Choose Image Group > Metadata_wellNum=0088`.*
  
     <details><summary><i>View screenshot</i></summary>
     
     When clicking `Step` CellProfiler shows the impact of applying the quality control thresholds. **In the demonstration dataset analysis all objects were approved** because 0 ≤ [FormFactor](http://cellprofiler-manual.s3.amazonaws.com/CellProfiler-3.0.0/modules/measurement.html) ≤ 1. Selecting `Minimum value` ≤ 0 and `Maximum value` ≥ 1 would produce the same outcome.  
     
-    ![FilterObjects example](./img/CP/result_filterobjects2.png)
+    <p align="center"><img src="./img/CP/result_filterobjects2.png"></p>
 
     </details>
 
@@ -402,7 +405,7 @@ Let us now define image analysis parameters interactively.
     
     When clicking `Step` CellProfiler shows the outlines of approved objects overlayed on the fluorescence microscopy image.  
     
-    ![OverlayOutlines example](./img/CP/result_overlayoutlines2.png)
+    <p align="center"><img src="./img/CP/result_overlayoutlines2.png"></p>
 
     </details>
 
@@ -413,7 +416,7 @@ Let us now define image analysis parameters interactively.
     
     When clicking `Step` CellProfiler shows segmentation masks colored by the tracked object identity number. The same object is expected to have the same identity number across time frames.  
     
-    ![TrackObjects example](./img/CP/result_trackobjects2.png)
+    <p align="center"><img src="./img/CP/result_trackobjects2.png"></p>
 
     </details>
 
@@ -427,7 +430,7 @@ Let us now define image analysis parameters interactively.
     
     Input the size conversion factor in the numeric field. The area values obtained for each organoid (pixel units) will be multiplied by this value.  
     
-    ![CalculateMath GUI](./img/CP/GUI_CalculateMath.png)
+    <p align="center"><img src="./img/CP/GUI_CalculateMath.png"></p>
 
     </details>
 
@@ -446,7 +449,7 @@ Let us now define image analysis parameters interactively.
     
     Click the ![View output settings](./img/CP/viewoutputsettings.png) button and enter a folder location in `Default Output Folder`  
     
-    ![OutputSettings GUI](./img/CP/GUI_OutputSettings.png)
+    <p align="center"><img src="./img/CP/GUI_OutputSettings.png"></p>
 
     </details>
 
@@ -466,7 +469,7 @@ Let us now define image analysis parameters interactively.
     
     Analysis results will be saved in a folder structure resembling the raw data, containing the segmentation masks for all images stored as PNG files, as well as CSV files named `objects.csv` which contain quantitative features and metadata.  
     
-    ![CP analysis results](./img/CP/CP_ResultsFiles.png)
+    <p align="center"><img src="./img/CP/CP_ResultsFiles.png"></p>
 
     </details>
 
@@ -510,9 +513,7 @@ The `Math_area_micronsq` measurements can be converted into the area under the c
 
 The image analysis pipeline implemented in Fiji/ImageJ is depicted in the scheme below:
 
-|                                                                 |
-|-----------------------------------------------------------------|
-| ![Fiji pipeline](./img/schemes/IJ_pipeline_266x1059.png) |
+<p align="center"><img src="./img/schemes/IJ_pipeline_266x1059.png"></p>
 
 
 
@@ -533,7 +534,7 @@ The Fiji workflow comprises two scripts:
     
     The Fiji window will be displayed. The **FIS** menu should be visible. Running the standard ImageJ is equivalent.  
     
-    ![Fiji window](./img/IJ/Fiji_win.png)
+    <p align="center"><img src="./img/IJ/Fiji_win.png"></p>
 
     </details>
 
@@ -544,7 +545,7 @@ The Fiji workflow comprises two scripts:
     
     Opening a fluorescence image with Fiji.  
     
-    ![Opening an image with Fiji](./img/IJ/test/gui_openimage.png)
+    <p align="center"><img src="./img/IJ/test/gui_openimage.png"></p>
 
     </details>
 
@@ -553,7 +554,7 @@ The Fiji workflow comprises two scripts:
 
     <details><summary><i>View screenshot</i></summary>
     
-    ![Test menu](./img/IJ/test/01_FIStest.png)
+    <p align="center"><img src="./img/IJ/test/01_FIStest.png"></p>
 
     </details>
 
@@ -562,7 +563,7 @@ The Fiji workflow comprises two scripts:
 
     <details><summary><i>View screenshot</i></summary>
     
-    ![Test window](./img/IJ/test/02_testwindow.png)
+    <p align="center"><img src="./img/IJ/test/02_testwindow.png"></p>
 
     </details>
 
@@ -596,7 +597,7 @@ The Fiji workflow comprises two scripts:
     
     Applying the [default test parameters](#parameters-ij) to the [first time point from well B8 (#20) from the demonstration dataset](./demo_dataset/03-images_renamed/demoplate_01/W0020--fsk_770_809--5/P001--fsk_770_809--5/demoplate_01--fsk_770_809--5--W0020--P001--T0000--C00.tif).  
     
-    ![All test windows](./img/IJ/test/03_test_allwindows.png)
+    <p align="center"><img src="./img/IJ/test/03_test_allwindows.png"></p>
 
     </details>
 
@@ -606,7 +607,7 @@ The Fiji workflow comprises two scripts:
     
         The lower plot is the [grayvalue profile](https://imagej.nih.gov/ij/docs/menus/analyze.html#plot) across the red dashed line. Notice the non-homogenous background: higher intensities in the center of the image and lower intensities at the edges.  
         
-        ![IJ test raw image](./img/IJ/test/04_test_step_by_step_0_Raw.png)
+        <p align="center"><img src="./img/IJ/test/04_test_step_by_step_0_Raw.png"></p>
 
         </details>
 
@@ -616,7 +617,7 @@ The Fiji workflow comprises two scripts:
     
         The lower plot is the [grayvalue profile](https://imagej.nih.gov/ij/docs/menus/analyze.html#plot) across the red dashed line. In the demonstration dataset pixel values are not modified.  
         
-        ![IJ test raw image](./img/IJ/test/04_test_step_by_step_0_Raw.png)
+        <p align="center"><img src="./img/IJ/test/04_test_step_by_step_0_Raw.png"></p>
 
         </details>
 
@@ -625,7 +626,7 @@ The Fiji workflow comprises two scripts:
         <details><summary><i>View screenshot</i></summary>
     
         The lower plot is the [grayvalue profile](https://imagej.nih.gov/ij/docs/menus/analyze.html#plot) across the red dashed line. The pseudo-flat field image estimates the background grayvalues of the raw image: higher values in the center of the image and lower values at the edges. The discreteness in the profile plot (grayvalues ∈ {0, 1, 2, 3} arises because of modest background inhomogeneity.  
-        ![IJ test background](./img/IJ/test/06_test_step_by_step_2_background.png)
+        <p align="center"><img src="./img/IJ/test/06_test_step_by_step_2_background.png"></p>
 
         </details>
 
@@ -635,7 +636,7 @@ The Fiji workflow comprises two scripts:
     
         The lower plot is the [grayvalue profile](https://imagej.nih.gov/ij/docs/menus/analyze.html#plot) across the red dashed line. Notice how the pseudo-flat field correction produced a homogenous background throughout the image.  
         
-        ![IJ test flat background](./img/IJ/test/07_test_step_by_step_3_bgCorr_withOffset.png)
+        <p align="center"><img src="./img/IJ/test/07_test_step_by_step_3_bgCorr_withOffset.png"></p>
 
         </details>
 
@@ -645,7 +646,7 @@ The Fiji workflow comprises two scripts:
     
         The lower plot is the [grayvalue profile](https://imagej.nih.gov/ij/docs/menus/analyze.html#plot) across the red dashed line. Notice how the average background intensity is not zero, but is rather offset by ~0.005 (red dashed line in the profile plot).  
         
-        ![IJ test rescaled](./img/IJ/test/08_test_step_by_step_4_bgCorr_withOffset_rescaled_withlabel.png)
+        <p align="center"><img src="./img/IJ/test/08_test_step_by_step_4_bgCorr_withOffset_rescaled_withlabel.png"></p>
 
         </details>
 
@@ -655,7 +656,7 @@ The Fiji workflow comprises two scripts:
     
         The lower plot is the [grayvalue profile](https://imagej.nih.gov/ij/docs/menus/analyze.html#plot) across the red dashed line. Manual thresholding will be applied to this image using the value specified in the test mode dialog box. Notice how a threshold value of e.g. 0.05 (red dashed line in the profile plot) allows an excellent discrimination between background and object pixels.  
         
-        ![IJ test background corrected](./img/IJ/test/09_test_step_by_step_5_bgCorrected_withlabel.png)
+        <p align="center"><img src="./img/IJ/test/09_test_step_by_step_5_bgCorrected_withlabel.png"></p>
 
         </details>
 
@@ -665,7 +666,7 @@ The Fiji workflow comprises two scripts:
     
         Image thresholding produced some isolated "object"/bright pixels (similar to salt and pepper noise). These can be removed if requested.  
         
-        ![IJ test thresholded](./img/IJ/test/10_test_step_by_step_6_thresholded.png)
+        <p align="center"><img src="./img/IJ/test/10_test_step_by_step_6_thresholded.png"></p>
 
         </details>
 
@@ -675,7 +676,7 @@ The Fiji workflow comprises two scripts:
     
         Removing salt and pepper noise in the thresholded image improves the visualization of segmented objects.  
         
-        ![IJ test without salt&pepper](./img/IJ/test/11_test_step_by_step_7_withoutSaltPepper.png)
+        <p align="center"><img src="./img/IJ/test/11_test_step_by_step_7_withoutSaltPepper.png"></p>
 
         </details>
 
@@ -685,7 +686,7 @@ The Fiji workflow comprises two scripts:
     
         For individual object analysis, gates for the size, circularity and other object-level features can be specified. In this example, only organoids larger than 500 μm² were be accepted, regardless of all other applied features. Objects touching the image border were accepted. Each object is overlaid with a cyan label. Labels are shown in all images at the same location, to inform the segmentation process. Labels can be hidden by selecting `Image > Overlay > Hide Overlay`.  
         
-        ![IJ test final](./img/IJ/test/12_test_step_by_step_8_Final.png)
+        <p align="center"><img src="./img/IJ/test/12_test_step_by_step_8_Final.png"></p>
 
         </details>
 
@@ -696,13 +697,13 @@ The Fiji workflow comprises two scripts:
     
     Each line corresponds to one object. The first column is the cyan label overlaid on each organoid:  
     
-    ![IJ test results](./img/IJ/test/13_test_step_by_step_results.png)  
+    <p align="center"><img src="./img/IJ/test/13_test_step_by_step_results.png"></p>
     
     The table contains standard [ImageJ measurements](https://imagej.nih.gov/ij/docs/guide/146-30.html#toc-Subsection-30.7), as well as CellProfiler's [FormFactor](http://cellprofiler-manual.s3.amazonaws.com/CellProfiler-3.0.0/modules/measurement.html).
         
     The log window will show currently applied settings:  
     
-    ![IJ test log](./img/IJ/test/14_test_step_by_step_log.png)  
+    <p align="center"><img src="./img/IJ/test/14_test_step_by_step_log.png"></p>
 
     </details>
 
@@ -711,7 +712,7 @@ The Fiji workflow comprises two scripts:
 
 
 10. Click the `OK` button in the box below to return to the test mode tool:
-    ![IJ test final](./img/IJ/test/15_test_step_by_step_actionrequired.png)
+    <p align="center"><img src="./img/IJ/test/15_test_step_by_step_actionrequired.png"></p>
 
 
 11. The test tool will allow changing the analysis settings. Make adjustments as many times as required to obtain an adequate segmentation.
@@ -721,7 +722,7 @@ The Fiji workflow comprises two scripts:
 
     <details><summary><i>View screenshot</i></summary>
     
-    ![FIS analysis...](./img/IJ/test/14_test_step_by_step_log.png)
+    <p align="center"><img src="./img/IJ/test/14_test_step_by_step_log.png"></p>
 
     </details>
 
@@ -740,7 +741,7 @@ The Fiji workflow comprises two scripts:
     
     The Fiji window will be displayed. The **FIS** menu should be visible. Running the standard ImageJ is equivalent.  
     
-    ![Fiji window](./img/IJ/Fiji_win.png)
+    <p align="center"><img src="./img/IJ/Fiji_win.png"></p>
 
     </details>
 
@@ -749,7 +750,7 @@ The Fiji workflow comprises two scripts:
 
     <details><summary><i>View screenshot</i></summary>
     
-    ![FIS analysis...](./img/IJ/analysis/01_FISanalysis.png)
+    <p align="center"><img src="./img/IJ/analysis/01_FISanalysis.png"></p>
 
     </details>
 
@@ -758,7 +759,7 @@ The Fiji workflow comprises two scripts:
 
     <details><summary><i>View screenshot</i></summary>
     
-    ![FIS analysis window](./img/IJ/analysis/02_analysiswindow.png)
+    <p align="center"><img src="./img/IJ/analysis/02_analysiswindow.png"></p>
 
     </details>
 
@@ -809,7 +810,7 @@ The Fiji workflow comprises two scripts:
     
     Analysis settings will be stored in a file named `settings_YYYY-MM-DD_HH-MM.log` (not shown in the image). This file will be saved in the root `--ij` folder.  
     
-    ![Results files](./img/IJ/analysis/03_IJ_ResultsFiles.png)
+    <p align="center"><img src="./img/IJ/analysis/03_IJ_ResultsFiles.png"></p>
 
     </details>
 
