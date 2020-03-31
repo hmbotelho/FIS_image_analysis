@@ -504,7 +504,7 @@ The image analysis pipeline implemented in Fiji/ImageJ is depicted in the scheme
 
 |                                                                 |
 |-----------------------------------------------------------------|
-| ![Fiji pipeline](./img/schemes/IJ_pipeline_224x868.png) |
+| ![Fiji pipeline](./img/schemes/IJ_pipeline_224x885.png) |
 
 
 
