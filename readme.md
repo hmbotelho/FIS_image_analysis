@@ -42,7 +42,7 @@ The **Fiji** analysis algorithm is recommended in the following cases:
 
     Background gradients can be removed by applying a pseudo-flat field background correction.
 
-   ![Uneven bg](./img/schemes/uneven_bg.jpg)
+   ![Uneven bg](./img/schemes/background_gradient_672x254.png)
 
 
 * **Assays with large organoid swelling**
@@ -838,7 +838,7 @@ The Fiji workflow comprises two scripts:
 
 
 ## <a name="references">5. References</a>
-<a name="ref01">[1]</a> Hagemeijer *et al* (2020) **An open-source high-content analysis workflow for CFTR function measurements using the forskolin-induced swelling assay** *submitted*
+<a name="ref01">[1]</a> Hagemeijer MC, Vonk AM, Awatade NT, Silva IAL, Tischer C, Hilsenstein V, Beekman JM, Amaral MD, Botelho HM  (2020) **An open-source high-content analysis workflow for CFTR function measurements using the forskolin-induced swelling assay** *submitted*
 
 <a name="ref02">[2]</a> Dekkers *et al* (2013) **A functional CFTR assay using primary cystic fibrosis intestinal organoids**. *Nat Med* 19, 939-945. [https://doi.org/10.1038/nm.3201](https://doi.org/10.1038/nm.3201)
 
