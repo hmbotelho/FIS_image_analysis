@@ -1,6 +1,10 @@
 // FIS Image Analysis Macro (Test mode)
 // ==================================
 // 
+// 
+// Licensed under the GNU General Public License v3.0 license
+// https://github.com/hmbotelho/FIS_image_analysis
+//
 // Required input data:
 //   * One raw timelapse microscopy image of the FIS assay
 //	 * This macro requires an open image and will process the active one
@@ -23,9 +27,12 @@
 //      9.  Apply quality control criteria
 //      10. Display segmented organoids (segmentation masks)
 // 
+// Citation:
+// Hagemeijer MC, Vonk AM, Awatade NT, Silva IAL, Tischer C, Hilsenstein V, Beekman JM, Amaral MD, Botelho HM (2020) An open-source high-content analysis workflow for CFTR function measurements using the forskolin-induced swelling assay. submitted
+//
 // Author: Hugo M Botelho, BioISI/FCUL, University of Lisbon
 // hmbotelho@fc.ul.pt
-// February 2020
+// April 2020
 //
 // -------------------------------------
 
