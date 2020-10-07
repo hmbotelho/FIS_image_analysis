@@ -33,7 +33,7 @@ Equivalent pipelines are available for both **[CellProfiler](https://cellprofile
 
 The goal of the image analysis of the FIS assay is to determine the cross-sectional area of all organoid on all images. This information can then be further analyzed to determine whether the swelling kinetics is modulated by chemical compounds.
 
-**CellProfiler** is the recommended image analysis software for most FIS image datasets, due to its user friendliness.
+**CellProfiler** is the recommended image analysis software for most FIS image datasets, due to its user friendliness and faster image analysis.
 
 The **Fiji** analysis algorithm is recommended in the following cases:
 
@@ -145,7 +145,7 @@ The images in the demonstration dataset were renamed with the R package [**htmre
 The demonstration dataset is comprised of:
 1. [**Raw microscopy images**](./demo_dataset/03-images_renamed/demoplate_01) (91.9 MB)
 2. [**Image quantification outputs (CellProfiler)**](./demo_dataset/05-images_analysis/demoplate_01--cellprofiler) (14.8 MB)
-3. [**Image quantification outputs (Fiji)**](./demo_dataset/05-images_analysis/demoplate_01--ij) (16.0 MB)
+3. [**Image quantification outputs (Fiji)**](./demo_dataset/05-images_analysis/demoplate_01--ij) (239 MB)
 
 The image analysis pipelines implemented in [**CellProfiler**](./CellProfiler) and [**Fiji/ImageJ**](./Fiji_ImageJ) have been pre-configured with optimal parameter values for the demonstration dataset.
 
@@ -163,8 +163,9 @@ The image analysis pipelines perform the following consecutive actions for every
 1. Background correction
 2. Organoid segmentation
 3. Quality control: rejection of aberrant organoids (optional)
-4. Measurement of organoid area
-5. Export of measurements (CSV) and segmentation masks (PNG)
+4. Organoid tracking
+5. Measurement of organoid area
+6. Export of measurements (CSV) and segmentation masks (TIF)
 
 Analysis of the demonstration dataset will produce equivalent results regardless of using CellProfiler or Fiji.
 
@@ -504,7 +505,7 @@ The image analysis pipeline implemented in Fiji/ImageJ is depicted in the scheme
 
 |                                                                 |
 |-----------------------------------------------------------------|
-| ![Fiji pipeline](./img/schemes/IJ_pipeline_224x885.png) |
+| ![Fiji pipeline](./img/schemes/IJ_pipeline_224x942.png) |
 
 
 
@@ -564,9 +565,11 @@ The Fiji workflow comprises two scripts:
     **Background filter:** The filter which generates a pseudo-flat field from the fluorescence image. Minimum, median and mean filters are availalbe. The pseudo-flat field will be subtracted to the raw fluorescence image to generate a background corrected image. Selecting `No filter (flat background)` disables this correction.  
     **Radius of filter:** The radius of the background filter, in pixel units. Disregarded if `No filter (flat background)` is selected.  
     **Offset after background correction:** This value will be subtracted from all pixels after background correction, regardless of the background filter option. Offsetting may be necessary when the fluorescence baseline is not zero after the pseudo-flat field correction.  
-    **Manual threshold value:** This will be applied after pseudo-flat field subtraction, offset correction and grey value rescaling to [0 ~ 1]. All pixels above this grey value will be assigned to objects (organoids).  
+	**Thresholding method:** Allows selecting between a user-selected manual threshold value of one of a collection of [auto-thresholding methods](https://imagej.net/Auto_Threshold). Thresholding will occur after pseudo-flat field subtraction, offset correction and grey value rescaling to [0 ~ 1].  
+    **Manual threshold value:**  Only applies when the "Manual" thresholding method is selected. All pixels above this grey value will be assigned to objects (organoids).  
     **Fill all holes:**. When unchecked, the conditional fill holes algorithm is applied. When checked, all holes are filled after the thresholding step.  
     **Remove salt and pepper noise:** When checked, isolated pixels in the thresholded image will be removed.  
+	**Declump organoids:** When checked, a watershed operation is applied to declup clustered objects.  
     **Font size for organoid labels:** Each segmented organoid will be overlaid with a unique label having this font size.  
     **Exclude objects touching the image border:** When checked, all objects which touch the image border on each image will be discarded from the analysis. Do note that organoids that do not touch the image border at the beginning of the time course may do so due to swelling. Activating this option may cause that some objects are accepted at the beginning of the time lapse (when they are unswollen) but discard their swollen forms at later time points, as they touch the border.  
     **Minimum organoid area:** Minimum allowed size of organoids (in μm² units). Smaller objects (*e.g.* debris) will be discarded from the analysis.  
@@ -721,6 +724,9 @@ The Fiji workflow comprises two scripts:
 13. When appropriate segmentation and quality control parameters have been found, click `Cancel` or `Close` to exit the test mode.
 
 
+14. <a name="test-ij-savesettings">The Log window can be saved</a> as a text file (`File > Save As...`). This file can be loaded during the analysis to apply the selected image segmentation and quality control settings.  
+
+
 **Note:** To ensure that the selected analysis settings are suitable for the entire dataset, several images should be tested. Make all required adjustments until a satisfactory analysis is consistently achieved.
     
 
@@ -763,7 +769,9 @@ The Fiji workflow comprises two scripts:
     
     * **Folder location > Results**: The folder where analysis results will be saved.   
     
-    The demo dataset was analyzed using the following settings:
+    Checking `Load settings?` enables loading the settings file which can be saved during the test mode ([see above](#test-ij-savesettings)).  
+	
+	The demo dataset was analyzed using the following settings:
 
 
     <a name="parameters-ij"></a>
@@ -773,9 +781,11 @@ The Fiji workflow comprises two scripts:
     | _Background filter_                          | Median                 |
     | _Radius of filter_                           | 50                     |
     | _Offset after background correction_         | 0.005                  |
+	| _Thresholding method_                        | Manual                 |
     | _Manual threshold value_                     | 0.05                   |
     | _Fill all holes?_                            | No                     |
     | _Remove salt and pepper noise?_              | Yes                    |
+	| _Declump organoids?_                         | No                     |
     | _Exclude objects touching the image border?_ | No                     |
     | _Minimum organoid size_                      | 500 μm²                |
     | _Maximum organoid size_                      | 99999999 μm²           |
@@ -790,7 +800,7 @@ The Fiji workflow comprises two scripts:
 
 5. Click `OK` to start the analysis.
 
-    Analysis of the demo dataset should take about 20 minutes on a computer with a ~2.5 GHz quad core processor.
+    Analysis of the demo dataset should take about 30 minutes on a computer with a ~2.5 GHz quad core processor.
 
 
 6.	The Fiji analysis will produce a results folder with a `--ij` suffix. [See example here](./demo_dataset/05-images_analysis/demoplate_01--ij).
@@ -805,9 +815,9 @@ The Fiji workflow comprises two scripts:
 
     </details>
 
-    The output files are segmentation masks (PNG, one per time frame) and CSV files (one per well) that contain quantitative features (_e.g._ organoid area) and metadata. 
+    The output files are segmentation masks (TIF, one per time frame) and CSV files (one per well) that contain quantitative features (_e.g._ organoid area) and metadata. 
            
-    Each line of the CSV filesin one object
+    Each line of the CSV file corresponds to one object
 
     | Column name                | Description |
     |----------------------------|----|
@@ -815,6 +825,7 @@ The Fiji workflow comprises two scripts:
     | **ObjectNumber**           | The object index within the image. |
     | **Metadata_Channel**       | The imaging channel index for calcein green fluorescence. |
     | **Metadata_FileLocation**  | The location of the fluorescence image in the computer where analysis was run. |
+	| **Metadata_MaskLocation**  | The location of the segmentation masks image in the computer where analysis was run. |
     | **Metadata_compound**      | The compound added to organoids in this well. |
     | **Metadata_concentration** | The compound concentration in this well. |
     | **Metadata_imageBaseName** | The image file name without the channel suffix. |
@@ -829,7 +840,7 @@ The Fiji workflow comprises two scripts:
     | **AreaShape_Center_X**     | The x-position of the centroid of the segmentation mask for this object. Pixel units. |
     | **AreaShape_Center_Y**     | The y-position of the centroid of the segmentation mask for this object. Pixel units. |
     | **Math_area_micronsq**     | The area of this object in micron square units. |
-    | **TrackObjects_Label**     | Identical to column 'ImageNumber'. The object index within the image. |
+    | **TrackObjects_Label**     | Object label after tracking. |
 
 
     The `Math_area_micronsq` measurements can be converted into the area under the curve (AUC) using a tool like [Organoid Analyst](https://github.com/hmbotelho/organoid_analyst).

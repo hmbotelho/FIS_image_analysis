@@ -1,0 +1,38 @@
+=============================================================================
+FIS image analysis
+v1.1
+=============================================================================
+
+Source folder (raw data): C:/FIS/demo_dataset/03-images_renamed/demoplate_01/
+Target folder: C:/FIS/demo_dataset/05-images_analysis/demoplate_01--ij/
+
+Selected settings:
+
+Image analysis settings
+_____________________________________________________________________________
+Background filter: Median
+Filter radius: 50 pixels
+Image offset: 0.005
+Thresholding method: Manual
+Manual threshold value: 0.05
+Fill all holes: No
+Remove salt & pepper noise: Yes
+Declump organoids (watershed): No
+
+Quality control settings
+_____________________________________________________________________________
+Exclude organoids touching the image border: No
+Minimum allowed organoid size: 500 um²
+Maximum allowed organoid size: 9999999 um²
+Minimum allowed organoid circularity: 0
+Maximum allowed organoid circularity: 1
+Additional QC parameter: None - Do not exclude
+
+Microscopy settings
+_____________________________________________________________________________
+Pixel width/height: 4.991 um
+Regular expression matching image files: .*--C00(?:\.ome)??.tif$
+
+
+07-10-2020
+13:28:22

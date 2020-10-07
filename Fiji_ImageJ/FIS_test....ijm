@@ -1,10 +1,7 @@
 // FIS Image Analysis Macro (Test mode)
+// v1.1
 // ==================================
 // 
-// 
-// Licensed under the GNU General Public License v3.0 license
-// https://github.com/hmbotelho/FIS_image_analysis
-//
 // Required input data:
 //   * One raw timelapse microscopy image of the FIS assay
 //	 * This macro requires an open image and will process the active one
@@ -12,9 +9,10 @@
 // Functionality:
 //   * Enables selecting parameters for the FIS Batch Image Analysis Macro.
 //
-//	 * Segments organoids, using a manual threshold and quality control parameters.
+//	 * Segments organoids and performs object tracking and object-level quality control.
 //   * Segmentation and quality control parameters can be tuned interactively.
 //   * Displays segmentation results for user inspection.
+//	 * Analysis parameters can be saved and imported into the analysis macro.
 //   * This is the sequence of image analysis steps:
 //      1.  Duplicate raw image
 //      2.  Convert to 16bit
@@ -22,17 +20,16 @@
 //      4.  Subtract raw from background-only
 //      5.  Rescale 0~1
 //      6.  Subtract image offset (object fluorescence contributes to the background-only image)
-//      7.  Manual thresholding
+//      7.  Manual- or auto-thresholding
 //      8.  Remove salt and pepper noise
-//      9.  Apply quality control criteria
-//      10. Display segmented organoids (segmentation masks)
+//      9.  Watershed
+//      10. Apply quality control criteria
+//		11. Track objects
+//      12. Display segmented organoids (segmentation masks, aka object labels image)
 // 
-// Citation:
-// Hagemeijer MC, Vonk AM, Awatade NT, Silva IAL, Tischer C, Hilsenstein V, Beekman JM, Amaral MD, Botelho HM (2020) An open-source high-content analysis workflow for CFTR function measurements using the forskolin-induced swelling assay. submitted
-//
 // Author: Hugo M Botelho, BioISI/FCUL, University of Lisbon
 // hmbotelho@fc.ul.pt
-// April 2020
+// October 2020
 //
 // -------------------------------------
 
@@ -43,12 +40,16 @@ activeMeasurements = "mean standard modal min centroid perimeter fit shape feret
 QCmeasurementNamesPretty   = newArray("None - Do not exclude", "Integrated density", "Mean gray value", "Median grayvalue", "Modal gray value", "Standard deviation grayvalues", "Minimum gray value", "Maximum gray value", "Perimeter", "Major ellipse axis", "Minor ellipse axis", "Circularity", "Ellipse aspect ratio", "Roundness", "Solidity", "Maximum caliper (Feret's diameter)", "Minimum caliper (Feret's diameter)", "Skewness", "Form Factor");
 QCmeasurementNamesHeadings = newArray("",                      "IntDen",             "Mean",            "Median",           "Mode",             "StdDev",                        "Min",                "Max",                "Perim.",    "Major",              "Minor",              "Circ.",       "AR",                   "Round",     "Solidity", "Feret",                              "MinFeret",                           "Skew",     "FormFactor");
 bg_filters = newArray("No Filter (flat background)", "Minimum", "Median", "Mean");
+thresholding_methods = newArray("Manual", "Huang", "Intermodes", "IsoData", "IJ_IsoData", "Li", "MaxEntropy", "Mean", "MinError", "Minimum", "Moments", "Otsu", "Percentile", "RenyiEntropy", "Shanbhag", "Triangle", "Yen");
+
 default_bg_filter = bg_filters[0];
 default_radius_filter = 50;
 default_subtract_offset = 0.005;
-default_threshold = 0.05;
+default_thresholding_method = "Manual";
+default_threshold_value = 0.05;
 default_fillholes = false;
 default_clean = true;
+default_declump = false;
 default_label_fontsize = 8;
 default_area_min = 500;
 default_area_max = 99999999;
@@ -59,7 +60,7 @@ default_QC_measurement_name = QCmeasurementNamesPretty[0];
 default_QC_measurement_min = -999999;
 default_QC_measurement_max = 999999;
 default_pixelsize = 4.991;
-testImageNames = newArray("raw", "16bit", "background", "bgCorr_withOffset", "bgCorr_withOffset_rescaled", "bgCorrected", "thresholded", "withoutSaltPepper", "organoids_beforeQC", "ORGANOIDS_FINAL")
+testImageNames = newArray("raw", "16bit", "background", "bgCorr_withOffset", "bgCorr_withOffset_rescaled", "bgCorrected", "thresholded", "withoutSaltPepper", "declumped_watershed", "organoids_beforeQC", "ORGANOIDS_FINAL")
 
 
 
@@ -91,14 +92,16 @@ while(true) {
 	}
 
 	// Use a dialog box to get input from the user
-	Dialog.create("FIS Analysis tool [Test Mode]");
+	Dialog.create("FIS Analysis tool v1.1 [Test Mode]");
 	Dialog.addMessage("=================== Segmentation settings ===================");
 	Dialog.addChoice("Background filter:", bg_filters, default_bg_filter);
 	Dialog.addSlider("Radius of filter (if selected, pixel units):", 1, 1000, default_radius_filter);
 	Dialog.addNumber("Offset after background correction:", default_subtract_offset);
-	Dialog.addNumber("Manual threshold value:", default_threshold);
+	Dialog.addChoice("Thresholding method:", thresholding_methods, default_thresholding_method);
+	Dialog.addNumber("Manual threshold value:", default_threshold_value);
 	Dialog.addCheckbox("Fill all holes?", default_fillholes);
 	Dialog.addCheckbox("Remove salt and pepper noise?", default_clean);
+	Dialog.addCheckbox("Declump organoids? (watershed)", default_declump);
 	Dialog.addSlider("Font size for organoid labels", 5, 100, default_label_fontsize);
 	Dialog.addMessage("");
 	Dialog.addMessage("");
@@ -129,9 +132,11 @@ while(true) {
 	bg_filter = Dialog.getChoice();
 	radius_filter = Dialog.getNumber();
 	subtract_offset = Dialog.getNumber();
-	threshold = Dialog.getNumber();
+	thresholding_method = Dialog.getChoice();
+	threshold_value = Dialog.getNumber();
 	fillholes = Dialog.getCheckbox();
 	clean = Dialog.getCheckbox();
+	declump = Dialog.getCheckbox();
 	label_fontsize = Dialog.getNumber();
 	
 	// Quality control variables
@@ -155,9 +160,11 @@ while(true) {
 	default_bg_filter = bg_filter;
 	default_radius_filter = radius_filter;
 	default_subtract_offset = subtract_offset;
-	default_threshold = threshold;
+	default_thresholding_method = thresholding_method;
+	default_threshold_value = threshold_value;
 	default_fillholes = fillholes;
 	default_clean = clean;
+	default_declump = declump;
 	default_label_fontsize = label_fontsize;
 	default_area_min = size_min;
 	default_area_max = size_max;
@@ -182,6 +189,11 @@ while(true) {
 	} else{
 		clean_YN = "No";
 	}
+	if(declump){
+		declump_YN = "Yes";
+	} else{
+		declump_YN = "No";
+	}
 	if(edge_exclude){
 		edge_exclude_YN = "Yes";
 	} else{
@@ -191,6 +203,7 @@ while(true) {
 	print("\\Clear");
 	print("=============================================================================");
 	print("FIS image analysis macro - Test mode");
+	print("v1.1");
 	print("=============================================================================\n");
 	print("Testing segmentation in image '" + rawtitle + "'");
 	print("_____________________________________________________________________________\n");
@@ -201,9 +214,13 @@ while(true) {
 		print("Filter radius: " + radius_filter);
 	}
 	print("Image offset: " + subtract_offset);
-	print("Manual threshold: " + threshold);
+	print("Thresholding method: " + thresholding_method);
+	if(thresholding_method == "Manual"){
+		print("Threshold value: " + threshold_value);
+	}
 	print("Fill all holes: " + fillholes_YN);
 	print("Remove salt&pepper noise: " + clean_YN);
+	print("Declump organoids: " + declump_YN);
 	print("Exclude organoids touching the image border: " + edge_exclude_YN);
 	print("Minimum allowed organoid size: " + size_min + " μm²");
 	print("Maximum allowed organoid size: " + size_max + " μm²");
@@ -213,6 +230,8 @@ while(true) {
 	print("[QC] Minimum allowed measurement value: " + QC_measurement_min);
 	print("[QC] Maximum allowed measurement value: " + QC_measurement_max);
 	print("Pixel width/height: " + pixelsize + " μm");
+	print("");
+	print("Save this window as a file to load the same settings in the analysis macro ('File > Save as...')");
 
 	// Close open windows (if exist)
 	closeTestImages(testImageNames);
@@ -264,18 +283,30 @@ while(true) {
 		run("Multiply...", "value=" + 1/(1-subtract_offset));
 		run("Enhance Contrast", "saturated=0.35");
 
-		// --- Manual threshold ---
+		// --- Threshold ---
 		run("Duplicate...", "title=thresholded");
-		setOption("BlackBackground", true);
-		getRawStatistics(nPixels, mean, min, max);
-		setThreshold(threshold, max);
+		if(thresholding_method == "Manual"){
+			setOption("BlackBackground", true);
+			getRawStatistics(nPixels, mean, min, max);
+			setThreshold(threshold_value, max);
+		} else{
+			setAutoThreshold(thresholding_method + " dark");
+		}
 		run("Make Binary");
+		run("Grays");
 
 		// --- Remove salt & pepper noise --- (if required)
 		if(clean){
 			run("Duplicate...", "title=withoutSaltPepper");
 			run("Options...", "iterations=1 count=8 black pad do=Erode");
 		}
+
+		// --- Declump ---
+		if(declump){
+			run("Duplicate...", "title=declumped_watershed");
+			run("Watershed");
+		}
+
 		
 		// --- Analyze particles ---
 		run("Duplicate...", "title=temp");
@@ -445,7 +476,7 @@ while(true) {
 
 	// Prepare images for inspection
 	run("Tile");
-	waitForUser("You may inspect the segmentation of test image '" + rawtitle + "'\n\nNumeric labels can be hidden in 'image > overlay > Hide Overlay'");
+	waitForUser("You may inspect the segmentation of test image '" + rawtitle + "'\n\nNumeric labels can be hidden in 'image > overlay > Hide Overlay'\n\nCurrently applied settings can be viewed in the log window and saved for later use.");
 	close("Results");
 }
 
