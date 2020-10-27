@@ -42,7 +42,7 @@ QCmeasurementNamesHeadings = newArray("",                      "IntDen",        
 bg_filters = newArray("No Filter (flat background)", "Minimum", "Median", "Mean");
 thresholding_methods = newArray("Manual", "Huang", "Intermodes", "IsoData", "IJ_IsoData", "Li", "MaxEntropy", "Mean", "MinError", "Minimum", "Moments", "Otsu", "Percentile", "RenyiEntropy", "Shanbhag", "Triangle", "Yen");
 
-default_bg_filter = bg_filters[0];
+default_bg_filter = bg_filters[2];
 default_radius_filter = 50;
 default_subtract_offset = 0.005;
 default_thresholding_method = "Manual";
