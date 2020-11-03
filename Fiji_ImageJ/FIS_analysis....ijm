@@ -15,7 +15,7 @@
 // 
 // Author: Hugo M Botelho, BioISI/FCUL, University of Lisbon
 // hmbotelho@fc.ul.pt
-// October 2020
+// November 2020
 //
 // -------------------------------------
 
@@ -811,7 +811,13 @@ function closeWindow(windowname){
 // dir	character, path to the new folder
 function makeDirRecursive(dir){
 	folders = split(dir, "/");
-	temp = "";
+	
+	if(startsWith(dir, "/")){
+		temp = "/";			// macOS
+	} else{
+		temp = "";			// Windows
+	}
+	
 	for(i=0; i<lengthOf(folders); i++){
 		temp = temp + folders[i] + "/";
 		if(!File.exists(temp)){
