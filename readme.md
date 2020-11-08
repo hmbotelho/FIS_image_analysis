@@ -5,7 +5,7 @@
 
 ## Overview
 
-We provide pipelines for measuring organoid cross-sectional area [[citation](#cit01)] in the forskolin-induced swelling (FIS) live cell microscopy assay [[2](#ref01)]. The pipelines take as input raw microscopy images and generate plain text files containing object-level features (*e.g.* organoid cross-sectional area) as well as labeled segmentation masks.
+We provide pipelines for measuring organoid cross-sectional area [[citation](#cit01)] in the forskolin-induced swelling (FIS) live cell microscopy assay [[1](#ref01)]. The pipelines take as input raw microscopy images and generate plain text files containing object-level features (*e.g.* organoid cross-sectional area) as well as labeled segmentation masks.
 
 ![workflow](./img/schemes/workflow.gif)
 
@@ -123,7 +123,7 @@ For the image analysis pipeline using CellProfiler you will need to:
 A demonstration dataset is provided [here](./demo_dataset).
 
 ### Assay description
-The FIS assay was performed with intestinal organoids homozygous for a class II CFTR mutation in the absence (DMSO) or presence of VX-809 and/or VX-770 (3.2 μM), as previously described [[3](#ref02)]. CFTR was activated by addition of forskolin (Fsk) in a concentration range from 0.008 μM – 5 μM. Specimens were laid out in a 96 well plate, as depicted below.
+The FIS assay was performed with intestinal organoids homozygous for a class II CFTR mutation in the absence (DMSO) or presence of VX-809 and/or VX-770 (3.2 μM), as previously described [[2](#ref02)]. CFTR was activated by addition of forskolin (Fsk) in a concentration range from 0.008 μM – 5 μM. Specimens were laid out in a 96 well plate, as depicted below.
 
 ![demo plate layout](./img/schemes/plate_layout_733x205.png)
 
