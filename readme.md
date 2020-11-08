@@ -5,7 +5,7 @@
 
 ## Overview
 
-We provide pipelines for measuring organoid cross-sectional area [[1](#ref01)] in the forskolin-induced swelling (FIS) live cell microscopy assay [[2](#ref02)]. The pipelines take as input raw microscopy images and generate plain text files containing object-level features (*e.g.* organoid cross-sectional area) as well as labeled segmentation masks.
+We provide pipelines for measuring organoid cross-sectional area [[citation](#cit01)] in the forskolin-induced swelling (FIS) live cell microscopy assay [[2](#ref01)]. The pipelines take as input raw microscopy images and generate plain text files containing object-level features (*e.g.* organoid cross-sectional area) as well as labeled segmentation masks.
 
 ![workflow](./img/schemes/workflow.gif)
 
@@ -24,7 +24,8 @@ Equivalent pipelines are available for both **[CellProfiler](https://cellprofile
     * [4.2. Fiji analysis](#analysis-ij)
         * [4.2.1. Test mode](#analysis-ij-test)
         * [4.2.2. Batch Analysis mode](#analysis-ij-analysis)
-* [5. References](#references)
+* [5. Citation](#citation)
+* [6. References](#references)
 
 
 
@@ -122,7 +123,7 @@ For the image analysis pipeline using CellProfiler you will need to:
 A demonstration dataset is provided [here](./demo_dataset).
 
 ### Assay description
-The FIS assay was performed with intestinal organoids homozygous for a class II CFTR mutation in the absence (DMSO) or presence of VX-809 and/or VX-770 (3.2 μM), as previously described [[3](#ref03)]. CFTR was activated by addition of forskolin (Fsk) in a concentration range from 0.008 μM – 5 μM. Specimens were laid out in a 96 well plate, as depicted below.
+The FIS assay was performed with intestinal organoids homozygous for a class II CFTR mutation in the absence (DMSO) or presence of VX-809 and/or VX-770 (3.2 μM), as previously described [[3](#ref02)]. CFTR was activated by addition of forskolin (Fsk) in a concentration range from 0.008 μM – 5 μM. Specimens were laid out in a 96 well plate, as depicted below.
 
 ![demo plate layout](./img/schemes/plate_layout_733x205.png)
 
@@ -769,7 +770,7 @@ The Fiji workflow comprises two scripts:
     
     * **Folder location > Results**: The folder where analysis results will be saved.   
 	
-	* **Output image format**: The image format for segmentation count mask (TIF, PNG or both).  
+	* **Output image format**: The image format for segmentation count masks (TIF, PNG or both).  
     
     Checking `Load settings?` enables loading the settings file which can be saved during the test mode ([see above](#test-ij-savesettings)).  
 	
@@ -851,9 +852,13 @@ The Fiji workflow comprises two scripts:
 
 
 
-## <a name="references">5. References</a>
-<a name="ref01">[1]</a> Hagemeijer MC, Vonk AM, Awatade NT, Silva IAL, Tischer C, Hilsenstein V, Beekman JM, Amaral MD, Botelho HM  (2020) **An open-source high-content analysis workflow for CFTR function measurements using the forskolin-induced swelling assay** *submitted*
+## <a name="citation">5. Citation</a>
+<a name="cit01"></a> Hagemeijer MC, Vonk AM, Awatade NT, Silva IAL, Tischer C, Hilsenstein V, Beekman JM, Amaral MD, Botelho HM  (2020) **An open-source high-content analysis workflow for CFTR function measurements using the forskolin-induced swelling assay** *submitted*
 
-<a name="ref02">[2]</a> Dekkers *et al* (2013) **A functional CFTR assay using primary cystic fibrosis intestinal organoids**. *Nat Med* 19, 939-945. [https://doi.org/10.1038/nm.3201](https://doi.org/10.1038/nm.3201)
 
-<a name="ref03">[3]</a> Dekkers *et al* (2016) **Characterizing responses to CFTR-modulating drugs using rectal organoids derived from subjects with cystic fibrosis**. *Sci Transl Med* 8(344), 344ra84. [https://doi.org/10.1126/scitranslmed.aad8278](https://doi.org/10.1126/scitranslmed.aad8278)
+
+
+## <a name="references">6. References</a>
+<a name="ref01">[1]</a> Dekkers *et al* (2013) **A functional CFTR assay using primary cystic fibrosis intestinal organoids**. *Nat Med* 19, 939-945. [https://doi.org/10.1038/nm.3201](https://doi.org/10.1038/nm.3201)
+
+<a name="ref02">[2]</a> Dekkers *et al* (2016) **Characterizing responses to CFTR-modulating drugs using rectal organoids derived from subjects with cystic fibrosis**. *Sci Transl Med* 8(344), 344ra84. [https://doi.org/10.1126/scitranslmed.aad8278](https://doi.org/10.1126/scitranslmed.aad8278)
