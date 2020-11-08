@@ -55,6 +55,7 @@
 #@ String (value="=================== Folder locations ===================", visibility=MESSAGE) msg9
 #@ File (label="Raw FIS images", style="directory") sourcefolder
 #@ File (label="Results", style="directory") targetfolder
+#@ String (label="Output image format", choices={"TIF", "PNG", "TIF+PNG"}) masks_format
 
 // Load settings
 #@ String (value=" ", visibility=MESSAGE) msg10
@@ -184,6 +185,16 @@ fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, thr
 	} else{
 		i_fill = "";
 	}
+	if(matches(masks_format, ".*TIF.*")){
+		save_tif = true;
+	} else{
+		save_tif = false;
+	}
+	if(matches(masks_format, ".*PNG.*")){
+		save_png = true;
+	} else{
+		save_png = false;
+	}
 	
 	
 	
@@ -260,7 +271,8 @@ fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, thr
 	// Get file names
 	allfiles = listFiles(sourcefolder, regexfiles, targetfolder + "temp.txt");
 	count_images = allfiles.length;
-
+	// Check if files were generated with htmrenamer
+	htmrenamer = ishtmrenamer(allfiles);
 
 	
 	// Get folder names
@@ -271,14 +283,14 @@ fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, thr
 	allfolders = unique(allfolders);
 	
 	
+	
 	
 	
 	
 	
 	
 	
-	
-	
+		
 	//===================================================================================================
 	//   IMAGE ANALYSIS   ===============================================================================
 	//===================================================================================================
@@ -343,7 +355,13 @@ fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, thr
 			folder_tree_below_sourcefolder = replace(folder_tree_below_sourcefolder, sourcefolder, "");
 			folder_output = targetfolder + folder_tree_below_sourcefolder;
 			file_masks = File.getName(ok_images[imgnum]);
-			file_masks = substring(file_masks, 0, lastIndexOf(file_masks, ".")) + "--masks.tif";
+			if(htmrenamer){
+				// demoplate_01--fsk--5--W0002--P001--T0000--C00.tif     <<-->>     demoplate_01--fsk--5--W0002--P001--T0000--masks.png
+				file_masks = substring(file_masks, 0, lastIndexOf(file_masks, ".")-5) + "--masks.tif";
+			} else{
+				// demoplate_01--fsk--5--W0002--P001--T0000--C00.tif     <<-->>     demoplate_01--fsk--5--W0002--P001--T0000--C00--masks.tif
+				file_masks = substring(file_masks, 0, lastIndexOf(file_masks, ".")) + "--masks.tif";
+			}
 			path_masks = folder_output + file_masks;
 			path_masks_array = Array.concat(path_masks_array, path_masks);
 	
@@ -510,7 +528,7 @@ fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, thr
 
 
 		// Track objects
-		trackOrganoidLabels(path_masks_array, folder_output, true);
+		trackOrganoidLabels(path_masks_array, folder_output, save_tif, save_png);
 
 	
 		// Store track objects results
@@ -794,6 +812,30 @@ function listFilesRecursively(dir, regex, tempfile) {
 }
 
 
+// Check if files were generated with htmrenamer
+// e.g.: demoplate_01--fsk--0.008--W0001--P001--T0000--C00.tif
+// https://github.com/hmbotelho/htmrenamer
+// Output: logical
+//
+// files   array, file paths
+function ishtmrenamer(files) { 
+	
+	regex_htmrenamer = ".*--.*--.*--W\\d\\d\\d\\d--P\\d\\d\\d--T\\d\\d\\d\\d--C\\d\\d\\..*$";
+
+	n_htmrenamer_matches = 0;
+	for(i=0; i<lengthOf(files); i++){
+		if(matches(files[i], regex_htmrenamer)){
+			n_htmrenamer_matches++;
+		}
+	}
+	if(n_htmrenamer_matches == lengthOf(files)){
+		return true;
+	} else{
+		return false;
+	}
+}
+
+
 // Closes the specified window
 // Output: none
 //
@@ -978,9 +1020,10 @@ function formFactor(area, perimeter){
 // https://github.com/hmbotelho/ImageJ_tracker
 //
 // files		array, paths to the count masks image
-// targetfolder	character, where to save relabeled image. Ignored if replace_raw = true
-// replace_raw	logical, should the original count masks images be replaced?
-function trackOrganoidLabels(files, targetfolder, replace_raw) { 
+// targetfolder	character, where to save relabeled image
+// save_tif     logical, save relabeled images as .tif?
+// save_png		logical, save relabeled images as .png?
+function trackOrganoidLabels(files, targetfolder, save_tif, save_png) { 
 
 	// Initialize
 	images_tracked = newArray();	// Image names after tracking
@@ -1021,14 +1064,17 @@ function trackOrganoidLabels(files, targetfolder, replace_raw) {
 
 		// Save relabeled image
 		selectWindow(img_tracked);
-		if(replace_raw){
-			//File.delete(files[0]);
+		if(save_tif){
 			saveAs("Tiff", files[0]);
-			rename(img_tracked);
-		} else{
-			saveAs("Tiff", targetfolder + "/" + img_tracked);
-			rename(img_tracked);
 		}
+		if(save_png){
+			path_png = replace(files[0], "^(?<pathBase>.*)\\.(?<extension>.*)$", "${pathBase}.png");
+			saveAs("PNG", path_png);
+		}
+		if(save_tif == false){
+			File.delete(files[0]);
+		}
+		rename(img_tracked);
 
 		// Make all background pixels NaN
 		selectWindow(img_tracked);
@@ -1171,17 +1217,22 @@ function trackOrganoidLabels(files, targetfolder, replace_raw) {
 				run("Select None");
 			}
 			close(img_before);
-			
+
+
 			// Save relabeled image
 			selectWindow(img_tracked);
-			if(replace_raw){
-				//File.delete(files[t]);
+			if(save_tif){
 				saveAs("Tiff", files[t]);
-				rename(img_tracked);
-			} else{
-				saveAs("Tiff", targetfolder + "/" + img_tracked);
-				rename(img_tracked);
 			}
+			if(save_png){
+				path_png = replace(files[t], "^(?<pathBase>.*)\\.(?<extension>.*)$", "${pathBase}.png");
+				saveAs("PNG", path_png);
+			}
+			if(save_tif == false){
+				File.delete(files[t]);
+			}
+			rename(img_tracked);
+			
 
 			// Keep tracked image open
 			// Make all background pixels NaN
