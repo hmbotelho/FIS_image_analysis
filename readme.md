@@ -853,7 +853,7 @@ The Fiji workflow comprises two scripts:
 
 
 ## <a name="citation">5. Citation</a>
-<a name="cit01"></a> Hagemeijer MC, Vonk AM, Awatade NT, Silva IAL, Tischer C, Hilsenstein V, Beekman JM, Amaral MD, Botelho HM  (2020) **An open-source high-content analysis workflow for CFTR function measurements using the forskolin-induced swelling assay** *submitted*
+<a name="cit01"></a> Hagemeijer MC, Vonk AM, Awatade NT, Silva IAL, Tischer C, Hilsenstein V, Beekman JM, Amaral MD, Botelho HM (2020) **An open-source high-content analysis workflow for CFTR function measurements using the forskolin-induced swelling assay.** *Bioinformatics*. DOI: [10.1093/bioinformatics/btaa1073](https://doi.org/10.1093/bioinformatics/btaa1073)
 
 
 
