@@ -1,11 +1,15 @@
 // FIS Image Analysis Macro (batch analysis tool)
-// v1.1
+// v1.2
 // ==================================
 // 
 // Required input data:
 //   * Raw timelapse microscopy images of the FIS assay
 //	 * The files being analyzed are defined by the regular expressions in line 49 (variable 'regexfiles').
 //	 * This macro works seamlessly with images renamed with the 'htmrenamer' R package [https://github.com/hmbotelho/htmrenamer].
+//
+// Requires
+//   * MorphoLibJ - https://imagej.net/plugins/morpholibj
+//     The initial denoising step will be disabled if MorphoLibJ is not installed.
 //
 // Functionality:
 //	 * Segments organoids and performs object tracking and object-level quality control.
@@ -15,12 +19,13 @@
 // 
 // Author: Hugo M Botelho, BioISI/FCUL, University of Lisbon
 // hmbotelho@fc.ul.pt
-// November 2020
+// September 2022
 //
 // -------------------------------------
 
 // Segmentation variables
 #@ String(value="=================== Segmentation settings ===================", visibility=MESSAGE) msg1
+#@ Float (label="Radius for denoising:", value=0) radius_open
 #@ String (label="Background filter", choices={"No Filter (flat background)", "Minimum", "Median", "Mean"}) bg_filter
 #@ Integer (label="Radius of filter (if selected, pixel units)", value=50) radius_filter
 #@ Float (label="Offset after background correction", value=0.005) subtract_offset
@@ -72,28 +77,28 @@ if(load_settings){
 	path_settings = File.openDialog("Select settings file");
 	previous_settings = read_settings(path_settings);
 
-	bg_filter           = previous_settings[0];
-	radius_filter       = previous_settings[1];
-	subtract_offset     = previous_settings[2];
-	thresholding_method = previous_settings[3];
-	threshold_value     = previous_settings[4];
-	fillholes           = previous_settings[5];
-	clean               = previous_settings[6];
-	declump             = previous_settings[7];
-	edge_exclude        = previous_settings[8];
-	size_min            = previous_settings[9];
-	size_max            = previous_settings[10];
-	circularity_min     = previous_settings[11];
-	circularity_max     = previous_settings[12];
-	QC_measurement_name = previous_settings[13];
-	QC_measurement_min  = previous_settings[14];
-	QC_measurement_max  = previous_settings[15];
-	pixelsize           = previous_settings[16];
+	radius_open         = previous_settings[0];
+	bg_filter           = previous_settings[1];
+	radius_filter       = previous_settings[2];
+	subtract_offset     = previous_settings[3];
+	thresholding_method = previous_settings[4];
+	threshold_value     = previous_settings[5];
+	fillholes           = previous_settings[6];
+	clean               = previous_settings[7];
+	declump             = previous_settings[8];
+	edge_exclude        = previous_settings[9];
+	size_min            = previous_settings[10];
+	size_max            = previous_settings[11];
+	circularity_min     = previous_settings[12];
+	circularity_max     = previous_settings[13];
+	QC_measurement_name = previous_settings[14];
+	QC_measurement_min  = previous_settings[15];
+	QC_measurement_max  = previous_settings[16];
+	pixelsize           = previous_settings[17];
 }
 
-
-
 fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, threshold_value, fillholes, clean, declump, edge_exclude, size_min, size_max, circularity_min, circularity_max, QC_measurement_name, QC_measurement_min, QC_measurement_max, pixelsize, regexfiles, sourcefolder, targetfolder);
+
 
 
 
@@ -101,6 +106,7 @@ fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, thr
 // Implements
 // Output: count masks and csv files with object features
 //
+// radius_open			numeric, radius for morphological opening (denoise-like)
 // bg_filter			character, filter the raw fluorescence image with this filter to estimate background. See above for valid possibilities
 // radius_filter		numeric, the filter radius
 // subtract_offset		numeric, subtract this value after subtracting the filtered image to the raw one
@@ -128,7 +134,8 @@ fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, thr
 	//===================================================================================================
 	
 	setBatchMode(true);
-	
+
+	radius_open = radius_open;
 	QCmeasurementNamesPretty   = newArray("None - Do not exclude", "Integrated density", "Mean gray value", "Median grayvalue", "Modal gray value", "Standard deviation grayvalues", "Minimum gray value", "Maximum gray value", "Perimeter", "Major ellipse axis", "Minor ellipse axis", "Circularity", "Ellipse aspect ratio", "Roundness", "Solidity", "Maximum caliper (Feret's diameter)", "Minimum caliper (Feret's diameter)", "Skewness", "Form Factor");
 	QCmeasurementNamesHeadings = newArray("",                      "IntDen",             "Mean",            "Median",           "Mode",             "StdDev",                        "Min",                "Max",                "Perim.",    "Major",              "Minor",              "Circ.",       "AR",                   "Round",     "Solidity", "Feret",                              "MinFeret",                           "Skew",     "FormFactor");
 	hindex = getArrayIndexes(QCmeasurementNamesPretty, QC_measurement_name);
@@ -154,6 +161,10 @@ fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, thr
 	
 	
 	// Process variables
+	if(pluginAvailable("MorphoLibJ") == false && radius_open > 0){
+		waitForUser("MorphoLibJ not available (https://imagej.net/plugins/morpholibj). Denoising radius set to 0.");
+		radius_open = 0;
+	}
 	if(fillholes){
 		fill_YN = " Yes";
 	} else{
@@ -212,7 +223,7 @@ fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, thr
 	filehandle = File.open(log_fname);
 	print(filehandle, "=============================================================================");
 	print(filehandle, "FIS image analysis");
-	print(filehandle, "v1.1");
+	print(filehandle, "v1.2");
 	print(filehandle, "=============================================================================");
 	print(filehandle, "");
 	print(filehandle, "Source folder (raw data): " + sourcefolder);
@@ -222,6 +233,7 @@ fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, thr
 	print(filehandle, "");
 	print(filehandle, "Image analysis settings");
 	print(filehandle, "_____________________________________________________________________________");
+	print(filehandle, "Denoising radius: " + radius_open);
 	print(filehandle, "Background filter: " + bg_filter);
 	if(bg_filter != "No Filter (flat background)"){
 		print(filehandle, "Filter radius: " + radius_filter + " pixels");
@@ -394,7 +406,7 @@ fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, thr
 	
 			
 			// Segment image
-			segmentObjects(bg_filter, radius_filter, subtract_offset, thresholding_method, threshold_value, clean, declump, true);
+			segmentObjects(radius_open, bg_filter, radius_filter, subtract_offset, thresholding_method, threshold_value, clean, declump, true);
 	
 	
 	
@@ -425,15 +437,15 @@ fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, thr
 			}
 	
 	
-	
+
 			// Set up measurements. Enable area and QC measurements
 			bgCorrImg_title = "bgCorr_" + frame_name;					// QC measurements are performed on the background-corrected, non-thresholded image
 			activeMeasurements_thisImage = replace(activeMeasurements, "redirect=None", "redirect=" + bgCorrImg_title);
 			run("Set Measurements...", activeMeasurements_thisImage);
-	
+
 			// Measure organoid area
 			run("Analyze Particles...", "size=" + size_min + "-" + size_max + " circularity=" + circularity_min + "-" + circularity_max + " show=[Count Masks] display" + i_edge_exclude + " clear" + i_fill);
-	
+
 			// Compute features not built in ImageJ
 			for (r = 0; r < nResults; r++) {
 				perimeter  = getResult("Perim.", r);
@@ -665,6 +677,7 @@ fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, thr
 // Segment organoids fluorescence image with the parameters provided
 // Output: binary image
 //
+// radius_open			numeric, radius for morphological opening (denoise-like)
 // bg_filter			character, "No Filter (flat background)", "Minimum", "Median", "Mean"
 // radius_filter		numeric, radius of the filter above
 // subtract_offset		numeric, subtract this value to all pixels after subtracting the raw and filtered image
@@ -672,7 +685,7 @@ fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, thr
 // threshold_value		numeric, the manual threshold value. Ignored if 'thresholding_method' is 'Manual'.
 // clean				logical, remove salt & pepper noise?
 // keepBgCorr			logical, keep background corrected image open after running the function?
-function segmentObjects(bg_filter, radius_filter, subtract_offset, thresholding_method, threshold_value, clean, declump, keepBgCorr) {
+function segmentObjects(radius_open, bg_filter, radius_filter, subtract_offset, thresholding_method, threshold_value, clean, declump, keepBgCorr) {
 
 	// Sanity check
 	supported_thresholding_methods = newArray("Manual", "Huang", "Intermodes", "IsoData", "IJ_IsoData", "Li", "MaxEntropy", "Mean", "MinError", "Minimum", "Moments", "Otsu", "Percentile", "RenyiEntropy", "Shanbhag", "Triangle", "Yen");
@@ -701,7 +714,16 @@ fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, thr
 	// 1. Initialize
 	run("16-bit");
 
-	// 2. Background subtraction
+	// 2. Denoise
+	if(pluginAvailable("MorphoLibJ") && radius_open > 0){
+		run("Morphological Filters", "operation=Opening element=Disk radius=" + radius_open);
+		imgname3 = getTitle();
+		close(imgname);
+		selectWindow(imgname3);
+		rename(imgname);
+	}
+
+	// 3. Background subtraction
 	if(dofilter){
 		run("Duplicate...", " ");
 		rename(imgname2);
@@ -711,7 +733,7 @@ fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, thr
 	}
 	selectWindow(imgname);
 
-	// 3. Rescale intensity to [0 ~ 1]
+	// 4. Rescale intensity to [0 ~ 1]
 	run("32-bit");
 
 	getRawStatistics(nPixels, mean, min, max); 
@@ -719,7 +741,7 @@ fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, thr
 	run("Subtract...", "value=&min"); 
 	run("Divide...", "value=&range"); 
 
-	// 4. Subtract offset (and strech intensities to [0 ~ 1]
+	// 5. Subtract offset (and strech intensities to [0 ~ 1]
 	run("Subtract...", "value=" + subtract_offset);
 	run("Multiply...", "value=" + 1/(1-subtract_offset));
 
@@ -730,7 +752,7 @@ fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, thr
 		selectWindow(imgname);
 	}
 
-	// 5. Threshold
+	// 6. Threshold
 	if(thresholding_method == "Manual"){
 		setOption("BlackBackground", true);
 		getRawStatistics(nPixels, mean, min, max);
@@ -740,12 +762,12 @@ fis_analysis(bg_filter, radius_filter, subtract_offset, thresholding_method, thr
 	}
 	run("Make Binary");
 
-	// 6. Remove salt & pepper noise
+	// 7. Remove salt & pepper noise
 	if(clean){
 		run("Options...", "iterations=1 count=8 black pad do=Erode");
 	}
 
-	// 7. Watershed
+	// 8. Watershed
 	if(declump){
 		run("Watershed");
 	}
@@ -1014,6 +1036,26 @@ function formFactor(area, perimeter){
 }
 
 
+// check if a plugin is available
+// Output: boolean
+//
+// name			character
+function pluginAvailable(plgname){
+	plugins_dir = getDir("plugins");
+	all_plugins = getFileList(plugins_dir);
+	
+	out = false;
+	for(i=0; i<lengthOf(all_plugins); i++){
+		this_plugin = all_plugins[i];
+		if(startsWith(this_plugin, plgname)){
+			out = true;
+		}
+	}
+	
+	return out;
+}
+
+
 // Tracks objects from count masks from a FIS time lapse
 // Output 1: relabeled masks
 // Output 2: report table (as image)
@@ -1043,7 +1085,6 @@ function trackOrganoidLabels(files, targetfolder, save_tif, save_png) {
 		available_labels = unique_labels();
 		available_labels = Array.sort(available_labels);
 		maxID = available_labels[lengthOf(available_labels)-1];
-
 
 		// Create relabeled image
 		img_tracked = File.getName(files[0]);
@@ -1454,6 +1495,7 @@ function unique_labels(){
 	selectWindow(img_points_labels);
 
 	// Count 
+	run("Set Measurements...", "min redirect=None decimal=3");
 	max_label = getValue("Max");
 	for(label=1; label <= max_label; label++){
 		setThreshold(label, label);
@@ -1627,16 +1669,17 @@ function read_settings(path){
 	version_minor = replace(version_txt, regex_version, "${versionMinor}");
 	version_revision = replace(version_txt, regex_version, "${versionRevision}");
 	if(version_major < 1){
-		exit("The load settings feature requires version 1.1 of the FIS analysis tool.");
+		exit("The load settings feature requires version 1.2 of the FIS analysis tool.");
 	} else{
-		if(version_minor < 1){
-			exit("The load settings feature requires version 1.1 of the FIS analysis tool.");
+		if(version_minor < 2){
+			exit("The load settings feature requires version 1.2 of the FIS analysis tool.");
 		}
 	}
 
 	// Initialize variables
-	result = newArray(17);
+	result = newArray(18);
 	Array.fill(result, NaN);
+	regex_radius_open      = "^Denoising radius: (?<setting>.*)$";
 	regex_bg_filter           = "^Background filter: (?<setting>.*)$";
 	regex_radius_filter       = "^Filter radius: (?<setting>.*)$";
 	regex_subtract_offset     = "^Image offset: (?<setting>.*)$";
@@ -1660,13 +1703,24 @@ function read_settings(path){
 	for(i=0; i<lengthOf(settings_array); i++){
 		line = settings_array[i];
 
+		// radius_open
+		if(matches(line, regex_radius_open)){
+			radius_open = replace(line, regex_radius_open, "${setting}");
+			temp = parseFloat(radius_open);
+			if(isNaN(temp))  exit("Error loading settings file: unexpected 'radius_open'.");
+			if(temp < 0) exit("Cannot load settings: negative denoise radius.");
+		
+			result[0] = radius_open;
+		}
+
+
 		// bg_filter
 		if(matches(line, regex_bg_filter)){
 			bg_filter = replace(line, regex_bg_filter, "${setting}");
 			allowed_filters = newArray("No Filter (flat background)", "Minimum", "Median", "Mean");
 			if(array_count(allowed_filters, bg_filter) != 1) exit("Error loading settings file: unexpected 'bg_filter'.");
 			
-			result[0] = bg_filter;
+			result[1] = bg_filter;
 		}
 
 
@@ -1677,7 +1731,7 @@ function read_settings(path){
 			if(isNaN(temp))  exit("Error loading settings file: unexpected 'radius_filter'.");
 			if(temp < 0) exit("Cannot load settings: negative filter radius.");
 		
-			result[1] = radius_filter;
+			result[2] = radius_filter;
 		}
 		
 
@@ -1687,7 +1741,7 @@ function read_settings(path){
 			temp = parseFloat(subtract_offset);
 			if(isNaN(temp)) exit("Error loading settings file: unexpected 'subtract_offset'.");
 			
-			result[2] = subtract_offset;
+			result[3] = subtract_offset;
 		}
 
 
@@ -1697,7 +1751,7 @@ function read_settings(path){
 			allowed_methods = newArray("Manual", "Huang", "Intermodes", "IsoData", "IJ_IsoData", "Li", "MaxEntropy", "Mean", "MinError", "Minimum", "Moments", "Otsu", "Percentile", "RenyiEntropy", "Shanbhag", "Triangle", "Yen");
 			if(array_count(allowed_methods, thresholding_method) != 1) exit("Error loading settings file: unexpected 'thresholding_method'.");
 			
-			result[3] = thresholding_method;
+			result[4] = thresholding_method;
 		}
 
 
@@ -1707,7 +1761,7 @@ function read_settings(path){
 			temp = parseFloat(threshold_value);
 			if(isNaN(temp))  exit("Error loading settings file: unexpected 'threshold_value'.");
 		
-			result[4] = threshold_value;
+			result[5] = threshold_value;
 		}
 
 
@@ -1718,7 +1772,7 @@ function read_settings(path){
 			if(temp == "No") fillholes = false;
 			if(temp != "Yes" && temp != "No") exit("Error loading settings file: unexpected 'fillholes'.");
 			
-			result[5] = fillholes;
+			result[6] = fillholes;
 		}
 
 
@@ -1729,7 +1783,7 @@ function read_settings(path){
 			if(temp == "No") clean = false;
 			if(temp != "Yes" && temp != "No") exit("Error loading settings file: unexpected 'clean'.");
 			
-			result[6] = clean;
+			result[7] = clean;
 		}
 
 		
@@ -1740,7 +1794,7 @@ function read_settings(path){
 			if(temp == "No") declump = false;
 			if(temp != "Yes" && temp != "No") exit("Error loading settings file: unexpected 'declump'.");
 			
-			result[7] = declump;
+			result[8] = declump;
 		}
 		
 
@@ -1751,7 +1805,7 @@ function read_settings(path){
 			if(temp == "No") edge_exclude = false;
 			if(temp != "Yes" && temp != "No") exit("Error loading settings file: unexpected 'edge_exclude'.");
 			
-			result[8] = edge_exclude;
+			result[9] = edge_exclude;
 		}
 
 
@@ -1762,7 +1816,7 @@ function read_settings(path){
 			if(isNaN(temp))  exit("Error loading settings file: unexpected 'size_min'.");
 			if(temp < 0) exit("Cannot load settings: negative minimum size.");
 			
-			result[9] = size_min;
+			result[10] = size_min;
 		}
 
 
@@ -1775,7 +1829,7 @@ function read_settings(path){
 			temp_max = parseFloat(size_max);		
 			if(temp_max < temp_min) exit("Size maximum is lower than size minimum");
 			
-			result[10] = size_max;
+			result[11] = size_max;
 		}
 
 
@@ -1786,7 +1840,7 @@ function read_settings(path){
 			if(isNaN(temp))  exit("Error loading settings file: unexpected 'circularity_min'.");
 			if(temp < 0) exit("Cannot load settings: negative circularity.");
 			
-			result[11] = circularity_min;
+			result[12] = circularity_min;
 		}
 
 
@@ -1800,7 +1854,7 @@ function read_settings(path){
 			temp_max = parseFloat(circularity_max);	
 			if(temp_max < temp_min) exit("Circularity maximum is lower than circularity minimum");
 		
-			result[12] = circularity_max;
+			result[13] = circularity_max;
 		}
 
 
@@ -1808,7 +1862,7 @@ function read_settings(path){
 		if(matches(line, regex_QC_measurement_name)){
 			QC_measurement_name = replace(line, regex_QC_measurement_name, "${setting}");
 			
-			result[13] = QC_measurement_name;
+			result[14] = QC_measurement_name;
 		}
 
 
@@ -1818,7 +1872,7 @@ function read_settings(path){
 			temp = parseFloat(QC_measurement_min);
 			if(isNaN(temp))  exit("Error loading settings file: unexpected 'QC_measurement_min'.");
 		
-			result[14] = QC_measurement_min;
+			result[15] = QC_measurement_min;
 		}
 
 
@@ -1831,7 +1885,7 @@ function read_settings(path){
 			temp_max = parseFloat(QC_measurement_max);
 			if(temp_max < temp_min) exit("QC maximum is lower than QC minimum");
 			
-			result[15] = QC_measurement_max;
+			result[16] = QC_measurement_max;
 		}
 		
 		
@@ -1842,7 +1896,7 @@ function read_settings(path){
 			if(isNaN(temp))  exit("Error loading settings file: unexpected 'pixelsize'.");
 			if(temp < 0) exit("Cannot load settings: negative pixel size.");
 		
-			result[16] = pixelsize;
+			result[17] = pixelsize;
 		}
 	}
 

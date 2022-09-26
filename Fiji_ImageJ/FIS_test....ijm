@@ -1,7 +1,11 @@
 // FIS Image Analysis Macro (Test mode)
-// v1.1
+// v1.2
 // ==================================
 // 
+// Requires
+//   * MorphoLibJ - https://imagej.net/plugins/morpholibj
+//     The initial denoising step will be disabled if MorphoLibJ is not installed.
+//
 // Required input data:
 //   * One raw timelapse microscopy image of the FIS assay
 //	 * This macro requires an open image and will process the active one
@@ -16,20 +20,21 @@
 //   * This is the sequence of image analysis steps:
 //      1.  Duplicate raw image
 //      2.  Convert to 16bit
-//      3.  Compute a 'background-only' image (e.g. median filter)
-//      4.  Subtract raw from background-only
-//      5.  Rescale 0~1
-//      6.  Subtract image offset (object fluorescence contributes to the background-only image)
-//      7.  Manual- or auto-thresholding
-//      8.  Remove salt and pepper noise
-//      9.  Watershed
-//      10. Apply quality control criteria
-//		11. Track objects
-//      12. Display segmented organoids (segmentation masks, aka object labels image)
+//      3.  Denoise (morphological opening)
+//      4.  Compute a 'background-only' image (e.g. median filter)
+//      5.  Subtract raw from background-only
+//      6.  Rescale 0~1
+//      7.  Subtract image offset (object fluorescence contributes to the background-only image)
+//      8.  Manual- or auto-thresholding
+//      9.  Remove salt and pepper noise
+//      10.  Watershed
+//      11. Apply quality control criteria
+//		12. Track objects
+//      13. Display segmented organoids (segmentation masks, aka object labels image)
 // 
 // Author: Hugo M Botelho, BioISI/FCUL, University of Lisbon
 // hmbotelho@fc.ul.pt
-// October 2020
+// September 2022
 //
 // -------------------------------------
 
@@ -42,6 +47,7 @@ QCmeasurementNamesHeadings = newArray("",                      "IntDen",        
 bg_filters = newArray("No Filter (flat background)", "Minimum", "Median", "Mean");
 thresholding_methods = newArray("Manual", "Huang", "Intermodes", "IsoData", "IJ_IsoData", "Li", "MaxEntropy", "Mean", "MinError", "Minimum", "Moments", "Otsu", "Percentile", "RenyiEntropy", "Shanbhag", "Triangle", "Yen");
 
+default_radius_open = 0;
 default_bg_filter = bg_filters[2];
 default_radius_filter = 50;
 default_subtract_offset = 0.005;
@@ -60,7 +66,7 @@ default_QC_measurement_name = QCmeasurementNamesPretty[0];
 default_QC_measurement_min = -999999;
 default_QC_measurement_max = 999999;
 default_pixelsize = 4.991;
-testImageNames = newArray("raw", "16bit", "background", "bgCorr_withOffset", "bgCorr_withOffset_rescaled", "bgCorrected", "thresholded", "withoutSaltPepper", "declumped_watershed", "organoids_beforeQC", "ORGANOIDS_FINAL")
+testImageNames = newArray("raw", "16bit", "denoised", "background", "bgCorr_withOffset", "bgCorr_withOffset_rescaled", "bgCorrected", "thresholded", "withoutSaltPepper", "declumped_watershed", "organoids_beforeQC", "ORGANOIDS_FINAL")
 
 
 
@@ -92,8 +98,9 @@ while(true) {
 	}
 
 	// Use a dialog box to get input from the user
-	Dialog.create("FIS Analysis tool v1.1 [Test Mode]");
+	Dialog.create("FIS Analysis tool v1.2 [Test Mode]");
 	Dialog.addMessage("=================== Segmentation settings ===================");
+	Dialog.addSlider("Radius for denoising:", 0, 10, default_radius_open);
 	Dialog.addChoice("Background filter:", bg_filters, default_bg_filter);
 	Dialog.addSlider("Radius of filter (if selected, pixel units):", 1, 1000, default_radius_filter);
 	Dialog.addNumber("Offset after background correction:", default_subtract_offset);
@@ -129,6 +136,7 @@ while(true) {
 	// Get data from dialog
 	
 	// Segmentation variables
+	radius_open = Dialog.getNumber();
 	bg_filter = Dialog.getChoice();
 	radius_filter = Dialog.getNumber();
 	subtract_offset = Dialog.getNumber();
@@ -157,6 +165,7 @@ while(true) {
 	pixelsize = Dialog.getNumber();
 
 	// Set values for when the window pops up again
+	default_radius_open = radius_open;
 	default_bg_filter = bg_filter;
 	default_radius_filter = radius_filter;
 	default_subtract_offset = subtract_offset;
@@ -203,12 +212,13 @@ while(true) {
 	print("\\Clear");
 	print("=============================================================================");
 	print("FIS image analysis macro - Test mode");
-	print("v1.1");
+	print("v1.2");
 	print("=============================================================================\n");
 	print("Testing segmentation in image '" + rawtitle + "'");
 	print("_____________________________________________________________________________\n");
 	print("");
 	print("Selected settings:");
+	print("Denoising radius: " + radius_open);
 	print("Background filter: " + bg_filter);
 	if(bg_filter != "No Filter (flat background)"){
 		print("Filter radius: " + radius_filter);
@@ -252,6 +262,13 @@ while(true) {
 		run("16-bit");
 		run("Enhance Contrast", "saturated=0.35");
 
+		// --- Denoising (Morphological opening) ---
+		if(pluginAvailable("MorphoLibJ") && radius_open > 0){
+			run("Morphological Filters", "operation=Opening element=Disk radius=" + radius_open);
+			rename("denoised");
+		}
+
+		// --- Compute background ---
 		if(bg_filter != "No Filter (flat background)"){
 
 			// Apply filter to create a bacground-only image
@@ -639,4 +656,26 @@ function ReplacePixelValues(pixelValueMin, pixelValueMax, replaceValue){
 function formFactor(area, perimeter){
 	FF = 4*PI*area/pow(perimeter, 2);
 	return(FF);
+}
+
+
+
+
+
+// check if a plugin is available
+// name: plugin name
+// output: boolean
+function pluginAvailable(plgname){
+	plugins_dir = getDir("plugins");
+	all_plugins = getFileList(plugins_dir);
+	
+	out = false;
+	for(i=0; i<lengthOf(all_plugins); i++){
+		this_plugin = all_plugins[i];
+		if(startsWith(this_plugin, plgname)){
+			out = true;
+		}
+	}
+	
+	return out;
 }

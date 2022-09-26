@@ -1,299 +1,766 @@
 CellProfiler Pipeline: http://www.cellprofiler.org
-Version:4
-DateRevision:319
+Version:5
+DateRevision:424
 GitHash:
 ModuleCount:17
-HasImagePlaneDetails:False
+HasImagePlaneDetails:True
 
-Images:[module_num:1|svn_version:\'Unknown\'|variable_revision_number:2|show_window:False|notes:\x5B\'Drag and drop the renamed onto the large white box below.\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
-    :\xff\xfe
-    Filter images?:\xff\xfeI\x00m\x00a\x00g\x00e\x00s\x00 \x00o\x00n\x00l\x00y\x00
-    Select the rule criteria:\xff\xfea\x00n\x00d\x00 \x00(\x00f\x00i\x00l\x00e\x00 \x00d\x00o\x00e\x00s\x00 \x00c\x00o\x00n\x00t\x00a\x00i\x00n\x00 \x00"\x00-\x00-\x00W\x000\x000\x000\x001\x00-\x00-\x00"\x00)\x00
+Images:[module_num:1|svn_version:'Unknown'|variable_revision_number:2|show_window:False|notes:['Drag and drop the renamed onto the large white box below.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    :
+    Filter images?:Images only
+    Select the rule criteria:and (file does contain "--W0001--")
 
-Metadata:[module_num:2|svn_version:\'Unknown\'|variable_revision_number:5|show_window:False|notes:\x5B\'This module will extract information describing the images (i.e, metadata) which will be stored along with your measurements. This information is contained in the file and folder names.\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
-    Extract metadata?:\xff\xfeY\x00e\x00s\x00
-    Metadata data type:\xff\xfeT\x00e\x00x\x00t\x00
-    Metadata types:\xff\xfe{\x00}\x00
-    Extraction method count:\xff\xfe3\x00
-    Metadata extraction method:\xff\xfeE\x00x\x00t\x00r\x00a\x00c\x00t\x00 \x00f\x00r\x00o\x00m\x00 \x00f\x00i\x00l\x00e\x00/\x00f\x00o\x00l\x00d\x00e\x00r\x00 \x00n\x00a\x00m\x00e\x00s\x00
-    Metadata source:\xff\xfeF\x00i\x00l\x00e\x00 \x00n\x00a\x00m\x00e\x00
-    Regular expression to extract from file name:\xff\xfe(\x00?\x00P\x00<\x00p\x00l\x00a\x00t\x00e\x00N\x00a\x00m\x00e\x00>\x00.\x00*\x00)\x00\x5B\x00-\x00\x5D\x00\x5B\x00-\x00\x5D\x00(\x00?\x00P\x00<\x00c\x00o\x00m\x00p\x00o\x00u\x00n\x00d\x00>\x00.\x00*\x00)\x00\x5B\x00-\x00\x5D\x00\x5B\x00-\x00\x5D\x00(\x00?\x00P\x00<\x00c\x00o\x00n\x00c\x00e\x00n\x00t\x00r\x00a\x00t\x00i\x00o\x00n\x00>\x00.\x00*\x00)\x00\x5B\x00-\x00\x5D\x00\x5B\x00-\x00\x5D\x00W\x00(\x00?\x00P\x00<\x00w\x00e\x00l\x00l\x00N\x00u\x00m\x00>\x00.\x00*\x00)\x00\x5B\x00-\x00\x5D\x00\x5B\x00-\x00\x5D\x00P\x00(\x00?\x00P\x00<\x00p\x00o\x00s\x00N\x00u\x00m\x00>\x00.\x00*\x00)\x00\x5B\x00-\x00\x5D\x00\x5B\x00-\x00\x5D\x00T\x00(\x00?\x00P\x00<\x00t\x00i\x00m\x00e\x00N\x00u\x00m\x00>\x00.\x00*\x00)\x00\x5B\x00-\x00\x5D\x00\x5B\x00-\x00\x5D\x00C\x00(\x00?\x00P\x00<\x00C\x00h\x00a\x00n\x00n\x00e\x00l\x00>\x00.\x00*\x00)\x00.\x00t\x00i\x00f\x00$\x00
-    Regular expression to extract from folder name:\xff\xfe(\x00?\x00P\x00<\x00D\x00a\x00t\x00e\x00>\x00\x5B\x000\x00-\x009\x00\x5D\x00{\x004\x00}\x00_\x00\x5B\x000\x00-\x009\x00\x5D\x00{\x002\x00}\x00_\x00\x5B\x000\x00-\x009\x00\x5D\x00{\x002\x00}\x00)\x00$\x00
-    Extract metadata from:\xff\xfeA\x00l\x00l\x00 \x00i\x00m\x00a\x00g\x00e\x00s\x00
-    Select the filtering criteria:\xff\xfea\x00n\x00d\x00 \x00(\x00f\x00i\x00l\x00e\x00 \x00d\x00o\x00e\x00s\x00 \x00c\x00o\x00n\x00t\x00a\x00i\x00n\x00 \x00"\x00"\x00)\x00
-    Metadata file location:\xff\xfeE\x00l\x00s\x00e\x00w\x00h\x00e\x00r\x00e\x00.\x00.\x00.\x00\x7C\x00
-    Match file and image metadata:\xff\xfe\x5B\x00\x5D\x00
-    Use case insensitive matching?:\xff\xfeN\x00o\x00
-    Metadata file name:\xff\xfe
-    Metadata extraction method:\xff\xfeE\x00x\x00t\x00r\x00a\x00c\x00t\x00 \x00f\x00r\x00o\x00m\x00 \x00f\x00i\x00l\x00e\x00/\x00f\x00o\x00l\x00d\x00e\x00r\x00 \x00n\x00a\x00m\x00e\x00s\x00
-    Metadata source:\xff\xfeF\x00i\x00l\x00e\x00 \x00n\x00a\x00m\x00e\x00
-    Regular expression to extract from file name:\xff\xfe(\x00?\x00P\x00<\x00i\x00m\x00a\x00g\x00e\x00B\x00a\x00s\x00e\x00N\x00a\x00m\x00e\x00>\x00.\x00*\x00)\x00\x5B\x00-\x00\x5D\x00\x5B\x00-\x00\x5D\x00.\x00*\x00\x5B\x00.\x00\x5D\x00.\x00*\x00$\x00
-    Regular expression to extract from folder name:\xff\xfe(\x00?\x00P\x00<\x00D\x00a\x00t\x00e\x00>\x00\x5B\x000\x00-\x009\x00\x5D\x00{\x004\x00}\x00_\x00\x5B\x000\x00-\x009\x00\x5D\x00{\x002\x00}\x00_\x00\x5B\x000\x00-\x009\x00\x5D\x00{\x002\x00}\x00)\x00$\x00
-    Extract metadata from:\xff\xfeA\x00l\x00l\x00 \x00i\x00m\x00a\x00g\x00e\x00s\x00
-    Select the filtering criteria:\xff\xfea\x00n\x00d\x00 \x00(\x00f\x00i\x00l\x00e\x00 \x00d\x00o\x00e\x00s\x00 \x00c\x00o\x00n\x00t\x00a\x00i\x00n\x00 \x00"\x00"\x00)\x00
-    Metadata file location:\xff\xfeE\x00l\x00s\x00e\x00w\x00h\x00e\x00r\x00e\x00.\x00.\x00.\x00\x7C\x00
-    Match file and image metadata:\xff\xfe\x5B\x00\x5D\x00
-    Use case insensitive matching?:\xff\xfeN\x00o\x00
-    Metadata file name:\xff\xfe
-    Metadata extraction method:\xff\xfeE\x00x\x00t\x00r\x00a\x00c\x00t\x00 \x00f\x00r\x00o\x00m\x00 \x00f\x00i\x00l\x00e\x00/\x00f\x00o\x00l\x00d\x00e\x00r\x00 \x00n\x00a\x00m\x00e\x00s\x00
-    Metadata source:\xff\xfeF\x00o\x00l\x00d\x00e\x00r\x00 \x00n\x00a\x00m\x00e\x00
-    Regular expression to extract from file name:\xff\xfe^\x00(\x00?\x00P\x00<\x00P\x00l\x00a\x00t\x00e\x00>\x00.\x00*\x00)\x00_\x00(\x00?\x00P\x00<\x00W\x00e\x00l\x00l\x00>\x00\x5B\x00A\x00-\x00P\x00\x5D\x00\x5B\x000\x00-\x009\x00\x5D\x00{\x002\x00}\x00)\x00_\x00s\x00(\x00?\x00P\x00<\x00S\x00i\x00t\x00e\x00>\x00\x5B\x000\x00-\x009\x00\x5D\x00)\x00_\x00w\x00(\x00?\x00P\x00<\x00C\x00h\x00a\x00n\x00n\x00e\x00l\x00N\x00u\x00m\x00b\x00e\x00r\x00>\x00\x5B\x000\x00-\x009\x00\x5D\x00)\x00
-    Regular expression to extract from folder name:\xff\xfe^\x00(\x00?\x00P\x00<\x00p\x00a\x00t\x00h\x00B\x00a\x00s\x00e\x00>\x00.\x00*\x00)\x00\x5B\x00\\\x00\\\x00/\x00\x5D\x00(\x00?\x00P\x00<\x00p\x00l\x00a\x00t\x00e\x00P\x00a\x00t\x00h\x00>\x00.\x00*\x00)\x00\x5B\x00\\\x00\\\x00/\x00\x5D\x00(\x00?\x00P\x00<\x00w\x00e\x00l\x00l\x00P\x00a\x00t\x00h\x00>\x00.\x00*\x00)\x00\x5B\x00\\\x00\\\x00/\x00\x5D\x00(\x00?\x00P\x00<\x00p\x00o\x00s\x00P\x00a\x00t\x00h\x00>\x00.\x00*\x00)\x00$\x00
-    Extract metadata from:\xff\xfeA\x00l\x00l\x00 \x00i\x00m\x00a\x00g\x00e\x00s\x00
-    Select the filtering criteria:\xff\xfea\x00n\x00d\x00 \x00(\x00f\x00i\x00l\x00e\x00 \x00d\x00o\x00e\x00s\x00 \x00c\x00o\x00n\x00t\x00a\x00i\x00n\x00 \x00"\x00"\x00)\x00
-    Metadata file location:\xff\xfeE\x00l\x00s\x00e\x00w\x00h\x00e\x00r\x00e\x00.\x00.\x00.\x00\x7C\x00
-    Match file and image metadata:\xff\xfe\x5B\x00\x5D\x00
-    Use case insensitive matching?:\xff\xfeN\x00o\x00
-    Metadata file name:\xff\xfe
+Metadata:[module_num:2|svn_version:'Unknown'|variable_revision_number:6|show_window:False|notes:['This module will extract information describing the images (i.e, metadata) which will be stored along with your measurements. This information is contained in the file and folder names.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Extract metadata?:Yes
+    Metadata data type:Text
+    Metadata types:{}
+    Extraction method count:3
+    Metadata extraction method:Extract from file/folder names
+    Metadata source:File name
+    Regular expression to extract from file name:(?P<plateName>.*)[-][-](?P<compound>.*)[-][-](?P<concentration>.*)[-][-]W(?P<wellNum>.*)[-][-]P(?P<posNum>.*)[-][-]T(?P<timeNum>.*)[-][-]C(?P<Channel>.*).tif$
+    Regular expression to extract from folder name:(?P<Date>[0-9]{4}_[0-9]{2}_[0-9]{2})$
+    Extract metadata from:All images
+    Select the filtering criteria:and (file does contain "")
+    Metadata file location:Elsewhere...|
+    Match file and image metadata:[]
+    Use case insensitive matching?:No
+    Metadata file name:
+    Does cached metadata exist?:No
+    Metadata extraction method:Extract from file/folder names
+    Metadata source:File name
+    Regular expression to extract from file name:(?P<imageBaseName>.*)[-][-].*[.].*$
+    Regular expression to extract from folder name:(?P<Date>[0-9]{4}_[0-9]{2}_[0-9]{2})$
+    Extract metadata from:All images
+    Select the filtering criteria:and (file does contain "")
+    Metadata file location:Elsewhere...|
+    Match file and image metadata:[]
+    Use case insensitive matching?:No
+    Metadata file name:
+    Does cached metadata exist?:No
+    Metadata extraction method:Extract from file/folder names
+    Metadata source:Folder name
+    Regular expression to extract from file name:^(?P<Plate>.*)_(?P<Well>[A-P][0-9]{2})_s(?P<Site>[0-9])_w(?P<ChannelNumber>[0-9])
+    Regular expression to extract from folder name:^(?P<pathBase>.*)[\\/](?P<platePath>.*)[\\/](?P<wellPath>.*)[\\/](?P<posPath>.*)$
+    Extract metadata from:All images
+    Select the filtering criteria:and (file does contain "")
+    Metadata file location:Elsewhere...|
+    Match file and image metadata:[]
+    Use case insensitive matching?:No
+    Metadata file name:
+    Does cached metadata exist?:No
 
-NamesAndTypes:[module_num:3|svn_version:\'Unknown\'|variable_revision_number:8|show_window:False|notes:\x5B\'This module assigns the name "calceinRGB" to each raw image. This is the name whereby raw images will be referred to within CellProfiler.\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
-    Assign a name to:\xff\xfeI\x00m\x00a\x00g\x00e\x00s\x00 \x00m\x00a\x00t\x00c\x00h\x00i\x00n\x00g\x00 \x00r\x00u\x00l\x00e\x00s\x00
-    Select the image type:\xff\xfeG\x00r\x00a\x00y\x00s\x00c\x00a\x00l\x00e\x00 \x00i\x00m\x00a\x00g\x00e\x00
-    Name to assign these images:\xff\xfeD\x00N\x00A\x00
-    Match metadata:\xff\xfe\x5B\x00\x5D\x00
-    Image set matching method:\xff\xfeO\x00r\x00d\x00e\x00r\x00
-    Set intensity range from:\xff\xfeI\x00m\x00a\x00g\x00e\x00 \x00m\x00e\x00t\x00a\x00d\x00a\x00t\x00a\x00
-    Assignments count:\xff\xfe1\x00
-    Single images count:\xff\xfe0\x00
-    Maximum intensity:\xff\xfe2\x005\x005\x00.\x000\x00
-    Process as 3D?:\xff\xfeN\x00o\x00
-    Relative pixel spacing in X:\xff\xfe1\x00.\x000\x00
-    Relative pixel spacing in Y:\xff\xfe1\x00.\x000\x00
-    Relative pixel spacing in Z:\xff\xfe1\x00.\x000\x00
-    Select the rule criteria:\xff\xfea\x00n\x00d\x00 \x00(\x00f\x00i\x00l\x00e\x00 \x00d\x00o\x00e\x00s\x00 \x00c\x00o\x00n\x00t\x00a\x00i\x00n\x00r\x00e\x00g\x00e\x00x\x00p\x00 \x00"\x00.\x00*\x00-\x00-\x00C\x000\x000\x00(\x00?\x00\x3A\x00\\\x00\\\x00.\x00o\x00m\x00e\x00)\x00?\x00?\x00.\x00t\x00i\x00f\x00$\x00"\x00)\x00
-    Name to assign these images:\xff\xfec\x00a\x00l\x00c\x00e\x00i\x00n\x00R\x00G\x00B\x00
-    Name to assign these objects:\xff\xfeC\x00e\x00l\x00l\x00
-    Select the image type:\xff\xfeC\x00o\x00l\x00o\x00r\x00 \x00i\x00m\x00a\x00g\x00e\x00
-    Set intensity range from:\xff\xfeI\x00m\x00a\x00g\x00e\x00 \x00m\x00e\x00t\x00a\x00d\x00a\x00t\x00a\x00
-    Maximum intensity:\xff\xfe2\x005\x005\x00.\x000\x00
+NamesAndTypes:[module_num:3|svn_version:'Unknown'|variable_revision_number:8|show_window:False|notes:['This module assigns the name "calceinRGB" to each raw image. This is the name whereby raw images will be referred to within CellProfiler.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Assign a name to:Images matching rules
+    Select the image type:Grayscale image
+    Name to assign these images:DNA
+    Match metadata:[]
+    Image set matching method:Order
+    Set intensity range from:Image metadata
+    Assignments count:1
+    Single images count:0
+    Maximum intensity:255.0
+    Process as 3D?:No
+    Relative pixel spacing in X:1.0
+    Relative pixel spacing in Y:1.0
+    Relative pixel spacing in Z:1.0
+    Select the rule criteria:and (file does containregexp ".*--C00(?:\\.ome)??.tif$")
+    Name to assign these images:calceinRGB
+    Name to assign these objects:Cell
+    Select the image type:Color image
+    Set intensity range from:Image metadata
+    Maximum intensity:255.0
 
-Groups:[module_num:4|svn_version:\'Unknown\'|variable_revision_number:2|show_window:False|notes:\x5B\'This module groups groups images well/by/well, thereby enabling a global analysis of each time lapse.\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
-    Do you want to group your images?:\xff\xfeY\x00e\x00s\x00
-    grouping metadata count:\xff\xfe1\x00
-    Metadata category:\xff\xfew\x00e\x00l\x00l\x00N\x00u\x00m\x00
+Groups:[module_num:4|svn_version:'Unknown'|variable_revision_number:2|show_window:False|notes:['This module groups groups images well/by/well, thereby enabling a global analysis of each time lapse.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Do you want to group your images?:Yes
+    grouping metadata count:1
+    Metadata category:wellNum
 
-ColorToGray:[module_num:5|svn_version:\'Unknown\'|variable_revision_number:4|show_window:False|notes:\x5B\'Split RGB images and keep only the green channel for further analysis.\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
-    Select the input image:\xff\xfec\x00a\x00l\x00c\x00e\x00i\x00n\x00R\x00G\x00B\x00
-    Conversion method:\xff\xfeS\x00p\x00l\x00i\x00t\x00
-    Image type:\xff\xfeR\x00G\x00B\x00
-    Name the output image:\xff\xfeO\x00r\x00i\x00g\x00G\x00r\x00a\x00y\x00
-    Relative weight of the red channel:\xff\xfe1\x00.\x000\x00
-    Relative weight of the green channel:\xff\xfe1\x00.\x000\x00
-    Relative weight of the blue channel:\xff\xfe1\x00.\x000\x00
-    Convert red to gray?:\xff\xfeN\x00o\x00
-    Name the output image:\xff\xfeO\x00r\x00i\x00g\x00R\x00e\x00d\x00
-    Convert green to gray?:\xff\xfeY\x00e\x00s\x00
-    Name the output image:\xff\xfec\x00a\x00l\x00c\x00e\x00i\x00n\x00
-    Convert blue to gray?:\xff\xfeN\x00o\x00
-    Name the output image:\xff\xfeO\x00r\x00i\x00g\x00B\x00l\x00u\x00e\x00
-    Convert hue to gray?:\xff\xfeY\x00e\x00s\x00
-    Name the output image:\xff\xfeO\x00r\x00i\x00g\x00H\x00u\x00e\x00
-    Convert saturation to gray?:\xff\xfeY\x00e\x00s\x00
-    Name the output image:\xff\xfeO\x00r\x00i\x00g\x00S\x00a\x00t\x00u\x00r\x00a\x00t\x00i\x00o\x00n\x00
-    Convert value to gray?:\xff\xfeY\x00e\x00s\x00
-    Name the output image:\xff\xfeO\x00r\x00i\x00g\x00V\x00a\x00l\x00u\x00e\x00
-    Channel count:\xff\xfe1\x00
-    Channel number:\xff\xfe1\x00
-    Relative weight of the channel:\xff\xfe1\x00.\x000\x00
-    Image name:\xff\xfeC\x00h\x00a\x00n\x00n\x00e\x00l\x001\x00
+ColorToGray:[module_num:5|svn_version:'Unknown'|variable_revision_number:4|show_window:False|notes:['Split RGB images and keep only the green channel for further analysis.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input image:calceinRGB
+    Conversion method:Split
+    Image type:RGB
+    Name the output image:OrigGray
+    Relative weight of the red channel:1.0
+    Relative weight of the green channel:1.0
+    Relative weight of the blue channel:1.0
+    Convert red to gray?:No
+    Name the output image:OrigRed
+    Convert green to gray?:Yes
+    Name the output image:calcein
+    Convert blue to gray?:No
+    Name the output image:OrigBlue
+    Convert hue to gray?:Yes
+    Name the output image:OrigHue
+    Convert saturation to gray?:Yes
+    Name the output image:OrigSaturation
+    Convert value to gray?:Yes
+    Name the output image:OrigValue
+    Channel count:1
+    Channel number:1
+    Relative weight of the channel:1.0
+    Image name:Channel1
 
-RescaleIntensity:[module_num:6|svn_version:\'Unknown\'|variable_revision_number:3|show_window:False|notes:\x5B\'Rescale grayvalues to the range \x5B0 ~ 1\x5D. This maximizes the dynamic range and facilitates segmentation.\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
-    Select the input image:\xff\xfec\x00a\x00l\x00c\x00e\x00i\x00n\x00
-    Name the output image:\xff\xfec\x00a\x00l\x00c\x00e\x00i\x00n\x00_\x00r\x00e\x00s\x00c\x00a\x00l\x00e\x00d\x00
-    Rescaling method:\xff\xfeS\x00t\x00r\x00e\x00t\x00c\x00h\x00 \x00e\x00a\x00c\x00h\x00 \x00i\x00m\x00a\x00g\x00e\x00 \x00t\x00o\x00 \x00u\x00s\x00e\x00 \x00t\x00h\x00e\x00 \x00f\x00u\x00l\x00l\x00 \x00i\x00n\x00t\x00e\x00n\x00s\x00i\x00t\x00y\x00 \x00r\x00a\x00n\x00g\x00e\x00
-    Method to calculate the minimum intensity:\xff\xfeC\x00u\x00s\x00t\x00o\x00m\x00
-    Method to calculate the maximum intensity:\xff\xfeC\x00u\x00s\x00t\x00o\x00m\x00
-    Lower intensity limit for the input image:\xff\xfe0\x00.\x000\x00
-    Upper intensity limit for the input image:\xff\xfe1\x00.\x000\x00
-    Intensity range for the input image:\xff\xfe0\x00.\x000\x003\x00,\x001\x00.\x000\x00
-    Intensity range for the output image:\xff\xfe0\x00.\x000\x00,\x001\x00.\x000\x00
-    Select image to match in maximum intensity:\xff\xfeN\x00o\x00n\x00e\x00
-    Divisor value:\xff\xfe1\x00.\x000\x00
-    Divisor measurement:\xff\xfeN\x00o\x00n\x00e\x00
+RescaleIntensity:[module_num:6|svn_version:'Unknown'|variable_revision_number:3|show_window:False|notes:['Rescale grayvalues to the range [0 ~ 1]. This maximizes the dynamic range and facilitates segmentation.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input image:calcein
+    Name the output image:calcein_rescaled
+    Rescaling method:Stretch each image to use the full intensity range
+    Method to calculate the minimum intensity:Custom
+    Method to calculate the maximum intensity:Custom
+    Lower intensity limit for the input image:0.0
+    Upper intensity limit for the input image:1.0
+    Intensity range for the input image:0.03,1.0
+    Intensity range for the output image:0.0,1.0
+    Select image to match in maximum intensity:None
+    Divisor value:1.0
+    Divisor measurement:None
 
-IdentifyPrimaryObjects:[module_num:7|svn_version:\'Unknown\'|variable_revision_number:13|show_window:False|notes:\x5B\'Segment organoids.\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
-    Select the input image:\xff\xfec\x00a\x00l\x00c\x00e\x00i\x00n\x00_\x00r\x00e\x00s\x00c\x00a\x00l\x00e\x00d\x00
-    Name the primary objects to be identified:\xff\xfeo\x00r\x00g\x00a\x00n\x00o\x00i\x00d\x00s\x00_\x00p\x00r\x00e\x00l\x00i\x00m\x00
-    Typical diameter of objects, in pixel units (Min,Max):\xff\xfe5\x00,\x002\x005\x000\x00
-    Discard objects outside the diameter range?:\xff\xfeY\x00e\x00s\x00
-    Discard objects touching the border of the image?:\xff\xfeN\x00o\x00
-    Method to distinguish clumped objects:\xff\xfeS\x00h\x00a\x00p\x00e\x00
-    Method to draw dividing lines between clumped objects:\xff\xfeS\x00h\x00a\x00p\x00e\x00
-    Size of smoothing filter:\xff\xfe1\x00
-    Suppress local maxima that are closer than this minimum allowed distance:\xff\xfe1\x000\x00
-    Speed up by using lower-resolution image to find local maxima?:\xff\xfeY\x00e\x00s\x00
-    Fill holes in identified objects?:\xff\xfeA\x00f\x00t\x00e\x00r\x00 \x00b\x00o\x00t\x00h\x00 \x00t\x00h\x00r\x00e\x00s\x00h\x00o\x00l\x00d\x00i\x00n\x00g\x00 \x00a\x00n\x00d\x00 \x00d\x00e\x00c\x00l\x00u\x00m\x00p\x00i\x00n\x00g\x00
-    Automatically calculate size of smoothing filter for declumping?:\xff\xfeN\x00o\x00
-    Automatically calculate minimum allowed distance between local maxima?:\xff\xfeN\x00o\x00
-    Handling of objects if excessive number of objects identified:\xff\xfeC\x00o\x00n\x00t\x00i\x00n\x00u\x00e\x00
-    Maximum number of objects:\xff\xfe5\x000\x000\x00
-    Use advanced settings?:\xff\xfeY\x00e\x00s\x00
-    Threshold setting version:\xff\xfe9\x00
-    Threshold strategy:\xff\xfeG\x00l\x00o\x00b\x00a\x00l\x00
-    Thresholding method:\xff\xfeO\x00t\x00s\x00u\x00
-    Threshold smoothing scale:\xff\xfe0\x00
-    Threshold correction factor:\xff\xfe0\x00.\x003\x005\x00
-    Lower and upper bounds on threshold:\xff\xfe0\x00.\x000\x00,\x001\x00.\x000\x00
-    Manual threshold:\xff\xfe0\x00.\x000\x007\x00
-    Select the measurement to threshold with:\xff\xfeN\x00o\x00n\x00e\x00
-    Two-class or three-class thresholding?:\xff\xfeT\x00w\x00o\x00 \x00c\x00l\x00a\x00s\x00s\x00e\x00s\x00
-    Assign pixels in the middle intensity class to the foreground or the background?:\xff\xfeF\x00o\x00r\x00e\x00g\x00r\x00o\x00u\x00n\x00d\x00
-    Size of adaptive window:\xff\xfe2\x000\x000\x00
-    Lower outlier fraction:\xff\xfe0\x00.\x000\x005\x00
-    Upper outlier fraction:\xff\xfe0\x00.\x000\x005\x00
-    Averaging method:\xff\xfeM\x00e\x00a\x00n\x00
-    Variance method:\xff\xfeS\x00t\x00a\x00n\x00d\x00a\x00r\x00d\x00 \x00d\x00e\x00v\x00i\x00a\x00t\x00i\x00o\x00n\x00
-    # of deviations:\xff\xfe2\x00
-    Thresholding method:\xff\xfeO\x00t\x00s\x00u\x00
+IdentifyPrimaryObjects:[module_num:7|svn_version:'Unknown'|variable_revision_number:15|show_window:False|notes:['Segment organoids.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input image:calcein_rescaled
+    Name the primary objects to be identified:organoids_prelim
+    Typical diameter of objects, in pixel units (Min,Max):5,250
+    Discard objects outside the diameter range?:Yes
+    Discard objects touching the border of the image?:No
+    Method to distinguish clumped objects:Shape
+    Method to draw dividing lines between clumped objects:Shape
+    Size of smoothing filter:1
+    Suppress local maxima that are closer than this minimum allowed distance:10
+    Speed up by using lower-resolution image to find local maxima?:Yes
+    Fill holes in identified objects?:After both thresholding and declumping
+    Automatically calculate size of smoothing filter for declumping?:No
+    Automatically calculate minimum allowed distance between local maxima?:No
+    Handling of objects if excessive number of objects identified:Continue
+    Maximum number of objects:500
+    Use advanced settings?:Yes
+    Threshold setting version:12
+    Threshold strategy:Global
+    Thresholding method:Otsu
+    Threshold smoothing scale:0
+    Threshold correction factor:0.35
+    Lower and upper bounds on threshold:0.0,1.0
+    Manual threshold:0.07
+    Select the measurement to threshold with:None
+    Two-class or three-class thresholding?:Two classes
+    Log transform before thresholding?:No
+    Assign pixels in the middle intensity class to the foreground or the background?:Foreground
+    Size of adaptive window:200
+    Lower outlier fraction:0.05
+    Upper outlier fraction:0.05
+    Averaging method:Mean
+    Variance method:Standard deviation
+    # of deviations:2
+    Thresholding method:Otsu
 
-MeasureObjectIntensity:[module_num:8|svn_version:\'Unknown\'|variable_revision_number:3|show_window:False|notes:\x5B\'Quality control (I)\', \'Measure fluorescence intensity on each organoid.\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
-    Hidden:\xff\xfe1\x00
-    Select an image to measure:\xff\xfec\x00a\x00l\x00c\x00e\x00i\x00n\x00_\x00r\x00e\x00s\x00c\x00a\x00l\x00e\x00d\x00
-    Select objects to measure:\xff\xfeo\x00r\x00g\x00a\x00n\x00o\x00i\x00d\x00s\x00_\x00p\x00r\x00e\x00l\x00i\x00m\x00
+MeasureObjectIntensity:[module_num:8|svn_version:'Unknown'|variable_revision_number:4|show_window:False|notes:['Quality control (I)', 'Measure fluorescence intensity on each organoid.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select images to measure:calcein_rescaled
+    Select objects to measure:organoids_prelim
 
-MeasureObjectSizeShape:[module_num:9|svn_version:\'Unknown\'|variable_revision_number:1|show_window:False|notes:\x5B\'Quality control (II)\', \'Measure shape features on each organoid.\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
-    Select objects to measure:\xff\xfeo\x00r\x00g\x00a\x00n\x00o\x00i\x00d\x00s\x00_\x00p\x00r\x00e\x00l\x00i\x00m\x00
-    Calculate the Zernike features?:\xff\xfeN\x00o\x00
+MeasureObjectSizeShape:[module_num:9|svn_version:'Unknown'|variable_revision_number:3|show_window:False|notes:['Quality control (II)', 'Measure shape features on each organoid.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select object sets to measure:organoids_prelim
+    Calculate the Zernike features?:No
+    Calculate the advanced features?:No
 
-DisplayDataOnImage:[module_num:10|svn_version:\'Unknown\'|variable_revision_number:6|show_window:False|notes:\x5B\'Quality control (III)\', \'Dead organoids show small clumps of dissociated cells still reminiscent of the shape of an organoid and bright positive for calcein green. This phenotype can be measured in at least 2 ways\x3A\', \'1) Higher than normal standard deviation of grayvalues in each organoid;\', \'2) Irregular organoid shape, with a jagged edge.\', \'This module enables plotting any of the intensity- or shape-based features measured in the two previous modules on top of the corresponding organoid to inform on\x3A\', \'1) Whether to discard dead organoids (if all organoids are viable, no quality control is necessary);\', \'2) Which image feature discriminates the best between alive and dead organoids;\', \'3) The threshold value.\', \'\', \'In this demo dataset, the best discrimination between alive and dead organoids is achieved using the Form Factor, with dead organoids having a Form Factor \'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
-    Display object or image measurements?:\xff\xfeO\x00b\x00j\x00e\x00c\x00t\x00
-    Select the input objects:\xff\xfeo\x00r\x00g\x00a\x00n\x00o\x00i\x00d\x00s\x00_\x00p\x00r\x00e\x00l\x00i\x00m\x00
-    Measurement to display:\xff\xfeA\x00r\x00e\x00a\x00S\x00h\x00a\x00p\x00e\x00_\x00F\x00o\x00r\x00m\x00F\x00a\x00c\x00t\x00o\x00r\x00
-    Select the image on which to display the measurements:\xff\xfec\x00a\x00l\x00c\x00e\x00i\x00n\x00_\x00r\x00e\x00s\x00c\x00a\x00l\x00e\x00d\x00
-    Text color:\xff\xfer\x00e\x00d\x00
-    Name the output image that has the measurements displayed:\xff\xfeQ\x00C\x00_\x00d\x00a\x00t\x00a\x00o\x00v\x00e\x00r\x00l\x00a\x00y\x00
-    Font size (points):\xff\xfe1\x005\x00
-    Number of decimals:\xff\xfe3\x00
-    Image elements to save:\xff\xfeI\x00m\x00a\x00g\x00e\x00
-    Annotation offset (in pixels):\xff\xfe0\x00
-    Display mode:\xff\xfeT\x00e\x00x\x00t\x00
-    Color map:\xff\xfeD\x00e\x00f\x00a\x00u\x00l\x00t\x00
-    Display background image?:\xff\xfeY\x00e\x00s\x00
-    Color map scale:\xff\xfeU\x00s\x00e\x00 \x00t\x00h\x00i\x00s\x00 \x00i\x00m\x00a\x00g\x00e\x00\'\x00s\x00 \x00m\x00e\x00a\x00s\x00u\x00r\x00e\x00m\x00e\x00n\x00t\x00 \x00r\x00a\x00n\x00g\x00e\x00
-    Color map range:\xff\xfe0\x00.\x000\x00,\x001\x00.\x000\x00
+DisplayDataOnImage:[module_num:10|svn_version:'Unknown'|variable_revision_number:6|show_window:False|notes:['Quality control (III)', 'Dead organoids show small clumps of dissociated cells still reminiscent of the shape of an organoid and bright positive for calcein green. This phenotype can be measured in at least 2 ways:', '1) Higher than normal standard deviation of grayvalues in each organoid;', '2) Irregular organoid shape, with a jagged edge.', 'This module enables plotting any of the intensity- or shape-based features measured in the two previous modules on top of the corresponding organoid to inform on:', '1) Whether to discard dead organoids (if all organoids are viable, no quality control is necessary);', '2) Which image feature discriminates the best between alive and dead organoids;', '3) The threshold value.', '', 'In this demo dataset, the best discrimination between alive and dead organoids is achieved using the Form Factor, with dead organoids having a Form Factor ']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Display object or image measurements?:Object
+    Select the input objects:organoids_prelim
+    Measurement to display:AreaShape_FormFactor
+    Select the image on which to display the measurements:calcein_rescaled
+    Text color:red
+    Name the output image that has the measurements displayed:QC_dataoverlay
+    Font size (points):15
+    Number of decimals:3
+    Image elements to save:Image
+    Annotation offset (in pixels):0
+    Display mode:Text
+    Color map:Default
+    Display background image?:Yes
+    Color map scale:Use this image's measurement range
+    Color map range:0.0,1.0
+    Font:Adobe Arabic
+    Use scientific notation?:No
+    Font weight:normal
 
-FilterObjects:[module_num:11|svn_version:\'Unknown\'|variable_revision_number:8|show_window:False|notes:\x5B\'Quality control (IV)\', \'Exclude dead organoids from analysis.\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
-    Select the objects to filter:\xff\xfeo\x00r\x00g\x00a\x00n\x00o\x00i\x00d\x00s\x00_\x00p\x00r\x00e\x00l\x00i\x00m\x00
-    Name the output objects:\xff\xfeo\x00r\x00g\x00a\x00n\x00o\x00i\x00d\x00s\x00
-    Select the filtering mode:\xff\xfeM\x00e\x00a\x00s\x00u\x00r\x00e\x00m\x00e\x00n\x00t\x00s\x00
-    Select the filtering method:\xff\xfeL\x00i\x00m\x00i\x00t\x00s\x00
-    Select the objects that contain the filtered objects:\xff\xfeN\x00o\x00n\x00e\x00
-    Select the location of the rules or classifier file:\xff\xfeE\x00l\x00s\x00e\x00w\x00h\x00e\x00r\x00e\x00.\x00.\x00.\x00\x7C\x00
-    Rules or classifier file name:\xff\xfer\x00u\x00l\x00e\x00s\x00.\x00t\x00x\x00t\x00
-    Class number:\xff\xfe1\x00
-    Measurement count:\xff\xfe1\x00
-    Additional object count:\xff\xfe0\x00
-    Assign overlapping child to:\xff\xfeB\x00o\x00t\x00h\x00 \x00p\x00a\x00r\x00e\x00n\x00t\x00s\x00
-    Select the measurement to filter by:\xff\xfeA\x00r\x00e\x00a\x00S\x00h\x00a\x00p\x00e\x00_\x00F\x00o\x00r\x00m\x00F\x00a\x00c\x00t\x00o\x00r\x00
-    Filter using a minimum measurement value?:\xff\xfeY\x00e\x00s\x00
-    Minimum value:\xff\xfe0\x00
-    Filter using a maximum measurement value?:\xff\xfeN\x00o\x00
-    Maximum value:\xff\xfe9\x009\x009\x009\x009\x009\x009\x009\x009\x009\x009\x009\x009\x00
+FilterObjects:[module_num:11|svn_version:'Unknown'|variable_revision_number:10|show_window:False|notes:['Quality control (IV)', 'Exclude dead organoids from analysis.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the objects to filter:organoids_prelim
+    Name the output objects:organoids
+    Select the filtering mode:Measurements
+    Select the filtering method:Limits
+    Select the objects that contain the filtered objects:None
+    Select the location of the rules or classifier file:Elsewhere...|
+    Rules or classifier file name:rules.txt
+    Class number:1
+    Measurement count:1
+    Additional object count:0
+    Assign overlapping child to:Both parents
+    Keep removed objects as a separate set?:No
+    Name the objects removed by the filter:RemovedObjects
+    Select the measurement to filter by:AreaShape_FormFactor
+    Filter using a minimum measurement value?:Yes
+    Minimum value:0
+    Filter using a maximum measurement value?:No
+    Maximum value:9999999999999
+    Allow fuzzy feature matching?:No
 
-OverlayOutlines:[module_num:12|svn_version:\'Unknown\'|variable_revision_number:4|show_window:False|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
-    Display outlines on a blank image?:\xff\xfeN\x00o\x00
-    Select image on which to display outlines:\xff\xfec\x00a\x00l\x00c\x00e\x00i\x00n\x00_\x00r\x00e\x00s\x00c\x00a\x00l\x00e\x00d\x00
-    Name the output image:\xff\xfeQ\x00C\x00_\x00o\x00u\x00t\x00l\x00i\x00n\x00e\x00o\x00v\x00e\x00r\x00l\x00a\x00y\x00
-    Outline display mode:\xff\xfeC\x00o\x00l\x00o\x00r\x00
-    Select method to determine brightness of outlines:\xff\xfeM\x00a\x00x\x00 \x00o\x00f\x00 \x00i\x00m\x00a\x00g\x00e\x00
-    How to outline:\xff\xfeI\x00n\x00n\x00e\x00r\x00
-    Select outline color:\xff\xfe#\x000\x000\x00F\x00F\x004\x000\x00
-    Select objects to display:\xff\xfeo\x00r\x00g\x00a\x00n\x00o\x00i\x00d\x00s\x00
+OverlayOutlines:[module_num:12|svn_version:'Unknown'|variable_revision_number:4|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Display outlines on a blank image?:No
+    Select image on which to display outlines:calcein_rescaled
+    Name the output image:QC_outlineoverlay
+    Outline display mode:Color
+    Select method to determine brightness of outlines:Max of image
+    How to outline:Inner
+    Select outline color:#00FF40
+    Select objects to display:organoids
 
-TrackObjects:[module_num:13|svn_version:\'Unknown\'|variable_revision_number:7|show_window:False|notes:\x5B\'Assign a unique label to each organoid throughout all time lapse frames.\', \'An organoid which is not found in all 7 time frames (e.g. due to fluorescence loss or coalescence with another organoid) is labeled as "NaN".\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
-    Choose a tracking method:\xff\xfeD\x00i\x00s\x00t\x00a\x00n\x00c\x00e\x00
-    Select the objects to track:\xff\xfeo\x00r\x00g\x00a\x00n\x00o\x00i\x00d\x00s\x00
-    Select object measurement to use for tracking:\xff\xfeN\x00o\x00n\x00e\x00
-    Maximum pixel distance to consider matches:\xff\xfe4\x00
-    Select display option:\xff\xfeC\x00o\x00l\x00o\x00r\x00 \x00O\x00n\x00l\x00y\x00
-    Save color-coded image?:\xff\xfeY\x00e\x00s\x00
-    Name the output image:\xff\xfeo\x00r\x00g\x00a\x00n\x00o\x00i\x00d\x00s\x00_\x00t\x00r\x00a\x00c\x00k\x00e\x00d\x00
-    Select the movement model:\xff\xfeB\x00o\x00t\x00h\x00
-    Number of standard deviations for search radius:\xff\xfe3\x00.\x000\x00
-    Search radius limit, in pixel units (Min,Max):\xff\xfe2\x00.\x000\x00,\x001\x000\x00.\x000\x00
-    Run the second phase of the LAP algorithm?:\xff\xfeY\x00e\x00s\x00
-    Gap closing cost:\xff\xfe4\x000\x00
-    Split alternative cost:\xff\xfe4\x000\x00
-    Merge alternative cost:\xff\xfe4\x000\x00
-    Maximum gap displacement, in pixel units:\xff\xfe5\x00
-    Maximum split score:\xff\xfe5\x000\x00
-    Maximum merge score:\xff\xfe5\x000\x00
-    Maximum temporal gap, in frames:\xff\xfe5\x00
-    Filter objects by lifetime?:\xff\xfeY\x00e\x00s\x00
-    Filter using a minimum lifetime?:\xff\xfeY\x00e\x00s\x00
-    Minimum lifetime:\xff\xfe6\x00
-    Filter using a maximum lifetime?:\xff\xfeN\x00o\x00
-    Maximum lifetime:\xff\xfe1\x000\x000\x00
-    Mitosis alternative cost:\xff\xfe8\x000\x00
-    Maximum mitosis distance, in pixel units:\xff\xfe4\x000\x00
-    Average cell diameter in pixels:\xff\xfe3\x000\x00.\x000\x00
-    Use advanced configuration parameters:\xff\xfeN\x00o\x00
-    Cost of cell to empty matching:\xff\xfe1\x005\x00.\x000\x00
-    Weight of area difference in function matching cost:\xff\xfe2\x005\x00.\x000\x00
+TrackObjects:[module_num:13|svn_version:'Unknown'|variable_revision_number:7|show_window:False|notes:['Assign a unique label to each organoid throughout all time lapse frames.', 'An organoid which is not found in all 7 time frames (e.g. due to fluorescence loss or coalescence with another organoid) is labeled as "NaN".']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Choose a tracking method:Distance
+    Select the objects to track:organoids
+    Select object measurement to use for tracking:None
+    Maximum pixel distance to consider matches:4
+    Select display option:Color Only
+    Save color-coded image?:Yes
+    Name the output image:organoids_tracked
+    Select the movement model:Both
+    Number of standard deviations for search radius:3.0
+    Search radius limit, in pixel units (Min,Max):2.0,10.0
+    Run the second phase of the LAP algorithm?:Yes
+    Gap closing cost:40
+    Split alternative cost:40
+    Merge alternative cost:40
+    Maximum gap displacement, in pixel units:5
+    Maximum split score:50
+    Maximum merge score:50
+    Maximum temporal gap, in frames:5
+    Filter objects by lifetime?:Yes
+    Filter using a minimum lifetime?:Yes
+    Minimum lifetime:6
+    Filter using a maximum lifetime?:No
+    Maximum lifetime:100
+    Mitosis alternative cost:80
+    Maximum mitosis distance, in pixel units:40
+    Average cell diameter in pixels:30.0
+    Use advanced configuration parameters:No
+    Cost of cell to empty matching:15.0
+    Weight of area difference in function matching cost:25.0
 
-MeasureObjectSizeShape:[module_num:14|svn_version:\'Unknown\'|variable_revision_number:1|show_window:False|notes:\x5B\'Measure the area of each organoid\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
-    Select objects to measure:\xff\xfeo\x00r\x00g\x00a\x00n\x00o\x00i\x00d\x00s\x00
-    Calculate the Zernike features?:\xff\xfeN\x00o\x00
+MeasureObjectSizeShape:[module_num:14|svn_version:'Unknown'|variable_revision_number:3|show_window:False|notes:['Measure the area of each organoid']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select object sets to measure:organoids
+    Calculate the Zernike features?:No
+    Calculate the advanced features?:No
 
-CalculateMath:[module_num:15|svn_version:\'Unknown\'|variable_revision_number:2|show_window:False|notes:\x5B\'Calibrate image size\x3A convert from pixel^2 units to micron^2 units\', \'! If the pixel pitch is 4.991 micron, multiply each area value by 4.991^2 = 24.910081\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
-    Name the output measurement:\xff\xfea\x00r\x00e\x00a\x00_\x00m\x00i\x00c\x00r\x00o\x00n\x00s\x00q\x00
-    Operation:\xff\xfeN\x00o\x00n\x00e\x00
-    Select the numerator measurement type:\xff\xfeO\x00b\x00j\x00e\x00c\x00t\x00
-    Select the numerator objects:\xff\xfeo\x00r\x00g\x00a\x00n\x00o\x00i\x00d\x00s\x00
-    Select the numerator measurement:\xff\xfeA\x00r\x00e\x00a\x00S\x00h\x00a\x00p\x00e\x00_\x00A\x00r\x00e\x00a\x00
-    Multiply the above operand by:\xff\xfe2\x004\x00.\x009\x001\x000\x000\x008\x001\x00
-    Raise the power of above operand by:\xff\xfe1\x00.\x000\x00
-    Select the second operand measurement type:\xff\xfeI\x00m\x00a\x00g\x00e\x00
-    Select the second operand objects:\xff\xfeN\x00o\x00n\x00e\x00
-    Select the second operand measurement:\xff\xfeN\x00o\x00n\x00e\x00
-    Multiply the above operand by:\xff\xfe1\x00.\x000\x00
-    Raise the power of above operand by:\xff\xfe1\x00.\x000\x00
-    Take log10 of result?:\xff\xfeN\x00o\x00
-    Multiply the result by:\xff\xfe1\x00.\x000\x00
-    Raise the power of result by:\xff\xfe1\x00.\x000\x00
-    Add to the result:\xff\xfe0\x00.\x000\x00
-    Constrain the result to a lower bound?:\xff\xfeN\x00o\x00
-    Enter the lower bound:\xff\xfe0\x00.\x000\x00
-    Constrain the result to an upper bound?:\xff\xfeN\x00o\x00
-    Enter the upper bound:\xff\xfe1\x00.\x000\x00
+CalculateMath:[module_num:15|svn_version:'Unknown'|variable_revision_number:3|show_window:False|notes:['Calibrate image size: convert from pixel^2 units to micron^2 units', '! If the pixel pitch is 4.991 micron, multiply each area value by 4.991^2 = 24.910081']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Name the output measurement:area_micronsq
+    Operation:None
+    Select the numerator measurement type:Object
+    Select the numerator objects:organoids
+    Select the numerator measurement:AreaShape_Area
+    Multiply the above operand by:24.910081
+    Raise the power of above operand by:1.0
+    Select the second operand measurement type:Image
+    Select the second operand objects:None
+    Select the second operand measurement:None
+    Multiply the above operand by:1.0
+    Raise the power of above operand by:1.0
+    Take log10 of result?:No
+    Multiply the result by:1.0
+    Raise the power of result by:1.0
+    Add to the result:0.0
+    How should the output value be rounded?:Not rounded
+    Enter how many decimal places the value should be rounded to:0
+    Constrain the result to a lower bound?:No
+    Enter the lower bound:0.0
+    Constrain the result to an upper bound?:No
+    Enter the upper bound:1.0
 
-SaveImages:[module_num:16|svn_version:\'Unknown\'|variable_revision_number:13|show_window:False|notes:\x5B\'Save segmentation masks\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
-    Select the type of image to save:\xff\xfeI\x00m\x00a\x00g\x00e\x00
-    Select the image to save:\xff\xfeo\x00r\x00g\x00a\x00n\x00o\x00i\x00d\x00s\x00_\x00t\x00r\x00a\x00c\x00k\x00e\x00d\x00
-    Select method for constructing file names:\xff\xfeS\x00i\x00n\x00g\x00l\x00e\x00 \x00n\x00a\x00m\x00e\x00
-    Select image name for file prefix:\xff\xfeN\x00o\x00n\x00e\x00
-    Enter single file name:\xff\xfe\\\x00g\x00<\x00i\x00m\x00a\x00g\x00e\x00B\x00a\x00s\x00e\x00N\x00a\x00m\x00e\x00>\x00-\x00-\x00m\x00a\x00s\x00k\x00s\x00
-    Number of digits:\xff\xfe4\x00
-    Append a suffix to the image file name?:\xff\xfeN\x00o\x00
-    Text to append to the image name:\xff\xfe
-    Saved file format:\xff\xfep\x00n\x00g\x00
-    Output file location:\xff\xfeD\x00e\x00f\x00a\x00u\x00l\x00t\x00 \x00O\x00u\x00t\x00p\x00u\x00t\x00 \x00F\x00o\x00l\x00d\x00e\x00r\x00 \x00s\x00u\x00b\x00-\x00f\x00o\x00l\x00d\x00e\x00r\x00\x7C\x00\\\x00g\x00<\x00p\x00l\x00a\x00t\x00e\x00P\x00a\x00t\x00h\x00>\x00-\x00-\x00c\x00e\x00l\x00l\x00p\x00r\x00o\x00f\x00i\x00l\x00e\x00r\x00/\x00\\\x00g\x00<\x00w\x00e\x00l\x00l\x00P\x00a\x00t\x00h\x00>\x00/\x00\\\x00g\x00<\x00p\x00o\x00s\x00P\x00a\x00t\x00h\x00>\x00
-    Image bit depth:\xff\xfe8\x00-\x00b\x00i\x00t\x00 \x00i\x00n\x00t\x00e\x00g\x00e\x00r\x00
-    Overwrite existing files without warning?:\xff\xfeY\x00e\x00s\x00
-    When to save:\xff\xfeE\x00v\x00e\x00r\x00y\x00 \x00c\x00y\x00c\x00l\x00e\x00
-    Record the file and path information to the saved image?:\xff\xfeY\x00e\x00s\x00
-    Create subfolders in the output folder?:\xff\xfeN\x00o\x00
-    Base image folder:\xff\xfeE\x00l\x00s\x00e\x00w\x00h\x00e\x00r\x00e\x00.\x00.\x00.\x00\x7C\x00
+SaveImages:[module_num:16|svn_version:'Unknown'|variable_revision_number:16|show_window:False|notes:['Save segmentation masks']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the type of image to save:Image
+    Select the image to save:organoids_tracked
+    Select method for constructing file names:Single name
+    Select image name for file prefix:None
+    Enter single file name:\g<imageBaseName>--masks
+    Number of digits:4
+    Append a suffix to the image file name?:No
+    Text to append to the image name:
+    Saved file format:png
+    Output file location:Default Output Folder sub-folder|\g<platePath>--cellprofiler/\g<wellPath>/\g<posPath>
+    Image bit depth:8-bit integer
+    Overwrite existing files without warning?:Yes
+    When to save:Every cycle
+    Record the file and path information to the saved image?:Yes
+    Create subfolders in the output folder?:No
+    Base image folder:Elsewhere...|
+    How to save the series:T (Time)
+    Save with lossless compression?:No
 
-ExportToSpreadsheet:[module_num:17|svn_version:\'Unknown\'|variable_revision_number:12|show_window:False|notes:\x5B\'Save CSV files with all measurements and metadata\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
-    Select the column delimiter:\xff\xfeC\x00o\x00m\x00m\x00a\x00 \x00(\x00"\x00,\x00"\x00)\x00
-    Add image metadata columns to your object data file?:\xff\xfeY\x00e\x00s\x00
-    Select the measurements to export:\xff\xfeY\x00e\x00s\x00
-    Calculate the per-image mean values for object measurements?:\xff\xfeN\x00o\x00
-    Calculate the per-image median values for object measurements?:\xff\xfeN\x00o\x00
-    Calculate the per-image standard deviation values for object measurements?:\xff\xfeN\x00o\x00
-    Output file location:\xff\xfeD\x00e\x00f\x00a\x00u\x00l\x00t\x00 \x00O\x00u\x00t\x00p\x00u\x00t\x00 \x00F\x00o\x00l\x00d\x00e\x00r\x00 \x00s\x00u\x00b\x00-\x00f\x00o\x00l\x00d\x00e\x00r\x00\x7C\x00\\\x00g\x00<\x00p\x00l\x00a\x00t\x00e\x00P\x00a\x00t\x00h\x00>\x00-\x00-\x00c\x00e\x00l\x00l\x00p\x00r\x00o\x00f\x00i\x00l\x00e\x00r\x00/\x00\\\x00g\x00<\x00w\x00e\x00l\x00l\x00P\x00a\x00t\x00h\x00>\x00/\x00\\\x00g\x00<\x00p\x00o\x00s\x00P\x00a\x00t\x00h\x00>\x00
-    Create a GenePattern GCT file?:\xff\xfeN\x00o\x00
-    Select source of sample row name:\xff\xfeM\x00e\x00t\x00a\x00d\x00a\x00t\x00a\x00
-    Select the image to use as the identifier:\xff\xfeN\x00o\x00n\x00e\x00
-    Select the metadata to use as the identifier:\xff\xfeN\x00o\x00n\x00e\x00
-    Export all measurement types?:\xff\xfeN\x00o\x00
-    Press button to select measurements:\xff\xfeI\x00m\x00a\x00g\x00e\x00\x7C\x00M\x00e\x00t\x00a\x00d\x00a\x00t\x00a\x00_\x00p\x00o\x00s\x00N\x00u\x00m\x00,\x00I\x00m\x00a\x00g\x00e\x00\x7C\x00M\x00e\x00t\x00a\x00d\x00a\x00t\x00a\x00_\x00F\x00i\x00l\x00e\x00L\x00o\x00c\x00a\x00t\x00i\x00o\x00n\x00,\x00I\x00m\x00a\x00g\x00e\x00\x7C\x00M\x00e\x00t\x00a\x00d\x00a\x00t\x00a\x00_\x00w\x00e\x00l\x00l\x00N\x00u\x00m\x00,\x00I\x00m\x00a\x00g\x00e\x00\x7C\x00M\x00e\x00t\x00a\x00d\x00a\x00t\x00a\x00_\x00c\x00o\x00m\x00p\x00o\x00u\x00n\x00d\x00,\x00I\x00m\x00a\x00g\x00e\x00\x7C\x00M\x00e\x00t\x00a\x00d\x00a\x00t\x00a\x00_\x00t\x00i\x00m\x00e\x00N\x00u\x00m\x00,\x00I\x00m\x00a\x00g\x00e\x00\x7C\x00M\x00e\x00t\x00a\x00d\x00a\x00t\x00a\x00_\x00p\x00l\x00a\x00t\x00e\x00N\x00a\x00m\x00e\x00,\x00I\x00m\x00a\x00g\x00e\x00\x7C\x00M\x00e\x00t\x00a\x00d\x00a\x00t\x00a\x00_\x00c\x00o\x00n\x00c\x00e\x00n\x00t\x00r\x00a\x00t\x00i\x00o\x00n\x00,\x00o\x00r\x00g\x00a\x00n\x00o\x00i\x00d\x00s\x00\x7C\x00T\x00r\x00a\x00c\x00k\x00O\x00b\x00j\x00e\x00c\x00t\x00s\x00_\x00L\x00a\x00b\x00e\x00l\x00_\x004\x00,\x00o\x00r\x00g\x00a\x00n\x00o\x00i\x00d\x00s\x00\x7C\x00A\x00r\x00e\x00a\x00S\x00h\x00a\x00p\x00e\x00_\x00C\x00e\x00n\x00t\x00e\x00r\x00_\x00Y\x00,\x00o\x00r\x00g\x00a\x00n\x00o\x00i\x00d\x00s\x00\x7C\x00A\x00r\x00e\x00a\x00S\x00h\x00a\x00p\x00e\x00_\x00C\x00e\x00n\x00t\x00e\x00r\x00_\x00X\x00,\x00o\x00r\x00g\x00a\x00n\x00o\x00i\x00d\x00s\x00\x7C\x00M\x00a\x00t\x00h\x00_\x00a\x00r\x00e\x00a\x00_\x00m\x00i\x00c\x00r\x00o\x00n\x00s\x00q\x00
-    Representation of Nan/Inf:\xff\xfeN\x00a\x00N\x00
-    Add a prefix to file names?:\xff\xfeN\x00o\x00
-    Filename prefix:\xff\xfeM\x00y\x00E\x00x\x00p\x00t\x00_\x00
-    Overwrite existing files without warning?:\xff\xfeY\x00e\x00s\x00
-    Data to export:\xff\xfeo\x00r\x00g\x00a\x00n\x00o\x00i\x00d\x00s\x00
-    Combine these object measurements with those of the previous object?:\xff\xfeN\x00o\x00
-    File name:\xff\xfeo\x00b\x00j\x00e\x00c\x00t\x00s\x00.\x00c\x00s\x00v\x00
-    Use the object name for the file name?:\xff\xfeN\x00o\x00
+ExportToSpreadsheet:[module_num:17|svn_version:'Unknown'|variable_revision_number:13|show_window:False|notes:['Save CSV files with all measurements and metadata']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the column delimiter:Comma (",")
+    Add image metadata columns to your object data file?:Yes
+    Add image file and folder names to your object data file?:No
+    Select the measurements to export:Yes
+    Calculate the per-image mean values for object measurements?:No
+    Calculate the per-image median values for object measurements?:No
+    Calculate the per-image standard deviation values for object measurements?:No
+    Output file location:Default Output Folder sub-folder|\g<platePath>--cellprofiler/\g<wellPath>/\g<posPath>
+    Create a GenePattern GCT file?:No
+    Select source of sample row name:Metadata
+    Select the image to use as the identifier:None
+    Select the metadata to use as the identifier:None
+    Export all measurement types?:No
+    Press button to select measurements:Image|Metadata_posNum,Image|Metadata_FileLocation,Image|Metadata_wellNum,Image|Metadata_compound,Image|Metadata_timeNum,Image|Metadata_plateName,Image|Metadata_concentration,organoids|TrackObjects_Label_4,organoids|AreaShape_Center_Y,organoids|AreaShape_Center_X,organoids|Math_area_micronsq
+    Representation of Nan/Inf:NaN
+    Add a prefix to file names?:No
+    Filename prefix:MyExpt_
+    Overwrite existing files without warning?:Yes
+    Data to export:organoids
+    Combine these object measurements with those of the previous object?:No
+    File name:objects.csv
+    Use the object name for the file name?:No
+
+"Version":"1","PlaneCount":"448"
+"URL","Series","Index","Channel"
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0001--fsk--0.008/P001--fsk--0.008/demoplate_01--fsk--0.008--W0001--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0001--fsk--0.008/P001--fsk--0.008/demoplate_01--fsk--0.008--W0001--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0001--fsk--0.008/P001--fsk--0.008/demoplate_01--fsk--0.008--W0001--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0001--fsk--0.008/P001--fsk--0.008/demoplate_01--fsk--0.008--W0001--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0001--fsk--0.008/P001--fsk--0.008/demoplate_01--fsk--0.008--W0001--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0001--fsk--0.008/P001--fsk--0.008/demoplate_01--fsk--0.008--W0001--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0001--fsk--0.008/P001--fsk--0.008/demoplate_01--fsk--0.008--W0001--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0002--fsk--5/P001--fsk--5/demoplate_01--fsk--5--W0002--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0002--fsk--5/P001--fsk--5/demoplate_01--fsk--5--W0002--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0002--fsk--5/P001--fsk--5/demoplate_01--fsk--5--W0002--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0002--fsk--5/P001--fsk--5/demoplate_01--fsk--5--W0002--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0002--fsk--5/P001--fsk--5/demoplate_01--fsk--5--W0002--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0002--fsk--5/P001--fsk--5/demoplate_01--fsk--5--W0002--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0002--fsk--5/P001--fsk--5/demoplate_01--fsk--5--W0002--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0003--fsk_809--0.008/P001--fsk_809--0.008/demoplate_01--fsk_809--0.008--W0003--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0003--fsk_809--0.008/P001--fsk_809--0.008/demoplate_01--fsk_809--0.008--W0003--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0003--fsk_809--0.008/P001--fsk_809--0.008/demoplate_01--fsk_809--0.008--W0003--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0003--fsk_809--0.008/P001--fsk_809--0.008/demoplate_01--fsk_809--0.008--W0003--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0003--fsk_809--0.008/P001--fsk_809--0.008/demoplate_01--fsk_809--0.008--W0003--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0003--fsk_809--0.008/P001--fsk_809--0.008/demoplate_01--fsk_809--0.008--W0003--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0003--fsk_809--0.008/P001--fsk_809--0.008/demoplate_01--fsk_809--0.008--W0003--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0004--fsk_809--5/P001--fsk_809--5/demoplate_01--fsk_809--5--W0004--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0004--fsk_809--5/P001--fsk_809--5/demoplate_01--fsk_809--5--W0004--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0004--fsk_809--5/P001--fsk_809--5/demoplate_01--fsk_809--5--W0004--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0004--fsk_809--5/P001--fsk_809--5/demoplate_01--fsk_809--5--W0004--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0004--fsk_809--5/P001--fsk_809--5/demoplate_01--fsk_809--5--W0004--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0004--fsk_809--5/P001--fsk_809--5/demoplate_01--fsk_809--5--W0004--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0004--fsk_809--5/P001--fsk_809--5/demoplate_01--fsk_809--5--W0004--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0005--fsk_770--0.008/P001--fsk_770--0.008/demoplate_01--fsk_770--0.008--W0005--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0005--fsk_770--0.008/P001--fsk_770--0.008/demoplate_01--fsk_770--0.008--W0005--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0005--fsk_770--0.008/P001--fsk_770--0.008/demoplate_01--fsk_770--0.008--W0005--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0005--fsk_770--0.008/P001--fsk_770--0.008/demoplate_01--fsk_770--0.008--W0005--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0005--fsk_770--0.008/P001--fsk_770--0.008/demoplate_01--fsk_770--0.008--W0005--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0005--fsk_770--0.008/P001--fsk_770--0.008/demoplate_01--fsk_770--0.008--W0005--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0005--fsk_770--0.008/P001--fsk_770--0.008/demoplate_01--fsk_770--0.008--W0005--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0006--fsk_770--5/P001--fsk_770--5/demoplate_01--fsk_770--5--W0006--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0006--fsk_770--5/P001--fsk_770--5/demoplate_01--fsk_770--5--W0006--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0006--fsk_770--5/P001--fsk_770--5/demoplate_01--fsk_770--5--W0006--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0006--fsk_770--5/P001--fsk_770--5/demoplate_01--fsk_770--5--W0006--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0006--fsk_770--5/P001--fsk_770--5/demoplate_01--fsk_770--5--W0006--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0006--fsk_770--5/P001--fsk_770--5/demoplate_01--fsk_770--5--W0006--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0006--fsk_770--5/P001--fsk_770--5/demoplate_01--fsk_770--5--W0006--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0007--fsk_770_809--0.008/P001--fsk_770_809--0.008/demoplate_01--fsk_770_809--0.008--W0007--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0007--fsk_770_809--0.008/P001--fsk_770_809--0.008/demoplate_01--fsk_770_809--0.008--W0007--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0007--fsk_770_809--0.008/P001--fsk_770_809--0.008/demoplate_01--fsk_770_809--0.008--W0007--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0007--fsk_770_809--0.008/P001--fsk_770_809--0.008/demoplate_01--fsk_770_809--0.008--W0007--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0007--fsk_770_809--0.008/P001--fsk_770_809--0.008/demoplate_01--fsk_770_809--0.008--W0007--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0007--fsk_770_809--0.008/P001--fsk_770_809--0.008/demoplate_01--fsk_770_809--0.008--W0007--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0007--fsk_770_809--0.008/P001--fsk_770_809--0.008/demoplate_01--fsk_770_809--0.008--W0007--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0008--fsk_770_809--5/P001--fsk_770_809--5/demoplate_01--fsk_770_809--5--W0008--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0008--fsk_770_809--5/P001--fsk_770_809--5/demoplate_01--fsk_770_809--5--W0008--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0008--fsk_770_809--5/P001--fsk_770_809--5/demoplate_01--fsk_770_809--5--W0008--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0008--fsk_770_809--5/P001--fsk_770_809--5/demoplate_01--fsk_770_809--5--W0008--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0008--fsk_770_809--5/P001--fsk_770_809--5/demoplate_01--fsk_770_809--5--W0008--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0008--fsk_770_809--5/P001--fsk_770_809--5/demoplate_01--fsk_770_809--5--W0008--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0008--fsk_770_809--5/P001--fsk_770_809--5/demoplate_01--fsk_770_809--5--W0008--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0013--fsk--0.008/P001--fsk--0.008/demoplate_01--fsk--0.008--W0013--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0013--fsk--0.008/P001--fsk--0.008/demoplate_01--fsk--0.008--W0013--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0013--fsk--0.008/P001--fsk--0.008/demoplate_01--fsk--0.008--W0013--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0013--fsk--0.008/P001--fsk--0.008/demoplate_01--fsk--0.008--W0013--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0013--fsk--0.008/P001--fsk--0.008/demoplate_01--fsk--0.008--W0013--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0013--fsk--0.008/P001--fsk--0.008/demoplate_01--fsk--0.008--W0013--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0013--fsk--0.008/P001--fsk--0.008/demoplate_01--fsk--0.008--W0013--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0014--fsk--5/P001--fsk--5/demoplate_01--fsk--5--W0014--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0014--fsk--5/P001--fsk--5/demoplate_01--fsk--5--W0014--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0014--fsk--5/P001--fsk--5/demoplate_01--fsk--5--W0014--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0014--fsk--5/P001--fsk--5/demoplate_01--fsk--5--W0014--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0014--fsk--5/P001--fsk--5/demoplate_01--fsk--5--W0014--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0014--fsk--5/P001--fsk--5/demoplate_01--fsk--5--W0014--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0014--fsk--5/P001--fsk--5/demoplate_01--fsk--5--W0014--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0015--fsk_809--0.008/P001--fsk_809--0.008/demoplate_01--fsk_809--0.008--W0015--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0015--fsk_809--0.008/P001--fsk_809--0.008/demoplate_01--fsk_809--0.008--W0015--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0015--fsk_809--0.008/P001--fsk_809--0.008/demoplate_01--fsk_809--0.008--W0015--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0015--fsk_809--0.008/P001--fsk_809--0.008/demoplate_01--fsk_809--0.008--W0015--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0015--fsk_809--0.008/P001--fsk_809--0.008/demoplate_01--fsk_809--0.008--W0015--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0015--fsk_809--0.008/P001--fsk_809--0.008/demoplate_01--fsk_809--0.008--W0015--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0015--fsk_809--0.008/P001--fsk_809--0.008/demoplate_01--fsk_809--0.008--W0015--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0016--fsk_809--5/P001--fsk_809--5/demoplate_01--fsk_809--5--W0016--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0016--fsk_809--5/P001--fsk_809--5/demoplate_01--fsk_809--5--W0016--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0016--fsk_809--5/P001--fsk_809--5/demoplate_01--fsk_809--5--W0016--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0016--fsk_809--5/P001--fsk_809--5/demoplate_01--fsk_809--5--W0016--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0016--fsk_809--5/P001--fsk_809--5/demoplate_01--fsk_809--5--W0016--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0016--fsk_809--5/P001--fsk_809--5/demoplate_01--fsk_809--5--W0016--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0016--fsk_809--5/P001--fsk_809--5/demoplate_01--fsk_809--5--W0016--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0017--fsk_770--0.008/P001--fsk_770--0.008/demoplate_01--fsk_770--0.008--W0017--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0017--fsk_770--0.008/P001--fsk_770--0.008/demoplate_01--fsk_770--0.008--W0017--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0017--fsk_770--0.008/P001--fsk_770--0.008/demoplate_01--fsk_770--0.008--W0017--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0017--fsk_770--0.008/P001--fsk_770--0.008/demoplate_01--fsk_770--0.008--W0017--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0017--fsk_770--0.008/P001--fsk_770--0.008/demoplate_01--fsk_770--0.008--W0017--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0017--fsk_770--0.008/P001--fsk_770--0.008/demoplate_01--fsk_770--0.008--W0017--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0017--fsk_770--0.008/P001--fsk_770--0.008/demoplate_01--fsk_770--0.008--W0017--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0018--fsk_770--5/P001--fsk_770--5/demoplate_01--fsk_770--5--W0018--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0018--fsk_770--5/P001--fsk_770--5/demoplate_01--fsk_770--5--W0018--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0018--fsk_770--5/P001--fsk_770--5/demoplate_01--fsk_770--5--W0018--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0018--fsk_770--5/P001--fsk_770--5/demoplate_01--fsk_770--5--W0018--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0018--fsk_770--5/P001--fsk_770--5/demoplate_01--fsk_770--5--W0018--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0018--fsk_770--5/P001--fsk_770--5/demoplate_01--fsk_770--5--W0018--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0018--fsk_770--5/P001--fsk_770--5/demoplate_01--fsk_770--5--W0018--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0019--fsk_770_809--0.008/P001--fsk_770_809--0.008/demoplate_01--fsk_770_809--0.008--W0019--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0019--fsk_770_809--0.008/P001--fsk_770_809--0.008/demoplate_01--fsk_770_809--0.008--W0019--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0019--fsk_770_809--0.008/P001--fsk_770_809--0.008/demoplate_01--fsk_770_809--0.008--W0019--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0019--fsk_770_809--0.008/P001--fsk_770_809--0.008/demoplate_01--fsk_770_809--0.008--W0019--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0019--fsk_770_809--0.008/P001--fsk_770_809--0.008/demoplate_01--fsk_770_809--0.008--W0019--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0019--fsk_770_809--0.008/P001--fsk_770_809--0.008/demoplate_01--fsk_770_809--0.008--W0019--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0019--fsk_770_809--0.008/P001--fsk_770_809--0.008/demoplate_01--fsk_770_809--0.008--W0019--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0020--fsk_770_809--5/P001--fsk_770_809--5/demoplate_01--fsk_770_809--5--W0020--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0020--fsk_770_809--5/P001--fsk_770_809--5/demoplate_01--fsk_770_809--5--W0020--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0020--fsk_770_809--5/P001--fsk_770_809--5/demoplate_01--fsk_770_809--5--W0020--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0020--fsk_770_809--5/P001--fsk_770_809--5/demoplate_01--fsk_770_809--5--W0020--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0020--fsk_770_809--5/P001--fsk_770_809--5/demoplate_01--fsk_770_809--5--W0020--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0020--fsk_770_809--5/P001--fsk_770_809--5/demoplate_01--fsk_770_809--5--W0020--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0020--fsk_770_809--5/P001--fsk_770_809--5/demoplate_01--fsk_770_809--5--W0020--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0025--fsk--0.02/P001--fsk--0.02/demoplate_01--fsk--0.02--W0025--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0025--fsk--0.02/P001--fsk--0.02/demoplate_01--fsk--0.02--W0025--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0025--fsk--0.02/P001--fsk--0.02/demoplate_01--fsk--0.02--W0025--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0025--fsk--0.02/P001--fsk--0.02/demoplate_01--fsk--0.02--W0025--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0025--fsk--0.02/P001--fsk--0.02/demoplate_01--fsk--0.02--W0025--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0025--fsk--0.02/P001--fsk--0.02/demoplate_01--fsk--0.02--W0025--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0025--fsk--0.02/P001--fsk--0.02/demoplate_01--fsk--0.02--W0025--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0026--fsk--2/P001--fsk--2/demoplate_01--fsk--2--W0026--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0026--fsk--2/P001--fsk--2/demoplate_01--fsk--2--W0026--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0026--fsk--2/P001--fsk--2/demoplate_01--fsk--2--W0026--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0026--fsk--2/P001--fsk--2/demoplate_01--fsk--2--W0026--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0026--fsk--2/P001--fsk--2/demoplate_01--fsk--2--W0026--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0026--fsk--2/P001--fsk--2/demoplate_01--fsk--2--W0026--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0026--fsk--2/P001--fsk--2/demoplate_01--fsk--2--W0026--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0027--fsk_809--0.02/P001--fsk_809--0.02/demoplate_01--fsk_809--0.02--W0027--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0027--fsk_809--0.02/P001--fsk_809--0.02/demoplate_01--fsk_809--0.02--W0027--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0027--fsk_809--0.02/P001--fsk_809--0.02/demoplate_01--fsk_809--0.02--W0027--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0027--fsk_809--0.02/P001--fsk_809--0.02/demoplate_01--fsk_809--0.02--W0027--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0027--fsk_809--0.02/P001--fsk_809--0.02/demoplate_01--fsk_809--0.02--W0027--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0027--fsk_809--0.02/P001--fsk_809--0.02/demoplate_01--fsk_809--0.02--W0027--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0027--fsk_809--0.02/P001--fsk_809--0.02/demoplate_01--fsk_809--0.02--W0027--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0028--fsk_809--2/P001--fsk_809--2/demoplate_01--fsk_809--2--W0028--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0028--fsk_809--2/P001--fsk_809--2/demoplate_01--fsk_809--2--W0028--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0028--fsk_809--2/P001--fsk_809--2/demoplate_01--fsk_809--2--W0028--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0028--fsk_809--2/P001--fsk_809--2/demoplate_01--fsk_809--2--W0028--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0028--fsk_809--2/P001--fsk_809--2/demoplate_01--fsk_809--2--W0028--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0028--fsk_809--2/P001--fsk_809--2/demoplate_01--fsk_809--2--W0028--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0028--fsk_809--2/P001--fsk_809--2/demoplate_01--fsk_809--2--W0028--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0029--fsk_770--0.02/P001--fsk_770--0.02/demoplate_01--fsk_770--0.02--W0029--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0029--fsk_770--0.02/P001--fsk_770--0.02/demoplate_01--fsk_770--0.02--W0029--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0029--fsk_770--0.02/P001--fsk_770--0.02/demoplate_01--fsk_770--0.02--W0029--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0029--fsk_770--0.02/P001--fsk_770--0.02/demoplate_01--fsk_770--0.02--W0029--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0029--fsk_770--0.02/P001--fsk_770--0.02/demoplate_01--fsk_770--0.02--W0029--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0029--fsk_770--0.02/P001--fsk_770--0.02/demoplate_01--fsk_770--0.02--W0029--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0029--fsk_770--0.02/P001--fsk_770--0.02/demoplate_01--fsk_770--0.02--W0029--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0030--fsk_770--2/P001--fsk_770--2/demoplate_01--fsk_770--2--W0030--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0030--fsk_770--2/P001--fsk_770--2/demoplate_01--fsk_770--2--W0030--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0030--fsk_770--2/P001--fsk_770--2/demoplate_01--fsk_770--2--W0030--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0030--fsk_770--2/P001--fsk_770--2/demoplate_01--fsk_770--2--W0030--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0030--fsk_770--2/P001--fsk_770--2/demoplate_01--fsk_770--2--W0030--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0030--fsk_770--2/P001--fsk_770--2/demoplate_01--fsk_770--2--W0030--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0030--fsk_770--2/P001--fsk_770--2/demoplate_01--fsk_770--2--W0030--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0031--fsk_770_809--0.02/P001--fsk_770_809--0.02/demoplate_01--fsk_770_809--0.02--W0031--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0031--fsk_770_809--0.02/P001--fsk_770_809--0.02/demoplate_01--fsk_770_809--0.02--W0031--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0031--fsk_770_809--0.02/P001--fsk_770_809--0.02/demoplate_01--fsk_770_809--0.02--W0031--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0031--fsk_770_809--0.02/P001--fsk_770_809--0.02/demoplate_01--fsk_770_809--0.02--W0031--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0031--fsk_770_809--0.02/P001--fsk_770_809--0.02/demoplate_01--fsk_770_809--0.02--W0031--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0031--fsk_770_809--0.02/P001--fsk_770_809--0.02/demoplate_01--fsk_770_809--0.02--W0031--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0031--fsk_770_809--0.02/P001--fsk_770_809--0.02/demoplate_01--fsk_770_809--0.02--W0031--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0032--fsk_770_809--2/P001--fsk_770_809--2/demoplate_01--fsk_770_809--2--W0032--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0032--fsk_770_809--2/P001--fsk_770_809--2/demoplate_01--fsk_770_809--2--W0032--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0032--fsk_770_809--2/P001--fsk_770_809--2/demoplate_01--fsk_770_809--2--W0032--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0032--fsk_770_809--2/P001--fsk_770_809--2/demoplate_01--fsk_770_809--2--W0032--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0032--fsk_770_809--2/P001--fsk_770_809--2/demoplate_01--fsk_770_809--2--W0032--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0032--fsk_770_809--2/P001--fsk_770_809--2/demoplate_01--fsk_770_809--2--W0032--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0032--fsk_770_809--2/P001--fsk_770_809--2/demoplate_01--fsk_770_809--2--W0032--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0037--fsk--0.02/P001--fsk--0.02/demoplate_01--fsk--0.02--W0037--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0037--fsk--0.02/P001--fsk--0.02/demoplate_01--fsk--0.02--W0037--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0037--fsk--0.02/P001--fsk--0.02/demoplate_01--fsk--0.02--W0037--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0037--fsk--0.02/P001--fsk--0.02/demoplate_01--fsk--0.02--W0037--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0037--fsk--0.02/P001--fsk--0.02/demoplate_01--fsk--0.02--W0037--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0037--fsk--0.02/P001--fsk--0.02/demoplate_01--fsk--0.02--W0037--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0037--fsk--0.02/P001--fsk--0.02/demoplate_01--fsk--0.02--W0037--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0038--fsk--2/P001--fsk--2/demoplate_01--fsk--2--W0038--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0038--fsk--2/P001--fsk--2/demoplate_01--fsk--2--W0038--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0038--fsk--2/P001--fsk--2/demoplate_01--fsk--2--W0038--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0038--fsk--2/P001--fsk--2/demoplate_01--fsk--2--W0038--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0038--fsk--2/P001--fsk--2/demoplate_01--fsk--2--W0038--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0038--fsk--2/P001--fsk--2/demoplate_01--fsk--2--W0038--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0038--fsk--2/P001--fsk--2/demoplate_01--fsk--2--W0038--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0039--fsk_809--0.02/P001--fsk_809--0.02/demoplate_01--fsk_809--0.02--W0039--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0039--fsk_809--0.02/P001--fsk_809--0.02/demoplate_01--fsk_809--0.02--W0039--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0039--fsk_809--0.02/P001--fsk_809--0.02/demoplate_01--fsk_809--0.02--W0039--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0039--fsk_809--0.02/P001--fsk_809--0.02/demoplate_01--fsk_809--0.02--W0039--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0039--fsk_809--0.02/P001--fsk_809--0.02/demoplate_01--fsk_809--0.02--W0039--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0039--fsk_809--0.02/P001--fsk_809--0.02/demoplate_01--fsk_809--0.02--W0039--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0039--fsk_809--0.02/P001--fsk_809--0.02/demoplate_01--fsk_809--0.02--W0039--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0040--fsk_809--2/P001--fsk_809--2/demoplate_01--fsk_809--2--W0040--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0040--fsk_809--2/P001--fsk_809--2/demoplate_01--fsk_809--2--W0040--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0040--fsk_809--2/P001--fsk_809--2/demoplate_01--fsk_809--2--W0040--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0040--fsk_809--2/P001--fsk_809--2/demoplate_01--fsk_809--2--W0040--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0040--fsk_809--2/P001--fsk_809--2/demoplate_01--fsk_809--2--W0040--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0040--fsk_809--2/P001--fsk_809--2/demoplate_01--fsk_809--2--W0040--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0040--fsk_809--2/P001--fsk_809--2/demoplate_01--fsk_809--2--W0040--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0041--fsk_770--0.02/P001--fsk_770--0.02/demoplate_01--fsk_770--0.02--W0041--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0041--fsk_770--0.02/P001--fsk_770--0.02/demoplate_01--fsk_770--0.02--W0041--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0041--fsk_770--0.02/P001--fsk_770--0.02/demoplate_01--fsk_770--0.02--W0041--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0041--fsk_770--0.02/P001--fsk_770--0.02/demoplate_01--fsk_770--0.02--W0041--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0041--fsk_770--0.02/P001--fsk_770--0.02/demoplate_01--fsk_770--0.02--W0041--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0041--fsk_770--0.02/P001--fsk_770--0.02/demoplate_01--fsk_770--0.02--W0041--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0041--fsk_770--0.02/P001--fsk_770--0.02/demoplate_01--fsk_770--0.02--W0041--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0042--fsk_770--2/P001--fsk_770--2/demoplate_01--fsk_770--2--W0042--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0042--fsk_770--2/P001--fsk_770--2/demoplate_01--fsk_770--2--W0042--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0042--fsk_770--2/P001--fsk_770--2/demoplate_01--fsk_770--2--W0042--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0042--fsk_770--2/P001--fsk_770--2/demoplate_01--fsk_770--2--W0042--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0042--fsk_770--2/P001--fsk_770--2/demoplate_01--fsk_770--2--W0042--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0042--fsk_770--2/P001--fsk_770--2/demoplate_01--fsk_770--2--W0042--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0042--fsk_770--2/P001--fsk_770--2/demoplate_01--fsk_770--2--W0042--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0043--fsk_770_809--0.02/P001--fsk_770_809--0.02/demoplate_01--fsk_770_809--0.02--W0043--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0043--fsk_770_809--0.02/P001--fsk_770_809--0.02/demoplate_01--fsk_770_809--0.02--W0043--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0043--fsk_770_809--0.02/P001--fsk_770_809--0.02/demoplate_01--fsk_770_809--0.02--W0043--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0043--fsk_770_809--0.02/P001--fsk_770_809--0.02/demoplate_01--fsk_770_809--0.02--W0043--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0043--fsk_770_809--0.02/P001--fsk_770_809--0.02/demoplate_01--fsk_770_809--0.02--W0043--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0043--fsk_770_809--0.02/P001--fsk_770_809--0.02/demoplate_01--fsk_770_809--0.02--W0043--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0043--fsk_770_809--0.02/P001--fsk_770_809--0.02/demoplate_01--fsk_770_809--0.02--W0043--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0044--fsk_770_809--2/P001--fsk_770_809--2/demoplate_01--fsk_770_809--2--W0044--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0044--fsk_770_809--2/P001--fsk_770_809--2/demoplate_01--fsk_770_809--2--W0044--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0044--fsk_770_809--2/P001--fsk_770_809--2/demoplate_01--fsk_770_809--2--W0044--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0044--fsk_770_809--2/P001--fsk_770_809--2/demoplate_01--fsk_770_809--2--W0044--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0044--fsk_770_809--2/P001--fsk_770_809--2/demoplate_01--fsk_770_809--2--W0044--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0044--fsk_770_809--2/P001--fsk_770_809--2/demoplate_01--fsk_770_809--2--W0044--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0044--fsk_770_809--2/P001--fsk_770_809--2/demoplate_01--fsk_770_809--2--W0044--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0049--fsk--0.05/P001--fsk--0.05/demoplate_01--fsk--0.05--W0049--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0049--fsk--0.05/P001--fsk--0.05/demoplate_01--fsk--0.05--W0049--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0049--fsk--0.05/P001--fsk--0.05/demoplate_01--fsk--0.05--W0049--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0049--fsk--0.05/P001--fsk--0.05/demoplate_01--fsk--0.05--W0049--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0049--fsk--0.05/P001--fsk--0.05/demoplate_01--fsk--0.05--W0049--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0049--fsk--0.05/P001--fsk--0.05/demoplate_01--fsk--0.05--W0049--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0049--fsk--0.05/P001--fsk--0.05/demoplate_01--fsk--0.05--W0049--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0050--fsk--0.8/P001--fsk--0.8/demoplate_01--fsk--0.8--W0050--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0050--fsk--0.8/P001--fsk--0.8/demoplate_01--fsk--0.8--W0050--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0050--fsk--0.8/P001--fsk--0.8/demoplate_01--fsk--0.8--W0050--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0050--fsk--0.8/P001--fsk--0.8/demoplate_01--fsk--0.8--W0050--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0050--fsk--0.8/P001--fsk--0.8/demoplate_01--fsk--0.8--W0050--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0050--fsk--0.8/P001--fsk--0.8/demoplate_01--fsk--0.8--W0050--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0050--fsk--0.8/P001--fsk--0.8/demoplate_01--fsk--0.8--W0050--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0051--fsk_809--0.05/P001--fsk_809--0.05/demoplate_01--fsk_809--0.05--W0051--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0051--fsk_809--0.05/P001--fsk_809--0.05/demoplate_01--fsk_809--0.05--W0051--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0051--fsk_809--0.05/P001--fsk_809--0.05/demoplate_01--fsk_809--0.05--W0051--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0051--fsk_809--0.05/P001--fsk_809--0.05/demoplate_01--fsk_809--0.05--W0051--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0051--fsk_809--0.05/P001--fsk_809--0.05/demoplate_01--fsk_809--0.05--W0051--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0051--fsk_809--0.05/P001--fsk_809--0.05/demoplate_01--fsk_809--0.05--W0051--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0051--fsk_809--0.05/P001--fsk_809--0.05/demoplate_01--fsk_809--0.05--W0051--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0052--fsk_809--0.8/P001--fsk_809--0.8/demoplate_01--fsk_809--0.8--W0052--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0052--fsk_809--0.8/P001--fsk_809--0.8/demoplate_01--fsk_809--0.8--W0052--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0052--fsk_809--0.8/P001--fsk_809--0.8/demoplate_01--fsk_809--0.8--W0052--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0052--fsk_809--0.8/P001--fsk_809--0.8/demoplate_01--fsk_809--0.8--W0052--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0052--fsk_809--0.8/P001--fsk_809--0.8/demoplate_01--fsk_809--0.8--W0052--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0052--fsk_809--0.8/P001--fsk_809--0.8/demoplate_01--fsk_809--0.8--W0052--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0052--fsk_809--0.8/P001--fsk_809--0.8/demoplate_01--fsk_809--0.8--W0052--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0053--fsk_770--0.05/P001--fsk_770--0.05/demoplate_01--fsk_770--0.05--W0053--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0053--fsk_770--0.05/P001--fsk_770--0.05/demoplate_01--fsk_770--0.05--W0053--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0053--fsk_770--0.05/P001--fsk_770--0.05/demoplate_01--fsk_770--0.05--W0053--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0053--fsk_770--0.05/P001--fsk_770--0.05/demoplate_01--fsk_770--0.05--W0053--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0053--fsk_770--0.05/P001--fsk_770--0.05/demoplate_01--fsk_770--0.05--W0053--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0053--fsk_770--0.05/P001--fsk_770--0.05/demoplate_01--fsk_770--0.05--W0053--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0053--fsk_770--0.05/P001--fsk_770--0.05/demoplate_01--fsk_770--0.05--W0053--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0054--fsk_770--0.8/P001--fsk_770--0.8/demoplate_01--fsk_770--0.8--W0054--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0054--fsk_770--0.8/P001--fsk_770--0.8/demoplate_01--fsk_770--0.8--W0054--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0054--fsk_770--0.8/P001--fsk_770--0.8/demoplate_01--fsk_770--0.8--W0054--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0054--fsk_770--0.8/P001--fsk_770--0.8/demoplate_01--fsk_770--0.8--W0054--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0054--fsk_770--0.8/P001--fsk_770--0.8/demoplate_01--fsk_770--0.8--W0054--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0054--fsk_770--0.8/P001--fsk_770--0.8/demoplate_01--fsk_770--0.8--W0054--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0054--fsk_770--0.8/P001--fsk_770--0.8/demoplate_01--fsk_770--0.8--W0054--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0055--fsk_770_809--0.05/P001--fsk_770_809--0.05/demoplate_01--fsk_770_809--0.05--W0055--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0055--fsk_770_809--0.05/P001--fsk_770_809--0.05/demoplate_01--fsk_770_809--0.05--W0055--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0055--fsk_770_809--0.05/P001--fsk_770_809--0.05/demoplate_01--fsk_770_809--0.05--W0055--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0055--fsk_770_809--0.05/P001--fsk_770_809--0.05/demoplate_01--fsk_770_809--0.05--W0055--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0055--fsk_770_809--0.05/P001--fsk_770_809--0.05/demoplate_01--fsk_770_809--0.05--W0055--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0055--fsk_770_809--0.05/P001--fsk_770_809--0.05/demoplate_01--fsk_770_809--0.05--W0055--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0055--fsk_770_809--0.05/P001--fsk_770_809--0.05/demoplate_01--fsk_770_809--0.05--W0055--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0056--fsk_770_809--0.8/P001--fsk_770_809--0.8/demoplate_01--fsk_770_809--0.8--W0056--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0056--fsk_770_809--0.8/P001--fsk_770_809--0.8/demoplate_01--fsk_770_809--0.8--W0056--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0056--fsk_770_809--0.8/P001--fsk_770_809--0.8/demoplate_01--fsk_770_809--0.8--W0056--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0056--fsk_770_809--0.8/P001--fsk_770_809--0.8/demoplate_01--fsk_770_809--0.8--W0056--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0056--fsk_770_809--0.8/P001--fsk_770_809--0.8/demoplate_01--fsk_770_809--0.8--W0056--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0056--fsk_770_809--0.8/P001--fsk_770_809--0.8/demoplate_01--fsk_770_809--0.8--W0056--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0056--fsk_770_809--0.8/P001--fsk_770_809--0.8/demoplate_01--fsk_770_809--0.8--W0056--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0061--fsk--0.05/P001--fsk--0.05/demoplate_01--fsk--0.05--W0061--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0061--fsk--0.05/P001--fsk--0.05/demoplate_01--fsk--0.05--W0061--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0061--fsk--0.05/P001--fsk--0.05/demoplate_01--fsk--0.05--W0061--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0061--fsk--0.05/P001--fsk--0.05/demoplate_01--fsk--0.05--W0061--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0061--fsk--0.05/P001--fsk--0.05/demoplate_01--fsk--0.05--W0061--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0061--fsk--0.05/P001--fsk--0.05/demoplate_01--fsk--0.05--W0061--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0061--fsk--0.05/P001--fsk--0.05/demoplate_01--fsk--0.05--W0061--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0062--fsk--0.8/P001--fsk--0.8/demoplate_01--fsk--0.8--W0062--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0062--fsk--0.8/P001--fsk--0.8/demoplate_01--fsk--0.8--W0062--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0062--fsk--0.8/P001--fsk--0.8/demoplate_01--fsk--0.8--W0062--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0062--fsk--0.8/P001--fsk--0.8/demoplate_01--fsk--0.8--W0062--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0062--fsk--0.8/P001--fsk--0.8/demoplate_01--fsk--0.8--W0062--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0062--fsk--0.8/P001--fsk--0.8/demoplate_01--fsk--0.8--W0062--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0062--fsk--0.8/P001--fsk--0.8/demoplate_01--fsk--0.8--W0062--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0063--fsk_809--0.05/P001--fsk_809--0.05/demoplate_01--fsk_809--0.05--W0063--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0063--fsk_809--0.05/P001--fsk_809--0.05/demoplate_01--fsk_809--0.05--W0063--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0063--fsk_809--0.05/P001--fsk_809--0.05/demoplate_01--fsk_809--0.05--W0063--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0063--fsk_809--0.05/P001--fsk_809--0.05/demoplate_01--fsk_809--0.05--W0063--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0063--fsk_809--0.05/P001--fsk_809--0.05/demoplate_01--fsk_809--0.05--W0063--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0063--fsk_809--0.05/P001--fsk_809--0.05/demoplate_01--fsk_809--0.05--W0063--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0063--fsk_809--0.05/P001--fsk_809--0.05/demoplate_01--fsk_809--0.05--W0063--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0064--fsk_809--0.8/P001--fsk_809--0.8/demoplate_01--fsk_809--0.8--W0064--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0064--fsk_809--0.8/P001--fsk_809--0.8/demoplate_01--fsk_809--0.8--W0064--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0064--fsk_809--0.8/P001--fsk_809--0.8/demoplate_01--fsk_809--0.8--W0064--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0064--fsk_809--0.8/P001--fsk_809--0.8/demoplate_01--fsk_809--0.8--W0064--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0064--fsk_809--0.8/P001--fsk_809--0.8/demoplate_01--fsk_809--0.8--W0064--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0064--fsk_809--0.8/P001--fsk_809--0.8/demoplate_01--fsk_809--0.8--W0064--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0064--fsk_809--0.8/P001--fsk_809--0.8/demoplate_01--fsk_809--0.8--W0064--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0065--fsk_770--0.05/P001--fsk_770--0.05/demoplate_01--fsk_770--0.05--W0065--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0065--fsk_770--0.05/P001--fsk_770--0.05/demoplate_01--fsk_770--0.05--W0065--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0065--fsk_770--0.05/P001--fsk_770--0.05/demoplate_01--fsk_770--0.05--W0065--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0065--fsk_770--0.05/P001--fsk_770--0.05/demoplate_01--fsk_770--0.05--W0065--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0065--fsk_770--0.05/P001--fsk_770--0.05/demoplate_01--fsk_770--0.05--W0065--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0065--fsk_770--0.05/P001--fsk_770--0.05/demoplate_01--fsk_770--0.05--W0065--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0065--fsk_770--0.05/P001--fsk_770--0.05/demoplate_01--fsk_770--0.05--W0065--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0066--fsk_770--0.8/P001--fsk_770--0.8/demoplate_01--fsk_770--0.8--W0066--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0066--fsk_770--0.8/P001--fsk_770--0.8/demoplate_01--fsk_770--0.8--W0066--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0066--fsk_770--0.8/P001--fsk_770--0.8/demoplate_01--fsk_770--0.8--W0066--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0066--fsk_770--0.8/P001--fsk_770--0.8/demoplate_01--fsk_770--0.8--W0066--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0066--fsk_770--0.8/P001--fsk_770--0.8/demoplate_01--fsk_770--0.8--W0066--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0066--fsk_770--0.8/P001--fsk_770--0.8/demoplate_01--fsk_770--0.8--W0066--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0066--fsk_770--0.8/P001--fsk_770--0.8/demoplate_01--fsk_770--0.8--W0066--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0067--fsk_770_809--0.05/P001--fsk_770_809--0.05/demoplate_01--fsk_770_809--0.05--W0067--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0067--fsk_770_809--0.05/P001--fsk_770_809--0.05/demoplate_01--fsk_770_809--0.05--W0067--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0067--fsk_770_809--0.05/P001--fsk_770_809--0.05/demoplate_01--fsk_770_809--0.05--W0067--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0067--fsk_770_809--0.05/P001--fsk_770_809--0.05/demoplate_01--fsk_770_809--0.05--W0067--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0067--fsk_770_809--0.05/P001--fsk_770_809--0.05/demoplate_01--fsk_770_809--0.05--W0067--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0067--fsk_770_809--0.05/P001--fsk_770_809--0.05/demoplate_01--fsk_770_809--0.05--W0067--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0067--fsk_770_809--0.05/P001--fsk_770_809--0.05/demoplate_01--fsk_770_809--0.05--W0067--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0068--fsk_770_809--0.8/P001--fsk_770_809--0.8/demoplate_01--fsk_770_809--0.8--W0068--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0068--fsk_770_809--0.8/P001--fsk_770_809--0.8/demoplate_01--fsk_770_809--0.8--W0068--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0068--fsk_770_809--0.8/P001--fsk_770_809--0.8/demoplate_01--fsk_770_809--0.8--W0068--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0068--fsk_770_809--0.8/P001--fsk_770_809--0.8/demoplate_01--fsk_770_809--0.8--W0068--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0068--fsk_770_809--0.8/P001--fsk_770_809--0.8/demoplate_01--fsk_770_809--0.8--W0068--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0068--fsk_770_809--0.8/P001--fsk_770_809--0.8/demoplate_01--fsk_770_809--0.8--W0068--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0068--fsk_770_809--0.8/P001--fsk_770_809--0.8/demoplate_01--fsk_770_809--0.8--W0068--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0073--fsk--0.128/P001--fsk--0.128/demoplate_01--fsk--0.128--W0073--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0073--fsk--0.128/P001--fsk--0.128/demoplate_01--fsk--0.128--W0073--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0073--fsk--0.128/P001--fsk--0.128/demoplate_01--fsk--0.128--W0073--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0073--fsk--0.128/P001--fsk--0.128/demoplate_01--fsk--0.128--W0073--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0073--fsk--0.128/P001--fsk--0.128/demoplate_01--fsk--0.128--W0073--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0073--fsk--0.128/P001--fsk--0.128/demoplate_01--fsk--0.128--W0073--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0073--fsk--0.128/P001--fsk--0.128/demoplate_01--fsk--0.128--W0073--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0074--fsk--0.32/P001--fsk--0.32/demoplate_01--fsk--0.32--W0074--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0074--fsk--0.32/P001--fsk--0.32/demoplate_01--fsk--0.32--W0074--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0074--fsk--0.32/P001--fsk--0.32/demoplate_01--fsk--0.32--W0074--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0074--fsk--0.32/P001--fsk--0.32/demoplate_01--fsk--0.32--W0074--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0074--fsk--0.32/P001--fsk--0.32/demoplate_01--fsk--0.32--W0074--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0074--fsk--0.32/P001--fsk--0.32/demoplate_01--fsk--0.32--W0074--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0074--fsk--0.32/P001--fsk--0.32/demoplate_01--fsk--0.32--W0074--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0075--fsk_809--0.128/P001--fsk_809--0.128/demoplate_01--fsk_809--0.128--W0075--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0075--fsk_809--0.128/P001--fsk_809--0.128/demoplate_01--fsk_809--0.128--W0075--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0075--fsk_809--0.128/P001--fsk_809--0.128/demoplate_01--fsk_809--0.128--W0075--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0075--fsk_809--0.128/P001--fsk_809--0.128/demoplate_01--fsk_809--0.128--W0075--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0075--fsk_809--0.128/P001--fsk_809--0.128/demoplate_01--fsk_809--0.128--W0075--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0075--fsk_809--0.128/P001--fsk_809--0.128/demoplate_01--fsk_809--0.128--W0075--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0075--fsk_809--0.128/P001--fsk_809--0.128/demoplate_01--fsk_809--0.128--W0075--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0076--fsk_809--0.32/P001--fsk_809--0.32/demoplate_01--fsk_809--0.32--W0076--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0076--fsk_809--0.32/P001--fsk_809--0.32/demoplate_01--fsk_809--0.32--W0076--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0076--fsk_809--0.32/P001--fsk_809--0.32/demoplate_01--fsk_809--0.32--W0076--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0076--fsk_809--0.32/P001--fsk_809--0.32/demoplate_01--fsk_809--0.32--W0076--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0076--fsk_809--0.32/P001--fsk_809--0.32/demoplate_01--fsk_809--0.32--W0076--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0076--fsk_809--0.32/P001--fsk_809--0.32/demoplate_01--fsk_809--0.32--W0076--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0076--fsk_809--0.32/P001--fsk_809--0.32/demoplate_01--fsk_809--0.32--W0076--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0077--fsk_770--0.128/P001--fsk_770--0.128/demoplate_01--fsk_770--0.128--W0077--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0077--fsk_770--0.128/P001--fsk_770--0.128/demoplate_01--fsk_770--0.128--W0077--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0077--fsk_770--0.128/P001--fsk_770--0.128/demoplate_01--fsk_770--0.128--W0077--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0077--fsk_770--0.128/P001--fsk_770--0.128/demoplate_01--fsk_770--0.128--W0077--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0077--fsk_770--0.128/P001--fsk_770--0.128/demoplate_01--fsk_770--0.128--W0077--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0077--fsk_770--0.128/P001--fsk_770--0.128/demoplate_01--fsk_770--0.128--W0077--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0077--fsk_770--0.128/P001--fsk_770--0.128/demoplate_01--fsk_770--0.128--W0077--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0078--fsk_770--0.32/P001--fsk_770--0.32/demoplate_01--fsk_770--0.32--W0078--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0078--fsk_770--0.32/P001--fsk_770--0.32/demoplate_01--fsk_770--0.32--W0078--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0078--fsk_770--0.32/P001--fsk_770--0.32/demoplate_01--fsk_770--0.32--W0078--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0078--fsk_770--0.32/P001--fsk_770--0.32/demoplate_01--fsk_770--0.32--W0078--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0078--fsk_770--0.32/P001--fsk_770--0.32/demoplate_01--fsk_770--0.32--W0078--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0078--fsk_770--0.32/P001--fsk_770--0.32/demoplate_01--fsk_770--0.32--W0078--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0078--fsk_770--0.32/P001--fsk_770--0.32/demoplate_01--fsk_770--0.32--W0078--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0079--fsk_770_809--0.128/P001--fsk_770_809--0.128/demoplate_01--fsk_770_809--0.128--W0079--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0079--fsk_770_809--0.128/P001--fsk_770_809--0.128/demoplate_01--fsk_770_809--0.128--W0079--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0079--fsk_770_809--0.128/P001--fsk_770_809--0.128/demoplate_01--fsk_770_809--0.128--W0079--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0079--fsk_770_809--0.128/P001--fsk_770_809--0.128/demoplate_01--fsk_770_809--0.128--W0079--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0079--fsk_770_809--0.128/P001--fsk_770_809--0.128/demoplate_01--fsk_770_809--0.128--W0079--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0079--fsk_770_809--0.128/P001--fsk_770_809--0.128/demoplate_01--fsk_770_809--0.128--W0079--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0079--fsk_770_809--0.128/P001--fsk_770_809--0.128/demoplate_01--fsk_770_809--0.128--W0079--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0080--fsk_770_809--0.32/P001--fsk_770_809--0.32/demoplate_01--fsk_770_809--0.32--W0080--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0080--fsk_770_809--0.32/P001--fsk_770_809--0.32/demoplate_01--fsk_770_809--0.32--W0080--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0080--fsk_770_809--0.32/P001--fsk_770_809--0.32/demoplate_01--fsk_770_809--0.32--W0080--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0080--fsk_770_809--0.32/P001--fsk_770_809--0.32/demoplate_01--fsk_770_809--0.32--W0080--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0080--fsk_770_809--0.32/P001--fsk_770_809--0.32/demoplate_01--fsk_770_809--0.32--W0080--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0080--fsk_770_809--0.32/P001--fsk_770_809--0.32/demoplate_01--fsk_770_809--0.32--W0080--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0080--fsk_770_809--0.32/P001--fsk_770_809--0.32/demoplate_01--fsk_770_809--0.32--W0080--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0085--fsk--0.128/P001--fsk--0.128/demoplate_01--fsk--0.128--W0085--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0085--fsk--0.128/P001--fsk--0.128/demoplate_01--fsk--0.128--W0085--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0085--fsk--0.128/P001--fsk--0.128/demoplate_01--fsk--0.128--W0085--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0085--fsk--0.128/P001--fsk--0.128/demoplate_01--fsk--0.128--W0085--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0085--fsk--0.128/P001--fsk--0.128/demoplate_01--fsk--0.128--W0085--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0085--fsk--0.128/P001--fsk--0.128/demoplate_01--fsk--0.128--W0085--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0085--fsk--0.128/P001--fsk--0.128/demoplate_01--fsk--0.128--W0085--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0086--fsk--0.32/P001--fsk--0.32/demoplate_01--fsk--0.32--W0086--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0086--fsk--0.32/P001--fsk--0.32/demoplate_01--fsk--0.32--W0086--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0086--fsk--0.32/P001--fsk--0.32/demoplate_01--fsk--0.32--W0086--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0086--fsk--0.32/P001--fsk--0.32/demoplate_01--fsk--0.32--W0086--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0086--fsk--0.32/P001--fsk--0.32/demoplate_01--fsk--0.32--W0086--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0086--fsk--0.32/P001--fsk--0.32/demoplate_01--fsk--0.32--W0086--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0086--fsk--0.32/P001--fsk--0.32/demoplate_01--fsk--0.32--W0086--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0087--fsk_809--0.128/P001--fsk_809--0.128/demoplate_01--fsk_809--0.128--W0087--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0087--fsk_809--0.128/P001--fsk_809--0.128/demoplate_01--fsk_809--0.128--W0087--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0087--fsk_809--0.128/P001--fsk_809--0.128/demoplate_01--fsk_809--0.128--W0087--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0087--fsk_809--0.128/P001--fsk_809--0.128/demoplate_01--fsk_809--0.128--W0087--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0087--fsk_809--0.128/P001--fsk_809--0.128/demoplate_01--fsk_809--0.128--W0087--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0087--fsk_809--0.128/P001--fsk_809--0.128/demoplate_01--fsk_809--0.128--W0087--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0087--fsk_809--0.128/P001--fsk_809--0.128/demoplate_01--fsk_809--0.128--W0087--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0088--fsk_809--0.32/P001--fsk_809--0.32/demoplate_01--fsk_809--0.32--W0088--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0088--fsk_809--0.32/P001--fsk_809--0.32/demoplate_01--fsk_809--0.32--W0088--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0088--fsk_809--0.32/P001--fsk_809--0.32/demoplate_01--fsk_809--0.32--W0088--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0088--fsk_809--0.32/P001--fsk_809--0.32/demoplate_01--fsk_809--0.32--W0088--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0088--fsk_809--0.32/P001--fsk_809--0.32/demoplate_01--fsk_809--0.32--W0088--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0088--fsk_809--0.32/P001--fsk_809--0.32/demoplate_01--fsk_809--0.32--W0088--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0088--fsk_809--0.32/P001--fsk_809--0.32/demoplate_01--fsk_809--0.32--W0088--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0089--fsk_770--0.128/P001--fsk_770--0.128/demoplate_01--fsk_770--0.128--W0089--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0089--fsk_770--0.128/P001--fsk_770--0.128/demoplate_01--fsk_770--0.128--W0089--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0089--fsk_770--0.128/P001--fsk_770--0.128/demoplate_01--fsk_770--0.128--W0089--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0089--fsk_770--0.128/P001--fsk_770--0.128/demoplate_01--fsk_770--0.128--W0089--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0089--fsk_770--0.128/P001--fsk_770--0.128/demoplate_01--fsk_770--0.128--W0089--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0089--fsk_770--0.128/P001--fsk_770--0.128/demoplate_01--fsk_770--0.128--W0089--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0089--fsk_770--0.128/P001--fsk_770--0.128/demoplate_01--fsk_770--0.128--W0089--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0090--fsk_770--0.32/P001--fsk_770--0.32/demoplate_01--fsk_770--0.32--W0090--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0090--fsk_770--0.32/P001--fsk_770--0.32/demoplate_01--fsk_770--0.32--W0090--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0090--fsk_770--0.32/P001--fsk_770--0.32/demoplate_01--fsk_770--0.32--W0090--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0090--fsk_770--0.32/P001--fsk_770--0.32/demoplate_01--fsk_770--0.32--W0090--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0090--fsk_770--0.32/P001--fsk_770--0.32/demoplate_01--fsk_770--0.32--W0090--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0090--fsk_770--0.32/P001--fsk_770--0.32/demoplate_01--fsk_770--0.32--W0090--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0090--fsk_770--0.32/P001--fsk_770--0.32/demoplate_01--fsk_770--0.32--W0090--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0091--fsk_770_809--0.128/P001--fsk_770_809--0.128/demoplate_01--fsk_770_809--0.128--W0091--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0091--fsk_770_809--0.128/P001--fsk_770_809--0.128/demoplate_01--fsk_770_809--0.128--W0091--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0091--fsk_770_809--0.128/P001--fsk_770_809--0.128/demoplate_01--fsk_770_809--0.128--W0091--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0091--fsk_770_809--0.128/P001--fsk_770_809--0.128/demoplate_01--fsk_770_809--0.128--W0091--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0091--fsk_770_809--0.128/P001--fsk_770_809--0.128/demoplate_01--fsk_770_809--0.128--W0091--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0091--fsk_770_809--0.128/P001--fsk_770_809--0.128/demoplate_01--fsk_770_809--0.128--W0091--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0091--fsk_770_809--0.128/P001--fsk_770_809--0.128/demoplate_01--fsk_770_809--0.128--W0091--P001--T0006--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0092--fsk_770_809--0.32/P001--fsk_770_809--0.32/demoplate_01--fsk_770_809--0.32--W0092--P001--T0000--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0092--fsk_770_809--0.32/P001--fsk_770_809--0.32/demoplate_01--fsk_770_809--0.32--W0092--P001--T0001--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0092--fsk_770_809--0.32/P001--fsk_770_809--0.32/demoplate_01--fsk_770_809--0.32--W0092--P001--T0002--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0092--fsk_770_809--0.32/P001--fsk_770_809--0.32/demoplate_01--fsk_770_809--0.32--W0092--P001--T0003--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0092--fsk_770_809--0.32/P001--fsk_770_809--0.32/demoplate_01--fsk_770_809--0.32--W0092--P001--T0004--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0092--fsk_770_809--0.32/P001--fsk_770_809--0.32/demoplate_01--fsk_770_809--0.32--W0092--P001--T0005--C00.tif",,,
+"file:///C:/FIS/demo_dataset/03-images_renamed/demoplate_01/W0092--fsk_770_809--0.32/P001--fsk_770_809--0.32/demoplate_01--fsk_770_809--0.32--W0092--P001--T0006--C00.tif",,,
